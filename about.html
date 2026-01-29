@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kids Cool Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+                /* --- ANIMATION FOR MOVING OVERLAY IMAGE --- */
+                @keyframes moveCloud {
+                    0% { transform: translateX(0); }
+                    50% { transform: translateX(30px); }
+                    100% { transform: translateX(0); }
+                }
+
+                .moving-cloud {
+                    animation: moveCloud 6s ease-in-out infinite;
+                }
+        /* --- GLOBAL STYLES (Identical to Index) --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            color: #444;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #666;
+        }
+
+        /* --- HEADER (Identical to Index) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d6d;
+        }
+
+        /* --- ABOUT HERO SECTION --- */
+        .hero-banner {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1500');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero-banner h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 10px; 
+            color: white; 
+        }
+
+        .hero-banner .breadcrumb { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #fff; 
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        /* --- ABOUT INTRO SECTION (With Background Bubbles) --- */
+        .about-intro {
+            padding: 120px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            background: #fff;
+            position: relative;
+            overflow: hidden; /* Clips bubbles within the section */
+        }
+
+        /* Bubbles CSS */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .b-pink { background-color: #ff4d6d; width: 120px; height: 120px; top: 10%; left: 5%; }
+        .b-teal { background-color: #73d2d6; width: 80px; height: 80px; bottom: 15%; left: 10%; }
+        .b-yellow { background-color: #ffce32; width: 60px; height: 60px; top: 20%; right: 8%; }
+        .b-orange { background-color: #ff9d2d; width: 100px; height: 100px; bottom: 10%; right: 15%; }
+        .b-soft-teal { background-color: #e0f7f8; width: 150px; height: 150px; bottom: 20%; left: 40%; opacity: 0.6; }
+
+        .blob-mask-container {
+            flex: 1.2;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Sits above bubbles */
+        }
+
+        .blob-frame {
+            position: relative;
+            width: 550px;
+            height: 450px;
+            background-color: #e91e63;
+            border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%;
+            padding: 15px; 
+            overflow: hidden;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        }
+
+        .blob-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%;
+        }
+
+        .intro-text-box { 
+            flex: 1; 
+            position: relative; 
+            z-index: 2; /* Sits above bubbles */
+        }
+        
+        .intro-text-box .tag { color: #e91e63; font-weight: 700; font-size: 1.2rem; display: block; margin-bottom: 10px; }
+        .intro-text-box h2 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 25px; color: #1a2b48; }
+        .intro-text-box p { font-size: 1.3rem; color: #777; margin-bottom: 40px; line-height: 1.8; max-width: 550px; }
+
+        .btn-action {
+            background: #ff4d6d;
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka One';
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.2);
+        }
+
+        .btn-action:hover { 
+            transform: translateY(-5px); 
+            background: #e61a4d; 
+        }
+
+        /* --- FOOTER (Identical to Index) --- */
+        footer {
+            background: #1a2a2a;
+            color: white;
+            padding: 80px 10% 40px;
+            border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            text-align: left;
+        }
+
+        @media (max-width: 1100px) {
+            .about-intro { flex-direction: column; text-align: center; }
+            .blob-frame { width: 400px; height: 350px; }
+            .hero-banner h1 { font-size: 3rem; }
+        }
+
+        .mental-growth-section {
+            background: #ef1866;
+            padding: 80px 0 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .mg-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .mg-image-box {
+            flex: 1.1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .mg-image-box img {
+            width: 480px;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 60px;
+            background: #fff;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .mg-content-box {
+            flex: 1.3;
+            color: #fff;
+            position: relative;
+            padding-left: 30px;
+        }
+        .mg-icons {
+            position: relative;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .mg-bee {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            filter: invert(1) brightness(2);
+        }
+        .mg-hand1 {
+            position: absolute;
+            right: 80px;
+            top: 0;
+            width: 45px;
+            filter: invert(1) brightness(2);
+        }
+        .mg-hand2 {
+            position: absolute;
+            right: 0;
+            top: 30px;
+            width: 45px;
+        }
+        .mg-tag {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .mg-content-box h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.4rem;
+            margin: 10px 0 30px 0;
+            line-height: 1.1;
+        }
+        .mg-content-box p {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .mg-btn {
+            background: #fff;
+            color: #ef1866;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.08);
+            margin-bottom: 32px;
+        }
+        .mg-btn:hover {
+            background: #ffe0ef;
+            color: #ef1866;
+        }
+        .mg-bike-boy {
+            position: absolute;
+            right: 0;
+            bottom: -60px;
+            width: 120px;
+            opacity: 0.95;
+        }
+        .mg-rocket {
+            position: absolute;
+            right: 40px;
+            bottom: 0;
+            width: 60px;
+            z-index: 10;
+            filter: invert(1) brightness(2);
+        }
+        @media (max-width: 1100px) {
+            .mg-container { flex-direction: column; gap: 30px; padding: 30px 0 0 0; }
+            .mg-image-box img { width: 320px; height: 220px; }
+            .mg-content-box { padding-left: 0; text-align: center; }
+            .mg-bike-boy { position: static; display: block; margin: 30px auto 0 auto; }
+        }
+
+        @keyframes playInOut {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            animation: playInOut 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
+        }
+        .play-icon::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 32px solid #ef1866;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            margin-left: 10px;
+        }
+
+        /* --- CREATIVITY SECTION --- */
+        .creativity-section {
+            background: #fff;
+            padding: 100px 0 60px 0;
+            position: relative;
+            overflow: visible;
+        }
+        .creativity-content {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            max-width: 1700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .creativity-text {
+            flex: 1.2;
+            padding-left: 6vw;
+            z-index: 2;
+            min-width: 420px;
+        }
+        .creativity-cap {
+            width: 60px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            display: block;
+        }
+        .creativity-subtitle {
+            color: #ef1866;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .creativity-text h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            color: #111;
+            margin-bottom: 25px;
+        }
+        .creativity-text p {
+            color: #7a8194;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .creativity-btn {
+            background: #ef1866;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.10);
+        }
+        .creativity-btn:hover {
+            background: #d0145a;
+        }
+        .creativity-images {
+            flex: 2.2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: 0;
+            position: relative;
+            min-width: 700px;
+            margin-right: 0;
+            transform: translateX(-160px);
+        }
+        .creativity-img {
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .creativity-img-left img {
+            width: 370px;
+            height: 270px;
+            object-fit: cover;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 60% 100%;
+            border-bottom-right-radius: 0;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .creativity-img-right {
+            margin-left: -70px;
+            z-index: 2;
+        }
+        .creativity-img-right img {
+            width: 370px;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 50% 50% 0 0 / 60% 60% 40% 40%;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .creativity-sidehand {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 600px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        @media (max-width: 1400px) {
+            .creativity-content { flex-direction: column; align-items: flex-start; }
+            .creativity-images { justify-content: flex-start; margin-top: 40px; min-width: 0; margin-right: 0; }
+            .creativity-sidehand { display: none; }
+        }
+
+        /* --- FACILITIES SECTION --- */
+        .facilities-section {
+            background: #ff9800;
+            padding: 0 0 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .facilities-header {
+            position: relative;
+            padding-top: 60px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+        .facilities-bg {
+            position: absolute;
+            left: 0; right: 0; top: 0; height: 320px;
+            width: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .facilities-suncloud {
+            position: absolute;
+            left: 60px;
+            top: 40px;
+            width: 160px;
+        }
+        .facilities-rainbow {
+            position: absolute;
+            right: 60px;
+            top: 40px;
+            width: 220px;
+        }
+        .facilities-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .facilities-cap {
+            width: 50px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .facilities-subtitle {
+            color: #fff3b0;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .facilities-header-content h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .facilities-header-content p {
+            color: #fffde7;
+            font-size: 1.15rem;
+            margin-bottom: 0;
+        }
+        .facilities-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .facility-card {
+            background: #007b8a;
+            border-radius: 24px 24px 40px 40px/36px 36px 80px 80px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            width: 320px;
+            padding: 36px 24px 32px 24px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .facility-card:hover {
+            background: #e91e63;
+        }
+        .facility-pink {
+            background: #007b8a;
+        }
+        .facility-img-wrap {
+            width: 240px;
+            height: 160px;
+            margin: 0 auto 18px auto;
+            border-radius: 18px 18px 36px 36px/24px 24px 60px 60px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .facility-img-wrap img {
+            width: 160%;
+            height: 160%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            animation: floatImage 3s ease-in-out infinite;
+        }
+        .facility-card h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .facility-divider {
+            width: 60px;
+            height: 6px;
+            background: url('images/wave-divider.png') no-repeat center/contain;
+            margin: 0 auto 18px auto;
+        }
+        .facility-card p {
+            color: #fffde7;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            min-height: 60px;
+        }
+        .facility-icon {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            width: 40px;
+            height: 40px;
+            opacity: 0.7;
+        }
+        .facility-icon img {
+            width: 120%;
+            height: 120%;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            animation: floatImage 3s ease-in-out infinite;
+            filter: brightness(0) invert(1);
+        }
+                /* Animation for floating effect */
+                @keyframes floatImage {
+                    0% { transform: translateY(0) scale(1); }
+                    50% { transform: translateY(-12px) scale(1.08); }
+                    100% { transform: translateY(0) scale(1); }
+                }
+
+                /* Scale up on hover for extra effect */
+                .facility-img-wrap img:hover,
+                .facility-icon img:hover {
+                    transform: scale(1.15) !important;
+                    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+                }
+        .facility-btn {
+            background: #ff3576;
+            color: #fff;
+            padding: 12px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(255, 77, 109, 0.10);
+        }
+        .facility-btn:hover {
+            background: #c2185b;
+        }
+        @media (max-width: 1200px) {
+            .facilities-cards { flex-wrap: wrap; gap: 24px; }
+            .facility-card { width: 90vw; max-width: 340px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <h2 style="margin:0;"><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Facilities</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="contact.html">Ask Us</a></li>
+        </ul>
+        <div style="font-size: 1.8rem;">🔍 🛒</div>
+    </nav>
+
+    <section class="hero-banner">
+        <div>
+            <h1>About Us</h1>
+            <p class="breadcrumb">Home ● About Us</p>
+        </div>
+        <div class="cloud-divider">
+            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud" style="width:100%; display:block; filter: invert(1) brightness(2);" />
+        </div>
+    </section>
+
+
+    <style>
+        .mental-growth-section {
+            background: #ef1866;
+            padding: 80px 0 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .mg-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .mg-image-box {
+            flex: 1.1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .mg-image-box img {
+            width: 480px;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 60px;
+            background: #fff;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .mg-content-box {
+            flex: 1.3;
+            color: #fff;
+            position: relative;
+            padding-left: 30px;
+        }
+        .mg-icons {
+            position: relative;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .mg-bee {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            filter: invert(1) brightness(2);
+        }
+        .mg-hand1 {
+            position: absolute;
+            right: 80px;
+            top: 0;
+            width: 45px;
+            filter: invert(1) brightness(2);
+        }
+        .mg-hand2 {
+            position: absolute;
+            right: 0;
+            top: 30px;
+            width: 45px;
+        }
+        .mg-tag {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .mg-content-box h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.4rem;
+            margin: 10px 0 30px 0;
+            line-height: 1.1;
+        }
+        .mg-content-box p {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .mg-btn {
+            background: #fff;
+            color: #ef1866;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.08);
+            margin-bottom: 32px;
+        }
+        .mg-btn:hover {
+            background: #ffe0ef;
+            color: #ef1866;
+        }
+        .mg-bike-boy {
+            position: absolute;
+            right: 0;
+            bottom: -60px;
+            width: 120px;
+            opacity: 0.95;
+        }
+        .mg-rocket {
+            position: absolute;
+            right: 40px;
+            bottom: 0;
+            width: 60px;
+            z-index: 10;
+            filter: invert(1) brightness(2);
+        }
+        @media (max-width: 1100px) {
+            .mg-container { flex-direction: column; gap: 30px; padding: 30px 0 0 0; }
+            .mg-image-box img { width: 320px; height: 220px; }
+            .mg-content-box { padding-left: 0; text-align: center; }
+            .mg-bike-boy { position: static; display: block; margin: 30px auto 0 auto; }
+        }
+
+        @keyframes playInOut {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            animation: playInOut 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
+        }
+        .play-icon::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 32px solid #ef1866;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            margin-left: 10px;
+        }
+
+        /* --- CREATIVITY SECTION --- */
+        .creativity-section {
+            background: #fff;
+            padding: 100px 0 60px 0;
+            position: relative;
+            overflow: visible;
+        }
+        .creativity-content {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            max-width: 1700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .creativity-text {
+            flex: 1.2;
+            padding-left: 6vw;
+            z-index: 2;
+            min-width: 420px;
+        }
+        .creativity-cap {
+            width: 60px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+            display: block;
+        }
+        .creativity-subtitle {
+            color: #ef1866;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .creativity-text h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            color: #111;
+            margin-bottom: 25px;
+        }
+        .creativity-text p {
+            color: #7a8194;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .creativity-btn {
+            background: #ef1866;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.10);
+        }
+        .creativity-btn:hover {
+            background: #d0145a;
+        }
+        .creativity-images {
+            flex: 2.2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: 0;
+            position: relative;
+            min-width: 700px;
+            margin-right: 0;
+            transform: translateX(-160px);
+        }
+        .creativity-img {
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .creativity-img-left img {
+            width: 370px;
+            height: 270px;
+            object-fit: cover;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 60% 100%;
+            border-bottom-right-radius: 0;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .creativity-img-right {
+            margin-left: -70px;
+            z-index: 2;
+        }
+        .creativity-img-right img {
+            width: 370px;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 50% 50% 0 0 / 60% 60% 40% 40%;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+        }
+        .creativity-sidehand {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 600px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        @media (max-width: 1400px) {
+            .creativity-content { flex-direction: column; align-items: flex-start; }
+            .creativity-images { justify-content: flex-start; margin-top: 40px; min-width: 0; margin-right: 0; }
+            .creativity-sidehand { display: none; }
+        }
+    </style>
+
+    <section class="about-intro">
+        <div class="bubble b-pink"></div>
+        <div class="bubble b-teal"></div>
+        <div class="bubble b-yellow"></div>
+        <div class="bubble b-orange"></div>
+        <div class="bubble b-soft-teal"></div>
+
+        <div class="blob-mask-container">
+            <div class="blob-frame">
+                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800" alt="Playroom">
+            </div>
+        </div>
+
+        <div class="intro-text-box">
+            <span class="tag">About Us</span>
+            <h2>It's Your Child's First Official Year Of School!</h2>
+            <p>
+                At Tiny Tots Bellary, we believe in providing a nurturing environment where your child's curiosity leads their education journey. We focus on visual teaching and physical development.
+            </p>
+            <a href="#" class="btn-action">Read More</a>
+        </div>
+    </section>
+
+    
+    <!-- BEGIN: Mental Health Growth Section -->
+    <section class="mental-growth-section">
+        <div class="mg-container">
+            <div class="mg-image-box">
+                <img src="images/cube.jpg" alt="Child learning" />
+                <span class="play-icon"></span>
+            </div>
+            <div class="mg-content-box">
+                <div class="mg-icons">
+                    <img src="images/bee.png" alt="Bee" class="mg-bee" />
+                    <img src="images/butterfly.png" alt="Hand 1" class="mg-hand1" />
+                </div>
+                <span class="mg-tag">Mental Health Growth</span>
+                <h2>Solve Problem<br>And Learn More</h2>
+                <p>
+                    Velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Vel turpis nunc eget lorem dolor. Luctus accumsan tortor posuere ac ut consequat semper viverra nam.
+                </p>
+                <a href="#" class="mg-btn">More Videos</a>
+                <img src="images/bike-boy.png" alt="Bike Boy" class="mg-bike-boy" />
+            </div>
+        </div>
+        <img src="images/butterfly.png" alt="Rocket" class="mg-rocket" />
+    </section>
+
+    <!-- BEGIN: Creativity Section -->
+    <section class="creativity-section">
+        <div class="creativity-content">
+            <div class="creativity-text">
+                <img src="images/cap.png" alt="Cap" class="creativity-cap" />
+                <div class="creativity-subtitle">Find Kid’s Creativity</div>
+                <h2>Your Children’s<br>Creativity Works!</h2>
+                <p>Molestie at elementum eu facilisis sed odio morbi quis. Magna etiam tempor orci eu lobortis. Ullamcorper dignissim cras tincidunt lobortis. Volutpat blandit aliquam etiam erat velit.</p>
+                <a href="#" class="creativity-btn">Creative Works</a>
+            </div>
+            <div class="creativity-images">
+                <div class="creativity-img creativity-img-left">
+                    <img src="images/creativity1.jpg" alt="Creativity 1" />
+                </div>
+                <div class="creativity-img creativity-img-right">
+                    <img src="images/creativity2.jpg" alt="Creativity 2" />
+                </div>
+            </div>
+        </div>
+        <img src="images/sidehand.png" alt="Side Hands" class="creativity-sidehand" />
+    </section>
+
+    <!-- BEGIN: Facilities Section -->
+    <section class="facilities-section">
+        <div class="facilities-header">
+            <div class="facilities-bg">
+                <img src="images/sun-cloud.png" alt="Sun Cloud" class="facilities-suncloud" />
+                <img src="images/rainbow.png" alt="Rainbow" class="facilities-rainbow" />
+            </div>
+            <div class="facilities-header-content">
+                <img src="images/graduation-cap.png" alt="Cap" class="facilities-cap" style="filter: brightness(0) invert(1);" />
+                <div class="facilities-subtitle">Our Facilities</div>
+                <h2>Find Our What Facilities<br>We Offer</h2>
+                <p>Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Sit amet porttitor eget dolor morbi non. In hendrerit gravida rutrum quisque. Egestas pretium aenean pharetra magna.</p>
+            </div>
+        </div>
+        <div class="facilities-cards">
+            <div class="facility-card facility-blue">
+                <div class="facility-img-wrap"><img src="images/about_image_1.jpg" alt="Interactive Class" /></div>
+                <h3>Interactive Class</h3>
+                <div class="facility-divider"></div>
+                <p>Tempus quam pellentesque nec nam aliquam sem et tortor. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin.</p>
+                <div class="facility-icon"><img src="images/open-book.png" alt="Book" /></div>
+                <a href="#" class="facility-btn">View More</a>
+            </div>
+            <div class="facility-card facility-blue">
+                <div class="facility-img-wrap"><img src="images/about_image_2.jpg" alt="School Bus" /></div>
+                <h3>School Bus</h3>
+                <div class="facility-divider"></div>
+                <p>Dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Nunc vel risus commodo viverra maecenas accumsan lacus vel.</p>
+                <div class="facility-icon"><img src="images/bus.png" alt="Bus" /></div>
+                <a href="#" class="facility-btn">View More</a>
+            </div>
+            <div class="facility-card facility-pink">
+                <div class="facility-img-wrap"><img src="images/about_image_3.jpg" alt="Play Ground" /></div>
+                <h3>Play Ground</h3>
+                <div class="facility-divider"></div>
+                <p>Bibendum at varius vel pharetra vel turpis nunc eget lorem. Elit ullamcorper dignissim cras tincidunt lobortis feugiat.</p>
+                <div class="facility-icon"><img src="images/playground.png" alt="Playground" /></div>
+                <a href="#" class="facility-btn">View More</a>
+            </div>
+            <div class="facility-card facility-blue">
+                <div class="facility-img-wrap"><img src="images/about_image_4.jpg" alt="Smart Class" /></div>
+                <h3>Smart Class</h3>
+                <div class="facility-divider"></div>
+                <p>Dolor morbi non arcu risus. Bibendum arcu vitae elementum curabitur vitae nunc. Commodo viverra maecenas accumsan lacus.</p>
+                <div class="facility-icon"><img src="images/open-book.png" alt="Smart" /></div>
+                <a href="#" class="facility-btn">View More</a>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 60px;"></div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h2 style="color: white;">KIDS COOL</h2>
+                <p style="color: #aaa; margin-top: 20px;">Leading the way in early childhood education with passion and innovation for Tiny Tots Bellary.</p>
+            </div>
+            <div>
+                <h3 style="color: white; font-size: 1.5rem;">Quick Links</h3>
+                <p style="margin-top: 15px; color: #aaa;">About Us<br>Our Team<br>News Feed</p>
+            </div>
+            <div>
+                <h3 style="color: white; font-size: 1.5rem;">Support</h3>
+                <p style="margin-top: 15px; color: #aaa;">Contact Us<br>FAQs<br>Shipping Policy</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
