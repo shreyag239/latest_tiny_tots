@@ -20,16 +20,48 @@
         h2 { font-size: 3.5rem; margin-bottom: 20px; }
         p { font-size: 1.3rem; color: #666; }
 
-        /* Navigation - Synchronized padding and font weights */
+      /* --- HEADER (Identical to Index) --- */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: white; position: sticky; top: 0;
-            z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 700; font-size: 1.2rem; }
-        .nav-links a:hover { color: #ff4d6d; }
 
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d6d;
+        }
+
+         @media (max-width: 1100px) {
+
+            /* Navbar gap reduction */
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                display: none;
+                /* Recommended: Add a burger menu or hide for now to prevent overlap */
+            }
+        }
         /* --- ANIMATIONS --- */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -164,17 +196,16 @@
 
     <nav>
         <div class="logo">
-            <h2 style="margin:0;"><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2>
+            <h2 style="margin:0;"><span style="color:#ff4d6d;">TINY</span> <span style="color:#73d2d6;">TOTS</span></h2>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="#">Facilities</a></li>
             <li><a href="#">Articles</a></li>
             <li><a href="#">Pages</a></li>
-            <li><a href="contact.html" style="color:#ff4d6d;">Ask Us</a></li>
+            <li><a href="contact.html">Ask Us</a></li>
         </ul>
-        <div style="font-size: 1.8rem;">🔍 🛒</div>
     </nav>
 
     <section class="contact-hero-new">
@@ -227,19 +258,20 @@
         </div>
     </section>
 
-    <footer>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; text-align: left;">
+   <footer>
+        <div class="footer-grid">
             <div>
-                <h2>KIDS COOL</h2>
-                <p>Leading the way in early childhood education with passion and innovation.</p>
+                <h2 style="color: white;">TINY TOTS</h2>
+                <p style="color: #aaa; margin-top: 20px;">Leading the way in early childhood education with passion and
+                    innovation for Tiny Tots Bellary.</p>
             </div>
             <div>
-                <h3>Quick Links</h3>
-                <p style="margin-top: 15px;">Home<br>About Us<br>News Feed</p>
+                <h3 style="color: white; font-size: 1.5rem;">Quick Links</h3>
+                <p style="margin-top: 15px; color: #aaa;">About Us<br>Our Team<br>News Feed</p>
             </div>
             <div>
-                <h3>Support</h3>
-                <p style="margin-top: 15px;">Contact Us<br>FAQs<br>Shipping Policy</p>
+                <h3 style="color: white; font-size: 1.5rem;">Support</h3>
+                <p style="margin-top: 15px; color: #aaa;">Contact Us<br>FAQs<br>Shipping Policy</p>
             </div>
         </div>
     </footer>

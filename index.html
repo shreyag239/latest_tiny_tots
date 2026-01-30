@@ -6,6 +6,322 @@
     <title>Tiny Tots Kindergarten - Early Years Learning</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
+
+        /* Mental Health Growth Section */
+.mental-growth-section {
+    background: #ef1866;
+    padding: 80px 0 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mg-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1400px;
+}
+
+.mg-image-box {
+    flex: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.mg-image-box img {
+    height: 370px;
+    object-fit: cover;
+    border-radius: 60px;
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+}
+
+.mg-content-box {
+    flex: 1.3;
+    color: #fff;
+    position: relative;
+    padding-left: 30px;
+}
+
+.mg-icons {
+    position: relative;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.mg-content-box .mg-tag,
+.mg-content-box h2,
+.mg-content-box p,
+.mg-btn {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.mg-content-box h2 {
+    animation-delay: 0.2s;
+}
+
+.mg-content-box p {
+    animation-delay: 0.4s;
+}
+
+.mg-btn {
+    animation-delay: 0.6s;
+}
+
+.mg-bee {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    filter: invert(1) brightness(2);
+    animation: beeFly 4s ease-in-out infinite;
+}
+
+.mg-hand1 {
+    position: absolute;
+    right: 80px;
+    top: 0;.mg-bee
+    width: 45px;
+    filter: invert(1) brightness(2);
+    animation: butterflyFlutter 4s ease-in-out infinite;
+}
+
+.mg-tag {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.mg-content-box h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.4rem;
+    margin: 10px 0 30px 0;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.mg-content-box p {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.mg-btn {
+    background: #fff;
+    color: #ef1866;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.08);
+    margin-bottom: 32px;
+}
+
+.mg-btn:hover {
+    background: #ffe0ef;
+    color: #ef1866;
+}
+
+.mg-rocket {
+    position: absolute;
+    right: 40px;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    filter: invert(1) brightness(2);
+    animation: butterflyFlutter 4s ease-in-out infinite;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    animation: playInOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.play-icon::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 32px solid #ef1866;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    margin-left: 10px;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes beeFly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(15px, -10px) rotate(5deg);
+    }
+    66% {
+        transform: translate(-10px, -20px) rotate(-5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes butterflyFlutter {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes playInOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+        /* News Section Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes leafFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        @keyframes newsItemSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 30, 86, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 30, 86, 0.5);
+                transform: scale(1.05);
+            }
+        }
+    .mg-image-box img {
+        width: 100%;
+        max-width: 500px;
+        height: auto !important;
+    }
+
+    .mg-content-box {
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .mg-bee {
+        width: 70px;
+        left: 10%;
+        top: -20px;
+    }
+
+    .mg-hand1 {
+        width: 75px;
+        right: 10%;
+        top: -20px;
+    }
+
+    .mg-rocket {
+        width: 60px;
+        right: 5%;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .play-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-icon::before {
+        border-left-width: 24px;
+        border-top-width: 14px;
+        border-bottom-width: 14px;
+    }
+}
         /* Global Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
@@ -65,7 +381,6 @@
         }
 
         .left-side {
-            height: 50vh;
             left: -10%; /* Distance from left edge */
             width: 750px; /* Adjust size as needed */
         }
@@ -154,23 +469,41 @@
             gap: 50px;
             background: #fdfaf5;
         }
+        .pencil-girl-container {
+            flex: 0.4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .pencil-girl-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            object-fit: contain;
+            animation: float 3.5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
         .methodology-content { flex: 1; }
         .methodology-content .active-tag { color: #ff3b6b; font-weight: 700; display: block; margin-bottom: 10px; }
         .methodology-content h2 { font-size: 3rem; margin-bottom: 25px; line-height: 1.2; }
         .methodology-content p { font-size: 1.1rem; max-width: 500px; margin-bottom: 30px; }
         
         .video-container {
-            flex: 1.2;
+            flex: 1.8;
             position: relative;
-            background: #ff9d2d;
-            padding: 12px;
-            border-radius: 80px 300px 300px 80px / 80px 200px 200px 80px;
+            background: linear-gradient(135deg, #ff9d2d 0%, #ff6b35 50%, #ff4757 100%);
+            padding: 15px;
+            clip-path: polygon(0% 0%, 85% 0%, 100% 20%, 100% 100%, 15% 100%, 0% 80%);
+            box-shadow: 0 10px 30px rgba(255, 157, 45, 0.3);
+            transform: rotate(0deg);
         }
         .video-thumb {
             width: 100%;
             display: block;
-            border-radius: 70px 290px 290px 70px / 70px 190px 190px 70px;
+            clip-path: polygon(0% 0%, 85% 0%, 100% 20%, 100% 100%, 15% 100%, 0% 80%);
             object-fit: cover;
+            height: 400px;
         }
         .play-btn {
             position: absolute;
@@ -186,6 +519,25 @@
             align-items: center;
             cursor: pointer;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            animation: playBtnPulse 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255,255,255,1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            animation: playBtnBounce 0.6s ease-in-out;
+        }
+        .play-btn::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            animation: playBtnRipple 2s ease-out infinite;
         }
         .play-btn::after {
             content: "";
@@ -193,6 +545,194 @@
             border-width: 15px 0 15px 25px;
             border-color: transparent transparent transparent #ff9d2d;
             margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+        .play-btn:hover::after {
+            border-color: transparent transparent transparent #ff4757;
+        }
+        
+        @keyframes playBtnPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+        
+        @keyframes playBtnBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, -50%) scale(1.1); }
+            40% { transform: translate(-50%, -50%) scale(1.15); }
+            60% { transform: translate(-50%, -50%) scale(1.08); }
+        }
+        
+        @keyframes playBtnRipple {
+            0% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% { 
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+            border-color: transparent transparent transparent #ff9d2d;
+            margin-left: 5px;
+        }
+
+        /* --- ABOUT US SECTION STYLES --- */
+        .about-us-section {
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-image-container {
+            flex: 1.2;
+            position: relative;
+        }
+        .about-main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 50px 200px 200px 50px;
+            object-fit: cover;
+            max-width: 500px;
+            border: 10px solid #ff4d6d;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2), 0 0 0 8px #ff9d2d;
+            transition: transform 0.3s ease;
+        }
+        .about-icon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .learning-icon {
+            top: -25px;
+            right: -25px;
+            animation-delay: 0s;
+            filter: hue-rotate(200deg) brightness(1.2);
+            background: rgba(115, 210, 214, 0.9);
+        }
+        .reading-icon {
+            bottom: -20px;
+            left: -30px;
+            animation-delay: 1.5s;
+            filter: hue-rotate(320deg) brightness(1.1);
+            background: rgba(251, 208, 159, 0.9);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .about-content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        .about-tag {
+            color: #ff4d6d;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .about-content h2 {
+            font-size: 3.2rem;
+            color: #2c3e50;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+        .btn-read-more {
+            background: #ff4d6d;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-read-more:hover {
+            background: #e03856;
+            transform: translateY(-2px);
+        }
+        .play-boy-container {
+            flex: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .play-boy-image {
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        .about-side-image {
+            position: absolute;
+            right: -50px;
+            bottom: 50px;
+            width: 300px;
+            height: auto;
+            z-index: 2;
+        }
+        .about-decorations {
+            position: absolute;
+        }
+        .decor-star {
+            top: 20%;
+            left: 5%;
+            font-size: 50px;
+            color: #73d2d6;
+            animation: bounce 2s infinite;
+        }
+        .decor-rocket-small {
+            top: 10%;
+            right: 15%;
+            font-size: 40px;
+            color: #ff9d2d;
+            transform: rotate(45deg);
+        }
+        .decor-circle {
+            bottom: 20%;
+            left: 10%;
+            width: 60px;
+            height: 60px;
+            background: #ff4d6d;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .about-us-section {
+                flex-direction: column;
+                padding: 60px 6%;
+                text-align: center;
+            }
+            .about-content {
+                padding-left: 0;
+            }
+            .about-side-image {
+                position: relative;
+                right: 0;
+                bottom: 0;
+                margin-top: 30px;
+            }
         }
 
         /* --- AGE GROUP SECTION STYLES --- */
@@ -222,22 +762,155 @@
         .age-label { font-family: 'Fredoka One', cursive; font-size: 1.8rem; }
 
         footer {
-            background: #1a2a2a;
+            background: #0b5e65;
             color: white;
             padding: 80px 10% 40px;
             border-radius: 50% 50% 0 0 / 10% 10% 0 0;
         }
 
-        /* About Us block */
-        .about-hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+      /* --- ABOUT US SECTION STYLES --- */
+        .about-us-section {
+            padding: 100px 8%;
             display: flex;
             align-items: center;
-            padding: 80px 6%;
+            gap: 60px;
+            position: relative;
             overflow: hidden;
+        }
+        .about-image-container {
+            flex: 1.2;
+            position: relative;
+        }
+        .about-main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 50px 200px 200px 50px;
+            object-fit: cover;
+            max-width: 500px;
+            border: 10px solid #ff4d6d;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2), 0 0 0 8px #ff9d2d;
+            transition: transform 0.3s ease;
+        }
+        .about-icon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .learning-icon {
+            top: -25px;
+            right: -25px;
+            animation-delay: 0s;
+            filter: hue-rotate(200deg) brightness(1.2);
+            background: rgba(115, 210, 214, 0.9);
+        }
+        .reading-icon {
+            bottom: -20px;
+            left: -30px;
+            animation-delay: 1.5s;
+            filter: hue-rotate(320deg) brightness(1.1);
+            background: rgba(251, 208, 159, 0.9);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .about-content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        .about-tag {
+            color: #ff4d6d;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .about-content h2 {
+            font-size: 3.2rem;
+            color: #2c3e50;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+        .btn-read-more {
+            background: #ff4d6d;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-read-more:hover {
+            background: #e03856;
+            transform: translateY(-2px);
+        }
+        .about-side-image {
+            position: absolute;
+            right: -50px;
+            bottom: 50px;
+            width: 300px;
+            height: auto;
+            z-index: 2;
+        }
+        .about-decorations {
+            position: absolute;
+        }
+        .decor-star {
+            top: 20%;
+            left: 5%;
+            font-size: 50px;
+            color: #73d2d6;
+            animation: bounce 2s infinite;
+        }
+        .decor-rocket-small {
+            top: 10%;
+            right: 15%;
+            font-size: 40px;
+            color: #ff9d2d;
+            transform: rotate(45deg);
+        }
+        .decor-circle {
+            bottom: 20%;
+            left: 10%;
+            width: 60px;
+            height: 60px;
+            background: #ff4d6d;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .about-us-section {
+                flex-direction: column;
+                padding: 60px 6%;
+                text-align: center;
+            }
+            .about-content {
+                padding-left: 0;
+            }
+            .about-side-image {
+                position: relative;
+                right: 0;
+                bottom: 0;
+                margin-top: 30px;
+            }
         }
         .image-blob-container { position: relative; flex: 1; display:flex; justify-content:center; align-items:center; }
         .blob-shape { position: relative; width: 520px; height: 420px; background: #ff9d2d; border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%; overflow: hidden; border: 12px solid #ff9d2d; box-shadow: 20px 20px 60px rgba(0,0,0,0.05); }
@@ -289,7 +962,8 @@
             background: #fff;
             position: relative;
         }
-        .activity-box { text-align: center; position: relative; }
+        .activity-box { text-align: center; position: relative; cursor: pointer; }
+        .activity-box:hover .shape-wrap { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.233); }
         
         /* Shape Containers */
         .shape-wrap { 
@@ -300,6 +974,7 @@
             display: flex; 
             justify-content: center; 
             align-items: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .shape-img { 
             width: 85%; 
@@ -312,6 +987,37 @@
         /* Specific Shapes */
         .sq-border { border: 12px solid #73d2d6; border-radius: 20px; box-shadow: 0 15px 30px rgba(115, 210, 214, 0.2); }
         .ci-border { border: 12px solid #ffce32; border-radius: 50%; box-shadow: 0 15px 30px rgba(255, 206, 50, 0.2); }
+        .tr-border { 
+            position: relative;
+            width: 280px;
+            height: 280px;
+            background: #ff9d2d;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: 0 15px 30px rgba(255, 157, 45, 0.2);
+        }
+        .tr-border::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            background: white;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            z-index: 1;
+        }
+        .tr-border .shape-img { 
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            width: calc(100% - 48px);
+            height: calc(100% - 48px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            z-index: 2;
+            object-fit: cover;
+        }
         
         .triangle-container {
             width: 300px;
@@ -332,7 +1038,20 @@
         .activity-box p { font-size: 1.1rem; color: #888; padding: 0 20px; }
 
         /* Icons above shapes */
-        .top-icon { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); width: 60px; z-index: 5; }
+        .top-icon { 
+            position: absolute; 
+            top: -58px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 60px; 
+            z-index: 10; 
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        .activity-box:hover .top-icon { 
+            transform: translateX(-50%) scale(1.1) rotate(5deg); 
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+        }
 
         /* Floating Doodles */
         .float-doodle { position: absolute; pointer-events: none; opacity: 0.8; }
@@ -372,7 +1091,7 @@
 
         /* --- NEW: TESTIMONIALS SECTION STYLES --- */
         .testimonials-section {
-            padding: 100px 10%;
+            padding: 50px 10%;
             text-align: center;
             background: #fff;
             position: relative;
@@ -548,7 +1267,7 @@
     max-width: 600px;
 }
 
-.icon-cap { font-size: 2rem; color: #ccc; margin-bottom: 10px; }
+.icon-cap { font-size: 2rem; color: #ccc; margin-bottom: 0px; }
 
 .sub-title {
     color: #ff1e56; /* The pinkish-red from the image */
@@ -711,192 +1430,6 @@
     .timeline-dot { left: 18px !important; }
 }
 
-:root {
-    --bg-color: #FFF5EE;
-    --primary-pink: #E91E63;
-    --text-dark: #2D2D2D;
-    --text-light: #666;
-    --orange: #FF9E7D;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-    margin: 0;
-    padding: 0;
-}
-
-.edu-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* --- About Us Section --- */
-.about-us {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 60px;
-}
-
-.about-image-wrapper {
-    position: relative;
-    flex: 1;
-}
-
-/* The kidney/bean shape */
-.blob-shape {
-    width: 100%;
-    aspect-ratio: 1.4 / 1;
-    background: #FF9E7D;
-    clip-path: ellipse(50% 40% at 50% 50%); /* Simplified for demo, can use complex path */
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    overflow: hidden;
-    border: 15px solid #FF9E7D;
-}
-
-.blob-shape img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-content {
-    flex: 1;
-}
-
-.sub-label {
-    color: var(--primary-pink);
-    font-weight: bold;
-    text-transform: capitalize;
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.about-content p {
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    background-color: var(--primary-pink);
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
-}
-
-/* --- Programs Grid --- */
-.programs-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 60px auto 40px;
-}
-
-.programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.program-card {
-    background: white;
-    padding: 30px;
-    border-radius: 30px;
-    text-align: center;
-    transition: box-shadow 0.3s;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-}
-
-.card-blob {
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    border-radius: 30%;
-}
-
-.card-blob img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2rem;
-}
-
-.card-info p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 8px;
-}
-
-.card-info a {
-    color: var(--text-dark);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 0.9rem;
-    border-bottom: 2px dashed #FF9E7D;
-}
-
-.view-more-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-/* --- Decorations --- */
-.decor {
-    position: absolute;
-    z-index: -1;
-    opacity: 0.6;
-}
-
-.star-top {
-    top: 50px;
-    left: 20px;
-    width: 60px;
-}
-
-.planet-bottom {
-    bottom: 50px;
-    left: 50px;
-    width: 100px;
-}
-
-.wave-divider {
-    height: 20px;
-    background-image: radial-gradient(circle at 10px -7px, transparent 8px, #333 8px, #333 10px, transparent 10px);
-    background-size: 20px 20px;
-    width: 100%;
-    margin: 40px 0;
-    opacity: 0.2;
-}
-
         /* --- EDUCATION NEWS STYLES --- */
         .education-news {
             background-color: #0b5e65; /* Dark teal */
@@ -904,6 +1437,16 @@ h2 {
             padding: 100px 8%;
             position: relative;
             overflow: hidden;
+        }
+        .news-arrow-thread {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            z-index: 10;
+            opacity: 0.8;
+            filter: brightness(0) invert(1);
         }
         .news-wave-top {
             position: absolute;
@@ -920,20 +1463,72 @@ h2 {
             position: relative;
             z-index: 5;
         }
-        .news-text { flex: 1.2; }
-        .news-text .blog-tag { color: white; opacity: 0.9; font-weight: 700; display: block; margin-bottom: 10px; }
-        .news-text h2 { color: white; font-size: 3.2rem; margin-bottom: 40px; }
+        .news-text { 
+            flex: 1.2; 
+            opacity: 0;
+            animation: slideInLeft 1s ease-out forwards;
+        }
+        .news-text .blog-tag { 
+            color: white; 
+            opacity: 0.9; 
+            font-weight: 700; 
+            display: block; 
+            margin-bottom: 10px;
+            animation: newsItemSlide 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        .news-text h2 { 
+            color: white; 
+            font-size: 3.2rem; 
+            margin-bottom: 40px;
+            animation: newsItemSlide 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
         
-        .news-item { margin-bottom: 35px; border-bottom: 1px dashed rgba(255,255,255,0.3); padding-bottom: 25px; }
+        .news-item { 
+            margin-bottom: 35px; 
+            border-bottom: 1px dashed rgba(255,255,255,0.3); 
+            padding-bottom: 25px;
+            opacity: 0;
+            animation: newsItemSlide 0.8s ease-out 0.6s forwards;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
         .news-item:last-child { border: none; }
         
         .news-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-        .news-icon { width: 25px; height: 25px; filter: invert(1); opacity: 0.8; }
+        .news-icon { 
+            width: 25px; 
+            height: 25px; 
+            filter: invert(1); 
+            opacity: 0.8;
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover .news-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
         .news-date { font-weight: bold; font-size: 0.9rem; }
-        .news-title { font-family: 'Fredoka One', cursive; font-size: 1.6rem; margin-bottom: 8px; display: block; }
+        .news-title { 
+            font-family: 'Fredoka One', cursive; 
+            font-size: 1.6rem; 
+            margin-bottom: 8px; 
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .news-item:hover .news-title {
+            color: #ff9d2d;
+        }
         .news-excerpt { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.5; }
 
-        .news-image-wrap { flex: 1; position: relative; }
+        .news-image-wrap { 
+            flex: 1; 
+            position: relative;
+        }
         .leaf-shape {
             width: 500px;
             height: 400px;
@@ -959,6 +1554,29 @@ h2 {
             font-family: 'Fredoka One', cursive;
             display: inline-block;
             margin-top: 20px;
+            opacity: 0;
+            animation: newsItemSlide 0.8s ease-out 0.8s forwards;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .view-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .view-more-btn:hover::before {
+            left: 100%;
+        }
+        .view-more-btn:hover {
+            background: #e61a4d;
+            transform: translateY(-3px);
+            animation: pulseGlow 1.5s ease-in-out infinite;
         }
 
         /* --- NEW: NEWSLETTER SECTION STYLES --- */
@@ -1123,6 +1741,11 @@ h2 {
             100% { transform: translateY(0); }
         }
 
+        @keyframes iconFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-8px); }
+        }
+
         /* Reveal utilities used with data-animate + IntersectionObserver */
         .fade-up { transform: translateY(20px); opacity: 0; transition: transform .7s cubic-bezier(.2,.9,.2,1), opacity .7s ease; }
         .fade-up.in-view { transform: translateY(0); opacity: 1; }
@@ -1183,11 +1806,11 @@ h2 {
         </div>
         <ul class="nav-links">
             <li><a href="#" style="color:#ff4d6d;">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="activities.html">Programs</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Programs</a></li>
             <li><a href="#">Gallery</a></li>
             <li><a href="#">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
@@ -1210,149 +1833,90 @@ h2 {
         <div class="cloud-footer"></div>
     </section>
 
-    <section class="edu-container">
-    <svg class="decor star-top" viewBox="0 0 60 80"><path d="M52,65.7c-1-1.6-2.1-3.2-3.1-4.8c-0.9-1.4-1.8-3-3-4.2c2.5-2.4,4.6-5.2,6.2-8.2c0.8-1.4,1.5-2.9,2.1-4.4 c0.4-1.1,1.2-2.7,0.1-3.6c-1-0.8-2.7-0.1-3.8,0.2c-1.7,0.5-3.5,1.1-5.1,1.8c-3.1,1.3-6.5,2.7-9.1,4.9c-0.2,0.1-0.3,0.2-0.5,0.3 c-0.7-1.3-1.9-2.6-2.7-3.7c-1.2-1.6-2.5-3.1-3.8-4.6c-2.7-3.1-5.7-6.1-8.8-8.8C19.9,30.1,19,30.3,19,31l0,12.2c0,1.9,0,3.9,0,5.8 c0,1.3,0,2.7,0,4.1c-0.2,0-0.4,0.1-0.6,0.2c-0.9-0.1-1.8,0.3-2.6,0.6c-1.6,0.5-3.1,1-4.7,1.5c-3,1.1-5.9,2.3-8.8,3.7 c-0.7,0.3-0.5,1.3,0,1.7c2.7,2,5.6,3.7,8.6,5c1.4,0.6,2.8,1.2,4.2,1.6c1.4,0.5,3,1.1,4.6,1.2c-0.2,1.4,0,2.9,0.2,4.3 c0.1,1.7,0.4,3.5,0.6,5.2c0.5,3.7,1.3,7.4,2.3,11c0.2,0.7,1.2,1,1.7,0.4c4.5-5.1,8.4-10.7,11.5-16.8c7,2.1,14.2,3.5,21.5,4.2 c0.7,0.1,1.1-0.8,0.8-1.4C56.2,72.4,54.1,69,52,65.7z" fill="#B2D8E5"/></svg>
-    <div class="about-us">
-        <div class="about-image-wrapper">
-            <div class="blob-shape">
-                <img src="https://images.pexels.com/photos/3662838/pexels-photo-3662838.jpeg" alt="Children playing">
-            </div>
-            <div class="orange-dot"></div>
+    <!-- About Us Section -->
+    <section class="about-us-section" data-animate="fade-up">
+        <div class="about-image-container">
+            <img src="images/contact-us.jpg" alt="Children playing with colorful blocks" class="about-main-image">
+            <!-- Decorative icons -->
+            <img src="images/learning.png" alt="Learning icon" class="about-icon learning-icon">
         </div>
         
         <div class="about-content">
-            <span class="sub-label">About Us</span>
+            <span class="about-tag">About Us</span>
             <h2>We Educate Knowledge & Essential Skills!</h2>
-            <p>Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
-            <button class="btn-primary">Read More</button>
+            <p>Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget, pretium sed massa.</p>
+            <a href="#" class="btn-read-more">Read More</a>
         </div>
-    </div>
-
-    <div class="wave-divider"></div>
-
-    <div class="programs-header">
-        <span class="sub-label">Educational Programs</span>
-        <h2>Step By Step Systematic Education</h2>
-        <p class="header-desc">Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget.</p>
-    </div>
-
-    <div class="programs-grid">
-        <div class="program-card">
-            <div class="card-blob"><img src="https://images.pexels.com/photos/4019754/pexels-photo-4019754.jpeg" alt="Online Class"></div>
-            <div class="card-info">
-                <h3>Online Class</h3>
-                <p>Eu turpis egestas pretium aenean pharetra magna ac.</p>
-                <a href="#">Learn More</a>
-            </div>
+        
+        <div class="play-boy-container">
+            <img src="images/play_pencil_boy.png" alt="Play boy character" class="play-boy-image">
         </div>
-        <div class="program-card">
-            <div class="card-blob"><img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg" alt="Formal Tuition"></div>
-            <div class="card-info">
-                <h3>Formal Tuition</h3>
-                <p>Posuere ac ut consequat semper viverra nam libero justo.</p>
-                <a href="#">Learn More</a>
-            </div>
-        </div>
-        <div class="program-card">
-            <div class="card-blob"><img src="https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg" alt="Special Tuition"></div>
-            <div class="card-info">
-                <h3>Special Tuition</h3>
-                <p>Tristique risus nec feugiat in. Auctor augue mauris.</p>
-                <a href="#">Learn More</a>
-            </div>
-        </div>
-        <div class="program-card">
-            <div class="card-blob"><img src="https://images.pexels.com/photos/8437090/pexels-photo-8437090.jpeg" alt="Preschool"></div>
-            <div class="card-info">
-                <h3>Preschool</h3>
-                <p>Adipiscing diam donec adipiscing tristique risus entum.</p>
-                <a href="#">Learn More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="view-more-container">
-        <button class="btn-primary">View More</button>
-    </div>
-
-    <svg class="decor planet-bottom" viewBox="0 0 100 100">
-        <path d="M81.6,42.8c-3.5-5.9-8.9-10.6-15.1-13.4c-15.6-7.1-34.8-2.3-44.2,13.8c-3.4,5.9-5.2,12.9-4.8,19.8 c0.5,6.8,3.2,13.3,7.4,18.7c4.2,5.3,9.9,9.5,16.4,11.6c6.5,2.1,13.6,2.1,20.1,0.2c6.5-1.9,12.6-5.7,17-10.9 c4.6-5.4,7.2-12.2,7.7-19.3C86.8,56.2,85.2,49,81.6,42.8" fill="#FF9E7D"/>
-        <path d="M98.3,54.1c-0.8-2.1-3.1-2.6-5.1-2.7c-2.6-0.1-5.1,0-7.7,0.3c-0.1,0-0.2,0-0.2,0c0,0.1,0,0.3,0,0.4c0,0.1,0.1,0.2,0.1,0.3 c0,0.1,0.1,0.3,0.1,0.4c0.9-0.1,1.8-0.1,2.7-0.2c1.9-0.1,4-0.1,5.9,0.2c0.7,0.1,1.6,0.3,2.1,0.8c0.5,0.5,0.7,1.1,0.7,1.8 c0,1.6-1,2.9-2.3,3.7c-1.5,1-3.2,1.7-4.9,2.4c-1.8,0.8-3.6,1.5-5.4,2.2c-3.6,1.4-7.2,2.6-10.9,3.7c-7.4,2.2-15,3.7-22.6,4.7 C43.1,73,35.3,73.3,27.6,73c-3.9-0.2-7.7-0.5-11.6-1c-1.7-0.2-3.3-0.4-5-0.9c-1.2-0.3-2.6-0.9-3.4-1.9c-0.3-0.4-0.5-0.8-0.5-1.2 c0.2-1.2,0.7-2.2,1.7-3.1c1-1.1,2.2-1.9,3.4-2.8c0.6-0.4,1.2-0.9,1.9-1.4c0.6-0.5,1.3-0.8,2-1.2c0.6-0.3,1.1-0.6,1.7-0.9 c0-0.3,0-0.7,0-1c-0.2,0-0.4,0.1-0.6,0.1c-1.1,0.2-2.1,0.6-3.2,1c-1.1,0.4-2.2,0.8-3.2,1.5c-1,0.6-1.9,1.4-2.8,2.1 c-1.7,1.4-3.5,3.4-2.7,5.8c0.2,0.7,0.6,1.6,1.2,2.2c0.6,0.6,1.3,1.1,2.1,1.4c1.7,0.8,3.6,1.1,5.4,1.4c2.4,0.3,4.8,0.6,7.2,0.9 c4.7,0.4,9.5,0.6,14.2,0.6c9.6-0.1,19.1-1.1,28.5-3.1c9.3-2,18.4-4.9,27.1-8.6c2-0.9,4.3-1.7,5.9-3.2C98.2,58.2,99,56,98.3,54.1z" fill="#333"/>
-    </svg>
-</section>
-
-   
-
-    <section class="stats-section" data-animate="fade-up">
-        <div class="stats-decor-text" style="top: 10%; left: 5%">abc</div>
-        <div class="stat-item">
-            <div class="icon-wrapper">🎓</div>
-            <span class="stat-number" data-target="356">356+</span>
-            <span class="stat-label">Admissions</span>
-        </div>
-        <div class="stat-item">
-            <div class="icon-wrapper">📘</div>
-            <span class="stat-number" data-target="16">16+</span>
-            <span class="stat-label">Classes</span>
-        </div>
-        <div class="stat-item">
-            <div class="icon-wrapper">🎒</div>
-            <span class="stat-number" data-target="12">12+</span>
-            <span class="stat-label">Teachers</span>
-        </div>
-        <div class="stat-item">
-            <div class="icon-wrapper">✏️</div>
-            <span class="stat-number" data-target="8">8+</span>
-            <span class="stat-label">Years of Experience</span>
-        </div>
+        
     </section>
 
-    <section class="timeline-section" data-animate="fade-up">
-    <span class="timeline-tagline">The Tiny Tots Journey</span>
-    <h2 class="timeline-title">Step-by-Step Growth for Your Little One</h2>
+    <section class="smart-activities-grid stagger" data-animate="stagger">
 
-    <div class="timeline-container">
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item left">
-            <div class="timeline-dot" style="background: #6c5ce7;"></div>
-            <div class="timeline-card">
-                <div class="icon">🧸</div>
-                <h3>Playgroup (Toddlers)</h3>
-                <p>Socialising through simple songs, sensory play and guided routines to build comfort and curiosity.</p>
+        <div class="activity-box">
+            <img src="images/school.png" class="top-icon" alt="School">
+            <div class="shape-wrap sq-border">
+                <img src="images/a1.jpg" class="shape-img" alt="Swimming">
             </div>
+            <h3>Physical Play</h3>
+            <p>Gross motor development through games, movement songs, and safe outdoor play.</p>
         </div>
 
-        <div class="timeline-item right">
-            <div class="timeline-dot" style="background: #ffce32;"></div>
-            <div class="timeline-card">
-                <div class="icon">🎨</div>
-                <h3>Nursery Explorers</h3>
-                <p>Developing fine motor control, early language through rhymes and story-time.</p>
+        <div class="activity-box">
+            <img src="images/bff.png" class="top-icon" alt="Kids">
+            <div class="shape-wrap ci-border">
+                <img src="images/baby_play.jpg" class="shape-img" alt="Learning">
             </div>
+            <h3>Group Learning</h3>
+            <p>Cooperative activities that build sharing, communication and early social skills.</p>
         </div>
 
-        <div class="timeline-item left">
-            <div class="timeline-dot" style="background: #ff4d6d;"></div>
-            <div class="timeline-card">
-                <div class="icon">🏫</div>
-                <h3>Junior KG</h3>
-                <p>Introduction to phonics, counting, pre-writing and collaborative classroom activities.</p>
+         <div class="activity-box">
+            <img src="images/sports.png" class="top-icon" alt="School">
+            <div class="shape-wrap tr-border">
+                <img src="images/a2 (1).jpg" class="shape-img" alt="Physical Play">
             </div>
+            <h3>Physical Play</h3>
+            <p>Gross motor development through games, movement songs, and safe outdoor play.</p>
         </div>
 
-        <div class="timeline-item right">
-            <div class="timeline-dot" style="background: #3498db;"></div>
-            <div class="timeline-card">
-                <div class="icon">🎓</div>
-                <h3>Senior KG</h3>
-                <p>Preparing children for primary school with confidence in literacy, numeracy and self-help skills.</p>
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/1043/1043440.png" class="float-doodle rocket-tiny" alt="Rocket">
+    </section>
+
+    <section class="creative-section" data-animate="fade-up">
+    <div class="container">
+        <div class="creative-content">
+            <div class="icon-cap"><img src="images/graduation-cap.png" alt="Graduation" style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);"></div>
+            <span class="sub-title">Holistic</span>
+            <h2 class="main-heading">Creative Learning for Little Learners</h2>
+            <p class="description">
+                We celebrate festivals, art, music and movement to help children explore
+                culture and creativity. Activities include clay work, finger painting, rhymes
+                and introductory numeracy and phonics.
+            </p>
+            <a href="#" class="btn-creative">See Activities</a>
+        </div>
+
+        <div class="image-gallery">
+            <div class="image-box arch-bottom">
+                <img src="images/a1.jpg" alt="Child playing with clay">
             </div>
+            <div class="image-box arch-top">
+                <img src="images/a2 (1).jpg" alt="Child painting">
+            </div>
+            <!-- Decorative pens icon -->
+            <img src="images/penss.png" alt="Pens" style="position: absolute; top: 130px; right: 80px; width: 90px; opacity: 0.7; transform: rotate(25deg); z-index: 5;">
         </div>
     </div>
 </section>
 
+  
     <section class="education-news" data-animate="fade-up">
+        <img src="images/curved-arrow-with-broken-line.png" alt="Arrow Thread" class="news-arrow-thread">
         <div class="news-wave-top">
             <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0C240 80 480 80 720 40C960 0 1200 0 1440 40V0H0Z" fill="white"/>
@@ -1382,68 +1946,12 @@ h2 {
         </div>
     </section>
 
-    <section class="campus-section" data-animate="fade-up">
-
-    <div class="header-center">
-        <span class="campus-tagline">School Facilities</span>
-        <h2 class="campus-title">Engaging & Spacious<br>School Campus</h2>
-        <p class="campus-intro">
-            Hise sed augue vitae felis pellentesque varius nec quis nunc. 
-            Morbi mauris augue, pulvinar quis luctus eget.
-        </p>
-    </div>
-
-    <div class="facilities-grid-2col">
-        <div class="facility-card teal-bg">
-            <div class="image-mask">
-                <img src="images/classroom.jpg" alt="Class Room">
-            </div>
-            <h3>Class Room</h3>
-            <div class="wavy-divider">~~~~~~</div>
-            <p>Purus sit amet luctus venenatis lectus magna fringilla urna. Scelerisque viverra mauris in aliquam sem fringilla ut ac.</p>
-            <a href="#" class="btn-view">View More</a>
-            <div class="bottom-icon icon-book">📖</div>
-        </div>
-
-        <div class="facility-card teal-bg">
-            <div class="image-mask">
-                <img src="images/bus.jpg" alt="Transport">
-            </div>
-            <h3>Transport</h3>
-            <div class="wavy-divider">~~~~~~</div>
-            <p>Tristique risus nec feugiat in. Auctor augue mauris augue neque gravida in fermentum et sollic set itudin.</p>
-            <a href="#" class="btn-view">View More</a>
-            <div class="bottom-icon icon-bus">🚌</div>
-        </div>
-
-        <div class="facility-card teal-bg">
-            <div class="image-mask">
-                <img src="images/play-area.jpg" alt="Play Area">
-            </div>
-            <h3>Play Area</h3>
-            <div class="wavy-divider">~~~~~~</div>
-            <p>Diam donec adipiscing tristique risus nec feugiat in fermentum posuere. Ultrices eros in cursus turpis massa tincidunt dui.</p>
-            <a href="#" class="btn-view">View More</a>
-            <div class="bottom-icon icon-slide">🛝</div>
-        </div>
-
-        <div class="facility-card pink-bg">
-            <div class="image-mask">
-                <img src="images/food.jpg" alt="Healthy Foods">
-            </div>
-            <h3>Healthy Foods</h3>
-            <div class="wavy-divider">~~~~~~</div>
-            <p>Integer enim neque volutpat ac tincidunt vitae semper. Eget duis at tellus at urna condimentum mattis pellentesque id.</p>
-            <a href="#" class="btn-view alt-btn">View More</a>
-            <div class="bottom-icon icon-food">🍎</div>
-        </div>
-    </div>
-
-    <div class="decor-rocket">🚀</div>
-</section>
-
     <section class="methodology-section" data-animate="fade-up">
+        <div class="pencil-girl-container">
+            <img src="images/play_pencil_girl.png" alt="Girl with pencil" class="pencil-girl-image">
+        </div>
         <div class="methodology-content">
+            <div class="icon-cap"><img src="images/graduation-cap.png" alt="Graduation" style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);"></div>
             <span class="active-tag">Active</span>
             <h2>Visual Teaching Methodology!</h2>
             <p>Morbi mauris augue, pulvinar quis luctus eget, pretium sed massa. Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
@@ -1455,7 +1963,11 @@ h2 {
         </div>
     </section>
 
-    <section class="age-group-section" data-animate="fade-up">
+    <section class="age-group-section" data-animate="fade-up" style="position: relative;">
+        <!-- Decorative floating images -->
+        <img src="images/launch.png" alt="Launch rocket" style="position: absolute; top: 70%; left: 5%; width: 120px; animation: float 4s ease-in-out infinite; animation-delay: 0.5s; opacity: 0.8; z-index: 1;">
+        <img src="images/ufo.png" alt="UFO" style="position: absolute; top: 30%; right: 8%; width: 100px; animation: float 3.5s ease-in-out infinite; animation-delay: 1s; opacity: 0.8; z-index: 1;">
+        
         <div class="age-circle-item">
             <div class="age-circle" style="background: #e91e63;">
                 <span class="range">2-3</span>
@@ -1497,7 +2009,7 @@ h2 {
             <p>Families appreciate our warm classrooms, caring teachers and the progress they see in their children's confidence and language skills.</p>
         </div>
 
-        <div class="testimonial-card-container">
+        <!-- <div class="testimonial-card-container">
             <img src="https://cdn-icons-png.flaticon.com/512/1043/1043440.png" class="t-doodle t-rocket-small" style="transform: rotate(-45deg);" alt="Rocket">
 
             <div class="profile-overlap">
@@ -1517,7 +2029,31 @@ h2 {
                     </div>
                 </div>
             </div>
+        </div> -->
+    </section>
+
+       <!-- BEGIN: Mental Health Growth Section -->
+    <section class="mental-growth-section">
+        <div class="mg-container">
+            <div class="mg-image-box">
+                <img src="images/cube.jpg" alt="Child learning" />
+                <span class="play-icon"></span>
+            </div>
+            <div class="mg-content-box">
+                <div class="mg-icons">
+                    <img src="images/bee.png" alt="Bee" class="mg-bee" />
+                    <img src="images/butterfly.png" alt="Hand 1" class="mg-hand1" />
+                </div>
+                <span class="mg-tag">Mental Health Growth</span>
+                <h2>Solve Problem<br>And Learn More</h2>
+                <p>
+                    Velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Vel turpis nunc eget lorem dolor.
+                    Luctus accumsan tortor posuere ac ut consequat semper viverra nam.
+                </p>
+                <a href="#" class="mg-btn">More Videos</a>
+            </div>
         </div>
+        <img src="images/butterfly.png" alt="Rocket" class="mg-rocket" />
     </section>
     
     <section class="newsletter-section" data-animate="fade-up">
@@ -1540,7 +2076,7 @@ h2 {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; text-align: left;">
             <div>
                 <h2 style="color: white;">TINY TOTS</h2>
-                <p style="color: #aaa; margin-top: 20px;">Early years learning with Indian values, joyful play and a safe, nurturing environment.</p>
+                <p style="color: #fceee4; margin-top: 20px;">Early years learning with Indian values, joyful play and a safe, nurturing environment.</p>
             </div>
             <div>
                 <h3 style="color: white; font-size: 1.5rem;">Quick Links</h3>
