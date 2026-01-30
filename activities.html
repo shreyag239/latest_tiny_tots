@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities - Kids Cool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Quicksand', sans-serif; color: #444; background-color: #fff; overflow-x: hidden; }
+        
+        /* --- HEADER --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo h2 { font-family: 'Fredoka One', cursive; margin: 0; font-size: 1.8rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 700; font-size: 1.1rem; }
+        .nav-links a.active { color: #ff4d6d; }
+
+        /* --- ABOUT HERO SECTION --- */
+        .hero-banner {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1500');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero-banner h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 10px; 
+            color: white; 
+        }
+
+        .hero-banner .breadcrumb { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #fff; 
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        :root {
+            --primary-magenta: #f94b8b;
+            --text-dark: #1d3d4a;
+            --text-light: #666;
+            --card-bg: #fcecec;
+            --section-bg: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fefefe;
+        }
+
+        /* --- SECTION CONTAINER --- */
+        .programs-container {
+            padding: 100px 10%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--section-bg);
+        }
+
+        /* --- SMALLER DECORATIVE ASSETS --- */
+        .decor {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            transition: transform 0.5s ease-out;
+        }
+        
+        /* Smaller Planet (Left) */
+        .decor-planet { 
+            top: 15%; 
+            left: 12%; 
+            width: 140px; 
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Smaller Pencil/Blocks (Right) */
+        .decor-pencil { 
+            top: 15%; 
+            right: 12%; 
+            width: 120px; 
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* --- HEADINGS --- */
+        .tagline {
+            color: #ff4d6d;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--text-dark);
+            font-size: 2.8rem;
+            margin: 0 auto 20px;
+            max-width: 650px;
+            line-height: 1.2;
+        }
+
+        .description {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* --- GRID AND CARDS --- */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-card {
+            background-color: var(--card-bg);
+            border-radius: 50px;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .program-card:hover {
+            background-color: var(--primary-magenta);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px #fb80adfa;
+        }
+
+        /* Irregular Blob Image Container */
+        .image-mask {
+            width: 130px;
+            height: 110px;
+            background: #f0f0f0;
+            margin-right: 30px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .program-card:hover .image-mask {
+            transform: rotate(-5deg);
+        }
+
+        .image-mask img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* White Dot Decoration on Image */
+        .image-mask::after {
+            content: "";
+            position: absolute;
+            top: 15%;
+            right: 25%;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .card-content h3 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--text-dark);
+            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0 0 15px 0;
+            transition: color 0.3s;
+            line-height: 1.5;
+        }
+
+        .program-card:hover h3, 
+        .program-card:hover p, 
+        .program-card:hover .learn-more {
+            color: #ffffff !important;
+        }
+
+        /* --- ANIMATED WAVY UNDERLINE --- */
+        .learn-more {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-block;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .learn-more::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 4" preserveAspectRatio="none"><path d="M0 3.5c5 0 5-3 10-3s5 3 10 3" fill="none" stroke="%23ffce32" stroke-width="2"/></svg>') repeat-x;
+            background-size: 20px 10px;
+            transition: filter 0.3s;
+        }
+
+        .program-card:hover .learn-more::after {
+            filter: brightness(0) invert(1); /* Turns yellow wave white on hover */
+            animation: waveMove 1s linear infinite;
+        }
+
+        @keyframes waveMove {
+            from { background-position: 0 0; }
+            to { background-position: 20px 0; }
+        }
+
+        @media (max-width: 900px) {
+            .programs-grid { grid-template-columns: 1fr; }
+            .decor { display: none; }
+        }
+
+        /* --- BRINGING DESIGN TO LIFE (Image 3) --- */
+        .design-banner {
+    background: #ef1866; /* Vibrant pink from image */
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-container {
+    width: 85%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Decorative Elements --- */
+.decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decor-bee { top: -50px; left: -500px; width: 60px; }
+.decor-rocket { top: 20px; left: 1500px; width: 60px; opacity: 0.8; }
+.decor-cloud-1 { top: -40px; left: 240px; width: 100px; opacity: 0.5; }
+.decor-bike-boy { bottom: -40px; left: 400px; width: 100px; opacity: 0.9; }
+
+.design-text { 
+    flex: 1; 
+    color: white;
+}
+
+.design-text .tag {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.design-text h2 { 
+    font-family: 'Fredoka One', cursive; 
+    font-size: 3.2rem; 
+    line-height: 1.1;
+    margin-bottom: 25px; 
+}
+
+.design-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.btn-more-videos {
+    background: white;
+    color: #ef1866;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-more-videos:hover {
+    transform: scale(1.05);
+}
+
+/* --- Video Section with Overlap --- */
+.design-video {
+    flex: 1.2;
+    position: relative;
+}
+
+.video-wrapper {
+    background: white;
+    padding: 15px; /* Creates the white frame */
+    border-radius: 50px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateX(40px); /* Overlaps outside the pink box area */
+}
+
+.video-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 40px;
+    display: block;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; 
+    height: 80px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.play-icon {
+    width: 0; 
+    height: 0; 
+    border-left: 25px solid #ef1866;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-left: 8px;
+}
+
+/* Grass border at the bottom */
+.grass-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-image: url('images/grass-pattern.png'); /* Repeating grass pattern */
+    background-repeat: repeat-x;
+}
+
+        .extra-section {
+    padding: 80px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.extra-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.extra-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    color: #1d3d4a;
+    margin: 10px 0;
+}
+
+.extra-intro {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #777;
+    line-height: 1.8;
+}
+
+.extra-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Row Layout */
+.extra-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    gap: 50px;
+}
+
+.extra-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.extra-content {
+    flex: 1;
+}
+
+.extra-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Specific Quarter Circle Shapes */
+.cut-img {
+    width: 450px;
+    height: 320px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.cut-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mask-bottom-right { border-radius: 0 0 250px 0; }
+.mask-top-left { border-radius: 250px 0 0 0; }
+.mask-bottom-left { border-radius: 0 0 0 250px; }
+.mask-top-right { border-radius: 0 250px 0 0; }
+
+/* Content Styling */
+.tag-sub {
+    color: #ff4d6d;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.mini-icon { width: 45px; }
+
+.extra-content h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    color: #1d3d4a;
+    margin: 15px 0;
+}
+
+.extra-content p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.timing {
+    color: #55b6b1;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.btn-join {
+    background: #ff4d6d;
+    color: #fff;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+/* Decorative Doodle Positioning */
+.decor { position: absolute; z-index: 1; pointer-events: none; }
+.decor-planet-left { top: 0; left: -400px; width: 120px; }
+.decor-rainbow-right { top: 0; right: -400px; width: 280px; }
+.decor-rocket-mid { top: 45%; right: -250px; width: 100px; }
+.decor-artist-bottom { bottom: 0; left: -500px; width: 150px; }
+
+@media (max-width: 900px) {
+    .extra-row, .extra-row.reverse { flex-direction: column; text-align: center; }
+    .cut-img { width: 100%; height: 250px; }
+    .decor { display: none; }
+}
+
+body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .testimonial-section {
+            padding: 100px 10%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Header Styles --- */
+        .sub-title {
+            color: var(--primary-pink);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sub-title img { width: 30px; }
+
+        h2 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .header-desc {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- Testimonial Card --- */
+        .testimonial-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--primary-pink);
+            color: rgb(255, 255, 255);
+            padding: 60px 80px;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+            /* Recreating the organic "wavy" blob shape */
+            border-radius: 40px 150px 50px 100px / 60px 50px 120px 40px;
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        .stars { color: #ffce32; font-size: 1.2rem; margin-bottom: 20px; }
+
+        .testimonial-text {
+            color: black;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .author-info h4 { margin: 0; font-size: 1.3rem; font-family: 'Fredoka One', cursive; }
+        .author-info p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+
+        /* --- Profile Image --- */
+        .profile-img-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 3;
+        }
+
+        .profile-img-border {
+            width: 130px;
+            height: 130px;
+            background: #ffce32; /* Yellow border from image */
+            border-radius: 50%;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-border img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+        /* --- Decorative Doodles --- */
+        .doodle { position: absolute; pointer-events: none; }
+
+        .rocket-doodle {
+            left: -50px;
+            bottom: 20px;
+            width: 120px;
+            transform: rotate(-15deg);
+        }
+
+        .flower-doodle {
+            top: -40px;
+            left: -40%;
+            transform: translateX(-50%);
+            width: 100px;
+        }
+
+        .waves-doodle {
+            right: -30px;
+            bottom: 40px;
+            width: 80px;
+        }
+
+        .star-doodle {
+            right: -60px;
+            top: 50%;
+            width: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card { padding: 40px; border-radius: 40px; }
+            .profile-img-wrapper { position: relative; right: 0; margin-bottom: 20px; }
+            .doodle { display: none; }
+        }
+
+        /* --- FOOTER (Image 6) --- */
+        footer {
+            background: #1d3d4a;
+            padding: 100px 10% 40px;
+            color: white;
+            border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+            position: relative;
+            margin-top: 100px;
+        }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-logo h2 { font-size: 2rem; margin-bottom: 20px; }
+        .footer-col h4 { font-family: 'Fredoka One', cursive; margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col p, .footer-col li { color: #ccc; list-style: none; margin-bottom: 10px; font-size: 0.9rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+        .gallery-grid div { width: 60px; height: 60px; background: #333; border-radius: 8px; }
+        .bottom-bar { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 20px; font-size: 0.8rem; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><h2><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#" class="active">Facilities</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Ask Us</a></li>
+        </ul>
+        <div style="font-size: 1.5rem;">🔍 🛒</div>
+    </nav>
+
+   <section class="hero-banner">
+        <div>
+            <h1>About Us</h1>
+            <p class="breadcrumb">Home ● Activities</p>
+        </div>
+        <div class="cloud-divider">
+            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud" style="width:100%; display:block; filter: invert(1) brightness(2);" />
+        </div>
+    </section>
+
+
+<section class="programs-container">
+    <div class="decor decor-planet"><img src="images/planet.png" alt="Planet" width="140"></div>
+    <div class="decor decor-pencil"><img src="images/pencil.png" alt="Pencil" width="120"></div>
+
+    <span class="tagline">Educational Programs</span>
+    <h2>Creating Magical & Engaging Learning Spaces</h2>
+    <p class="description">
+        Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.
+    </p>
+
+    <div class="programs-grid">
+        <div class="program-card" style="animation-delay: 0.1s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=200" alt="Online Class">
+            </div>
+            <div class="card-content">
+                <h3>Online Class</h3>
+                <p>Enim praesent elementum facilisis leo vel fringilla est.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+
+        <div class="program-card" style="animation-delay: 0.2s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=200" alt="Interactive Class">
+            </div>
+            <div class="card-content">
+                <h3>Interactive Class</h3>
+                <p>Pulvinar etiam non quam lacus suspendisse.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+
+        <div class="program-card" style="animation-delay: 0.3s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=200" alt="Safety Facility">
+            </div>
+            <div class="card-content">
+                <h3>Safty Facility</h3>
+                <p>Consequat id porta nibh venenatis cras sed felis eget.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+
+        <div class="program-card" style="animation-delay: 0.4s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=200" alt="Special Education">
+            </div>
+            <div class="card-content">
+                <h3>Special Education</h3>
+                <p>Fames ac turpis egestas maecenas pharetra.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+
+        <div class="program-card" style="animation-delay: 0.5s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=200" alt="Creative Course">
+            </div>
+            <div class="card-content">
+                <h3>Creative Course</h3>
+                <p>Morbi tincidunt ornare massa eget egestas purus.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+
+        <div class="program-card" style="animation-delay: 0.6s;">
+            <div class="image-mask">
+                <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&q=80&w=200" alt="Special Games">
+            </div>
+            <div class="card-content">
+                <h3>Special Games</h3>
+                <p>Tristique risus nec feugiat in fermentum posuere.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="design-banner">
+    <div class="banner-container">
+        <div class="decor decor-bee"><img src="images/bee.png" alt="Bee" width="100"></div>
+        <div class="decor decor-rocket"><img src="images/departure.png" alt="Rocket" width="150"></div>
+        <div class="decor decor-cloud-1"><img src="images/cloud.png" alt="Cloud" width="100"></div>
+        <div class="decor decor-bike-boy"><img src="images/delivery-boy.png" alt="Bicycle Boy" width="100"></div>
+
+        <div class="design-text">
+            <span class="tag">Creativity Is The Way Of Seeing</span>
+            <h2>Bringing Great Design Ideas To Life</h2>
+            <p>Justo eget magna fermentum iaculis eu non diam. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Volutpat consequat mauris nunc congue nisi vitae suscipit.</p>
+            <a href="#" class="btn-more-videos">More Videos</a>
+        </div>
+
+        <div class="design-video">
+            <div class="video-wrapper">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800" alt="Kids playing">
+                <div class="play-btn">
+                    <div class="play-icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grass-border"></div>
+</section>
+
+   <section class="extra-section">
+    <div class="extra-header">
+        <span class="tag">Problem Solving</span>
+        <h2>Extra Curricular Activity</h2>
+        <p class="extra-intro">Faucibus nisl tincidunt eget nullam non. Eu augue ut lectus arcu. Euismod quis viverra nibh cras pulvinar mattis nunc sed.</p>
+    </div>
+
+    <div class="extra-container">
+        <div class="decor decor-planet-left"><img src="images/planet.png" alt="Planet" width="100px"></div>
+        <div class="decor decor-rainbow-right"><img src="images/rainbow.png" alt="Rainbow Boy" width="100px"></div>
+        <div class="decor decor-rocket-mid"><img src="images/departure.png" alt="Rocket" width="100px"></div>
+        <div class="decor decor-artist-bottom"><img src="images/painting.png" alt="Artist Girl" width="200px"></div>
+
+        <div class="extra-row">
+            <div class="extra-content">
+                <span class="tag-sub"><img src="images/education.png
+                    " class="mini-icon"> Creative</span>
+                <h3>Clay Work Class</h3>
+                <p>Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus.</p>
+                <div class="timing">Class Timing : 9.00am to 12.00pm</div>
+                <a href="#" class="btn-join">Join Now</a>
+            </div>
+            <div class="extra-visual">
+                <div class="cut-img mask-bottom-right">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600" alt="Clay Work">
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-row reverse">
+            <div class="extra-content">
+                <span class="tag-sub"><img src="images/education.png" class="mini-icon"> Craft</span>
+                <h3>Art & Painting Class</h3>
+                <p>Vulpuate eu scelerisque felis imperdiet proin. Vel pharetra vel turpis nunc eget lorem dolor. Scelerisque eleifend donec pretium.</p>
+                <div class="timing">Class Timing : 11.00am to 1.00pm</div>
+                <a href="#" class="btn-join">Join Now</a>
+            </div>
+            <div class="extra-visual">
+                <div class="cut-img mask-top-left">
+                    <img src="https://images.unsplash.com/photo-1564429138004-317042a8243a?auto=format&fit=crop&w=600" alt="Art Class">
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-row">
+            <div class="extra-content">
+                <span class="tag-sub"><img src="images/education.png" class="mini-icon"> Sports</span>
+                <h3>Sports Activity Class</h3>
+                <p>In mollis nunc sed id semper. Vitae sapien pellentesque habitant morbi. Ultrices sagittis orci a scelerisque. Massa sed elementum.</p>
+                <div class="timing">Class Timing : 4.00pm to 6.00pm</div>
+                <a href="#" class="btn-join">Join Now</a>
+            </div>
+            <div class="extra-visual">
+                <div class="cut-img mask-bottom-left">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600" alt="Sports Class">
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-row reverse">
+            <div class="extra-content">
+                <span class="tag-sub"><img src="images/education.png" class="mini-icon"> Swimming</span>
+                <h3>Swimming Class</h3>
+                <p>Lacus vel facilisis volutpat est velit egestas dui id ornare. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper.</p>
+                <div class="timing">Class Timing : 10.00am to 12.00pm</div>
+                <a href="#" class="btn-join">Join Now</a>
+            </div>
+            <div class="extra-visual">
+                <div class="cut-img mask-top-right">
+                    <img src="https://images.unsplash.com/photo-1519245659620-e859806a8d3b?auto=format&fit=crop&w=600" alt="Swimming Class">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="testimonial-section">
+    <div class="sub-title">
+        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909808.png" alt="strawberry">
+        Happy Parents
+    </div>
+    <h2>Our Testimonials</h2>
+    <p class="header-desc">
+        Amet purus gravida quis blandit turpis. Enim neque volutpat ac tincidunt vitae semper. 
+        Quam id leo in vitae. Eu turpis egestas pretium aenean.
+    </p>
+
+    <div class="testimonial-container">
+        <img src="images/startup.png" class="doodle rocket-doodle" alt="rocket">
+        <img src="images/sunflower.png" class="doodle flower-doodle" alt="flowers">
+        <img src="images/star.png" class="doodle star-doodle" alt="stars">
+
+        <div class="profile-img-wrapper">
+            <div class="profile-img-border">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200" alt="Emma">
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Quisque egestas ipsum vitae erat faucibus, non volutpat arcu faucibus. Phasellus auctor sed ligula in bibendum. 
+                Maecenas vel ultrices nulla. Aliquam nunc nulla, consectetur quis varius eget, tempor a nisi. 
+                Integer hendrerit viverra enim, in mattis purus fermentum et."
+            </p>
+            <div class="author-info">
+                <h4>- Noah Emma</h4>
+                <p>Business Head</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>KIDS COOL</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                <div style="margin-top: 20px;">🔵 🟢 🟣 🟡</div>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <li>About Ninos</li>
+                <li>Our Team</li>
+                <li>News Feed</li>
+                <li>Infrastructure</li>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <li>Start a Return</li>
+                <li>Shipping Policy</li>
+                <li>F.A.Q</li>
+                <li>Contact Us</li>
+            </div>
+            <div class="footer-col">
+                <h4>Our Galleries</h4>
+                <div class="gallery-grid">
+                    <div></div><div></div><div></div>
+                    <div></div><div></div><div></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>Copyright © 2023 Kids by Wedesigntech. All Rights Reserved.</p>
+            <p>Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+</body>
+</html>

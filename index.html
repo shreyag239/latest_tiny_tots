@@ -65,6 +65,7 @@
         }
 
         .left-side {
+            height: 50vh;
             left: -10%; /* Distance from left edge */
             width: 750px; /* Adjust size as needed */
         }
@@ -710,6 +711,192 @@
     .timeline-dot { left: 18px !important; }
 }
 
+:root {
+    --bg-color: #FFF5EE;
+    --primary-pink: #E91E63;
+    --text-dark: #2D2D2D;
+    --text-light: #666;
+    --orange: #FF9E7D;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.edu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- About Us Section --- */
+.about-us {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.about-image-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+/* The kidney/bean shape */
+.blob-shape {
+    width: 100%;
+    aspect-ratio: 1.4 / 1;
+    background: #FF9E7D;
+    clip-path: ellipse(50% 40% at 50% 50%); /* Simplified for demo, can use complex path */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    overflow: hidden;
+    border: 15px solid #FF9E7D;
+}
+
+.blob-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.sub-label {
+    color: var(--primary-pink);
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: var(--primary-pink);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* --- Programs Grid --- */
+.programs-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 60px auto 40px;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.program-card {
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.card-blob {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border-radius: 30%;
+}
+
+.card-blob img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.card-info a {
+    color: var(--text-dark);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 2px dashed #FF9E7D;
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* --- Decorations --- */
+.decor {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.star-top {
+    top: 50px;
+    left: 20px;
+    width: 60px;
+}
+
+.planet-bottom {
+    bottom: 50px;
+    left: 50px;
+    width: 100px;
+}
+
+.wave-divider {
+    height: 20px;
+    background-image: radial-gradient(circle at 10px -7px, transparent 8px, #333 8px, #333 10px, transparent 10px);
+    background-size: 20px 20px;
+    width: 100%;
+    margin: 40px 0;
+    opacity: 0.2;
+}
+
         /* --- EDUCATION NEWS STYLES --- */
         .education-news {
             background-color: #0b5e65; /* Dark teal */
@@ -996,11 +1183,11 @@
         </div>
         <ul class="nav-links">
             <li><a href="#" style="color:#ff4d6d;">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Programs</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="activities.html">Programs</a></li>
             <li><a href="#">Gallery</a></li>
             <li><a href="#">Events</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -1023,114 +1210,75 @@
         <div class="cloud-footer"></div>
     </section>
 
-    <section class="about-hero" data-animate="fade-up">
-        <div class="about-inner">
-            <div class="about-inner">
-                <div class="image-blob-container">
-                    <div class="blob-shape">
-                    <span class="blob-dot one"></span>
-                    <span class="blob-dot two"></span>
-                    <span class="blob-dot three"></span>
-                        <img src="images/about_image_3.jpg" alt="Children playing">
-
-                <div class="about-decor about-globe" aria-hidden="true">
-                    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-                        <path d="M81.6,42.8c-3.5-5.9-8.9-10.6-15.1-13.4c-15.6-7.1-34.8-2.3-44.2,13.8c-3.4,5.9-5.2,12.9-4.8,19.8  c0.5,6.8,3.2,13.3,7.4,18.7c4.2,5.3,9.9,9.5,16.4,11.6c6.5,2.1,13.6,2.1,20.1,0.2c6.5-1.9,12.6-5.7,17-10.9  c4.6-5.4,7.2-12.2,7.7-19.3C86.8,56.2,85.2,49,81.6,42.8" fill="#ffb085" stroke="#ff7a1a" stroke-width="1.2"></path>
-                    </svg>
-                            <span class="blob-dot one"></span>
+    <section class="edu-container">
+    <svg class="decor star-top" viewBox="0 0 60 80"><path d="M52,65.7c-1-1.6-2.1-3.2-3.1-4.8c-0.9-1.4-1.8-3-3-4.2c2.5-2.4,4.6-5.2,6.2-8.2c0.8-1.4,1.5-2.9,2.1-4.4 c0.4-1.1,1.2-2.7,0.1-3.6c-1-0.8-2.7-0.1-3.8,0.2c-1.7,0.5-3.5,1.1-5.1,1.8c-3.1,1.3-6.5,2.7-9.1,4.9c-0.2,0.1-0.3,0.2-0.5,0.3 c-0.7-1.3-1.9-2.6-2.7-3.7c-1.2-1.6-2.5-3.1-3.8-4.6c-2.7-3.1-5.7-6.1-8.8-8.8C19.9,30.1,19,30.3,19,31l0,12.2c0,1.9,0,3.9,0,5.8 c0,1.3,0,2.7,0,4.1c-0.2,0-0.4,0.1-0.6,0.2c-0.9-0.1-1.8,0.3-2.6,0.6c-1.6,0.5-3.1,1-4.7,1.5c-3,1.1-5.9,2.3-8.8,3.7 c-0.7,0.3-0.5,1.3,0,1.7c2.7,2,5.6,3.7,8.6,5c1.4,0.6,2.8,1.2,4.2,1.6c1.4,0.5,3,1.1,4.6,1.2c-0.2,1.4,0,2.9,0.2,4.3 c0.1,1.7,0.4,3.5,0.6,5.2c0.5,3.7,1.3,7.4,2.3,11c0.2,0.7,1.2,1,1.7,0.4c4.5-5.1,8.4-10.7,11.5-16.8c7,2.1,14.2,3.5,21.5,4.2 c0.7,0.1,1.1-0.8,0.8-1.4C56.2,72.4,54.1,69,52,65.7z" fill="#B2D8E5"/></svg>
+    <div class="about-us">
+        <div class="about-image-wrapper">
+            <div class="blob-shape">
+                <img src="https://images.pexels.com/photos/3662838/pexels-photo-3662838.jpeg" alt="Children playing">
             </div>
-
-                        <span class="blob-dot two"></span>
-                        <span class="bAbout Usn>
-                    </div>We Educate Knowledge & Essential Skills!
-    
-                    Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget, pretium sed massa.
-                        </svg>
-                    </div>Read More
-                </div>
-        </div>
-
-        <div class="child-figure">
-            <img src="images/child-play.png" alt="Child playing with blocks">
-        </div>
-
-        <div class="about-decor about-pencil" aria-hidden="true">
-            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-                <path d="M73.8,20.3C68.7,29.1,63.6,38,58.4,46.9C52.2,57.7,46,68.5,39.8,79.3c-0.1,0.3-0.3,0.5-0.5,0.7  c-1.1-0.7-2.3-1-3.5-1.2c0,0,0,0,0,0c-0.1-0.1-0.1-0.1-0.2-0.2c-0.3-0.1-0.7-0.2-1-0.3c0.2-0.2,0.3-0.3,0.5-0.5  c0.9-1.6,1.8-3.2,2.7-4.7c1.7-3,3.5-5.9,5.2-8.9c1.8-3.2,3.6-6.3,5.4-9.5c1.2-2.1,2.5-4.2,3.7-6.3c2.2-3.7,4.3-7.5,6.4-11.2  c1.9-3.2,3.8-6.5,5.7-9.7c1.5-2.5,2.9-5,4.3-7.6c0.4-0.6,0.7-1.3,1-2c0.7,0.3,1.4,0.7,2.1,1C72.3,19.3,73.1,19.8,73.8,20.3z" fill="#84c1ff" stroke="#2b7fbf" stroke-width="0.9"></path>
-            </svg>
-        </div>
-
-        <!-- Educational Programs merged into the About section to keep same background gradient -->
-        <div class="scallop-row"><div class="scallop" aria-hidden="true"></div></div>
-
-        <div class="educational-inner">
-            <span class="tag">Educational Programs</span>
-            <h2>Step By Step Systematic Education</h2>
-            <p class="lead">Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget. Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida.</p>
-
-        <div class="educational-inner">
-            <span class="tag">Educational Programs</span>
-            <h2>Step By Step Systematic Education</h2>
-            <p class="lead">Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget. Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida.</p>
-        </div>
-    </section>
-
-    <section class="smart-activities-grid stagger" data-animate="stagger">
-
-        <div class="activity-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/167/167707.png" class="top-icon" alt="School">
-            <div class="shape-wrap sq-border">
-                <img src="images/a1.jpg" class="shape-img" alt="Swimming">
-            </div>
-            <h3>Physical Play</h3>
-            <p>Gross motor development through games, movement songs, and safe outdoor play.</p>
-        </div>
-
-        <div class="activity-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/3079/3079165.png" class="top-icon" alt="Kids">
-            <div class="shape-wrap ci-border">
-                <img src="images/baby_play.jpg" class="shape-img" alt="Learning">
-            </div>
-            <h3>Group Learning</h3>
-            <p>Cooperative activities that build sharing, communication and early social skills.</p>
-        </div>
-
-            <div class="service-card">
-                <div class="service-thumb"><img src="images/service4.jpg" alt="Preschool"></div>
-                <div class="service-content">
-                    <h4>Preschool</h4>
-                    <p>Adipiscing diam donec adipiscing tristique risus entum.</p>
-                    <a href="#" class="learn-more">Learn More</a>
-                </div>
-            </div>
+            <div class="orange-dot"></div>
         </div>
         
-        <img src="https://cdn-icons-png.flaticon.com/512/1043/1043440.png" class="float-doodle rocket-tiny" alt="Rocket">
-    </section>
-
-    <section class="creative-section" data-animate="fade-up">
-    <div class="container">
-        <div class="creative-content">
-            <div class="icon-cap">🎓</div>
-            <span class="sub-title">Holistic</span>
-            <h2 class="main-heading">Creative Learning for Little Learners</h2>
-            <p class="description">
-                We celebrate festivals, art, music and movement to help children explore
-                culture and creativity. Activities include clay work, finger painting, rhymes
-                and introductory numeracy and phonics.
-            </p>
-            <a href="#" class="btn-creative">See Activities</a>
+        <div class="about-content">
+            <span class="sub-label">About Us</span>
+            <h2>We Educate Knowledge & Essential Skills!</h2>
+            <p>Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
+            <button class="btn-primary">Read More</button>
         </div>
+    </div>
 
-        <div class="image-gallery">
-            <div class="image-box arch-bottom">
-                <img src="images/a1.jpg" alt="Child playing with clay">
+    <div class="wave-divider"></div>
+
+    <div class="programs-header">
+        <span class="sub-label">Educational Programs</span>
+        <h2>Step By Step Systematic Education</h2>
+        <p class="header-desc">Duis sed augue vitae felis pellentesque varius nec quis nunc. Morbi mauris augue, pulvinar quis luctus eget.</p>
+    </div>
+
+    <div class="programs-grid">
+        <div class="program-card">
+            <div class="card-blob"><img src="https://images.pexels.com/photos/4019754/pexels-photo-4019754.jpeg" alt="Online Class"></div>
+            <div class="card-info">
+                <h3>Online Class</h3>
+                <p>Eu turpis egestas pretium aenean pharetra magna ac.</p>
+                <a href="#">Learn More</a>
             </div>
-            <div class="image-box arch-top">
-                <img src="images/a2 (1).jpg" alt="Child painting">
+        </div>
+        <div class="program-card">
+            <div class="card-blob"><img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg" alt="Formal Tuition"></div>
+            <div class="card-info">
+                <h3>Formal Tuition</h3>
+                <p>Posuere ac ut consequat semper viverra nam libero justo.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="program-card">
+            <div class="card-blob"><img src="https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg" alt="Special Tuition"></div>
+            <div class="card-info">
+                <h3>Special Tuition</h3>
+                <p>Tristique risus nec feugiat in. Auctor augue mauris.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="program-card">
+            <div class="card-blob"><img src="https://images.pexels.com/photos/8437090/pexels-photo-8437090.jpeg" alt="Preschool"></div>
+            <div class="card-info">
+                <h3>Preschool</h3>
+                <p>Adipiscing diam donec adipiscing tristique risus entum.</p>
+                <a href="#">Learn More</a>
             </div>
         </div>
     </div>
+
+    <div class="view-more-container">
+        <button class="btn-primary">View More</button>
+    </div>
+
+    <svg class="decor planet-bottom" viewBox="0 0 100 100">
+        <path d="M81.6,42.8c-3.5-5.9-8.9-10.6-15.1-13.4c-15.6-7.1-34.8-2.3-44.2,13.8c-3.4,5.9-5.2,12.9-4.8,19.8 c0.5,6.8,3.2,13.3,7.4,18.7c4.2,5.3,9.9,9.5,16.4,11.6c6.5,2.1,13.6,2.1,20.1,0.2c6.5-1.9,12.6-5.7,17-10.9 c4.6-5.4,7.2-12.2,7.7-19.3C86.8,56.2,85.2,49,81.6,42.8" fill="#FF9E7D"/>
+        <path d="M98.3,54.1c-0.8-2.1-3.1-2.6-5.1-2.7c-2.6-0.1-5.1,0-7.7,0.3c-0.1,0-0.2,0-0.2,0c0,0.1,0,0.3,0,0.4c0,0.1,0.1,0.2,0.1,0.3 c0,0.1,0.1,0.3,0.1,0.4c0.9-0.1,1.8-0.1,2.7-0.2c1.9-0.1,4-0.1,5.9,0.2c0.7,0.1,1.6,0.3,2.1,0.8c0.5,0.5,0.7,1.1,0.7,1.8 c0,1.6-1,2.9-2.3,3.7c-1.5,1-3.2,1.7-4.9,2.4c-1.8,0.8-3.6,1.5-5.4,2.2c-3.6,1.4-7.2,2.6-10.9,3.7c-7.4,2.2-15,3.7-22.6,4.7 C43.1,73,35.3,73.3,27.6,73c-3.9-0.2-7.7-0.5-11.6-1c-1.7-0.2-3.3-0.4-5-0.9c-1.2-0.3-2.6-0.9-3.4-1.9c-0.3-0.4-0.5-0.8-0.5-1.2 c0.2-1.2,0.7-2.2,1.7-3.1c1-1.1,2.2-1.9,3.4-2.8c0.6-0.4,1.2-0.9,1.9-1.4c0.6-0.5,1.3-0.8,2-1.2c0.6-0.3,1.1-0.6,1.7-0.9 c0-0.3,0-0.7,0-1c-0.2,0-0.4,0.1-0.6,0.1c-1.1,0.2-2.1,0.6-3.2,1c-1.1,0.4-2.2,0.8-3.2,1.5c-1,0.6-1.9,1.4-2.8,2.1 c-1.7,1.4-3.5,3.4-2.7,5.8c0.2,0.7,0.6,1.6,1.2,2.2c0.6,0.6,1.3,1.1,2.1,1.4c1.7,0.8,3.6,1.1,5.4,1.4c2.4,0.3,4.8,0.6,7.2,0.9 c4.7,0.4,9.5,0.6,14.2,0.6c9.6-0.1,19.1-1.1,28.5-3.1c9.3-2,18.4-4.9,27.1-8.6c2-0.9,4.3-1.7,5.9-3.2C98.2,58.2,99,56,98.3,54.1z" fill="#333"/>
+    </svg>
 </section>
 
    
