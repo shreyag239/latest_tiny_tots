@@ -1,71 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask Us - Kids Cool</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/global.css">
     <style>
         /* --- GLOBAL & HEADER/FOOTER (Pixel-Perfect Match to Index) --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Quicksand', sans-serif; 
-            font-size: 20px; 
-            color: #444; 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            background-color: #fff; 
-        }
-        h1, h2, h3, .logo-text { font-family: 'Fredoka One', cursive; color: #2c3e50; }
-        h2 { font-size: 3.5rem; margin-bottom: 20px; }
-        p { font-size: 1.3rem; color: #666; }
-
-      /* --- HEADER (Identical to Index) --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            color: #444;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .nav-links a:hover {
-            color: #ff4d6d;
-        }
-
-         @media (max-width: 1100px) {
-
-            /* Navbar gap reduction */
-            nav {
-                padding: 15px 5%;
-            }
-
-            .nav-links {
-                display: none;
-                /* Recommended: Add a burger menu or hide for now to prevent overlap */
+        /* Mobile font size adjustments */
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
             }
         }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Fredoka One', cursive;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #666;
+        }
+
+
         /* --- ANIMATIONS --- */
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes moveCloud {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(30px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes moveCloudMobile {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(15px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .moving-cloud {
+            animation: moveCloud 6s ease-in-out infinite;
         }
 
         /* --- HERO SECTION (Cream & Yellow Design) --- */
@@ -77,26 +111,62 @@
             align-items: center;
             justify-content: space-between;
             min-height: 75vh;
+            overflow: hidden;
         }
 
-        .hero-text-side { flex: 1; z-index: 10; }
+        .hero-text-side {
+            flex: 1;
+            z-index: 10;
+        }
+
         .hero-text-side h1 {
             font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 20px;
         }
-        .hero-text-side h1 span { color: #ff9d2d; }
-        .hero-text-side p { font-size: 1.1rem; color: #666; max-width: 500px; margin-bottom: 30px; }
 
-        .btn-group { display: flex; gap: 15px; }
+        .hero-text-side h1 span {
+            color: #ff9d2d;
+        }
+
+        .hero-text-side p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
         .hero-btn {
-            padding: 14px 35px; border-radius: 50px; font-family: 'Fredoka One';
-            text-decoration: none; font-size: 1rem; transition: 0.3s;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-family: 'Fredoka One';
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
             display: inline-block;
         }
-        .btn-orange { background: #ff9d2d; color: white; box-shadow: 0 8px 15px rgba(255, 157, 45, 0.3); }
-        .btn-teal { background: #73d2d6; color: white; box-shadow: 0 8px 15px rgba(115, 210, 214, 0.3); }
-        .hero-btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        .btn-orange {
+            background: #ff9d2d;
+            color: white;
+            box-shadow: 0 8px 15px rgba(255, 157, 45, 0.3);
+        }
+
+        .btn-teal {
+            background: #73d2d6;
+            color: white;
+            box-shadow: 0 8px 15px rgba(115, 210, 214, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
 
         /* Hero Visual Side with Masked Portrait */
         .hero-visual-side {
@@ -124,7 +194,7 @@
             object-fit: cover;
             border-radius: 50%;
             border: 10px solid white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         /* Floating Icons exactly as requested */
@@ -134,12 +204,32 @@
             width: 65px;
             animation: float 4s ease-in-out infinite;
         }
-        .icon-cap { top: -40px; left: 15%; animation-delay: 0s; }
-        .icon-trophy { top: 0px; right: 10%; animation-delay: 1s; }
-        .icon-book { top: 35%; right: -20px; width: 60px; animation-delay: 0.5s; }
-        .icon-bulb { bottom: 10%; right: 10%; width: 55px; animation-delay: 2s; }
-        .icon-ball { bottom: 35%; left: -30px; width: 60px; animation-delay: 1.5s; }
-        .icon-clock { bottom: 5%; left: 15%; width: 55px; animation-delay: 2.5s; }
+
+        .icon-cap {
+            top: -40px;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .icon-trophy {
+            top: 0px;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .icon-bulb {
+            bottom: 10%;
+            right: 10%;
+            width: 55px;
+            animation-delay: 2s;
+        }
+
+        .icon-clock {
+            bottom: 5%;
+            left: 15%;
+            width: 55px;
+            animation-delay: 2.5s;
+        }
 
         /* --- FORM & MAP --- */
         .contact-body {
@@ -154,44 +244,387 @@
             background: #fff;
             padding: 50px;
             border-radius: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
             border-left: 10px solid #ffce32;
         }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-weight: 700; margin-bottom: 10px; font-size: 0.9rem; color: #2c3e50; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 18px 25px; border: 2px solid #f8f8f8;
-            border-radius: 20px; font-family: 'Quicksand'; font-size: 1rem; outline: none;
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #f8f8f8;
+            border-radius: 20px;
+            font-family: 'Quicksand';
+            font-size: 1rem;
+            outline: none;
         }
 
         .map-container {
-            border-radius: 40px; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
             background: #f0f0f0;
-            height: 100%; min-height: 500px;
+            height: 100%;
+            min-height: 500px;
         }
 
-        /* --- FOOTER (Exact Replication) --- */
-        footer {
-            background: #1a2a2a; color: white; 
-            padding: 80px 10% 40px; 
-            border-radius: 50% 50% 0 0 / 10% 10% 0 0; 
-        }
-        footer h2 { color: white; font-family: 'Fredoka One'; margin-bottom: 20px; }
-        footer h3 { color: white; font-size: 1.5rem; margin-bottom: 15px; }
-        footer p { color: #aaa; margin-top: 20px; font-size: 1rem; line-height: 1.6; }
 
         @media (max-width: 992px) {
-            .contact-hero-new { flex-direction: column; text-align: center; }
-            .hero-visual-side { margin-top: 60px; }
-            .btn-group { justify-content: center; }
-            .contact-body { grid-template-columns: 1fr; }
-            .yellow-circle-bg { width: 320px; height: 320px; }
-            .child-rounded { width: 250px; height: 250px; }
-            .edu-float-icon { width: 45px; }
+            .contact-hero-new {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5% 80px;
+            }
+
+            .hero-visual-side {
+                margin-top: 40px;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .contact-body {
+                grid-template-columns: 1fr;
+                padding: 60px 5%;
+                gap: 40px;
+            }
+
+            .yellow-circle-bg {
+                width: 320px;
+                height: 320px;
+            }
+
+            .child-rounded {
+                width: 250px;
+                height: 250px;
+            }
+
+            .edu-float-icon {
+                width: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero-new {
+                padding: 40px 4% 60px;
+                min-height: auto;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+
+            .hero-text-side p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+                max-width: 100%;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+                width: 200px;
+                text-align: center;
+            }
+
+            .contact-body {
+                padding: 40px 4%;
+                gap: 30px;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+
+            .form-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .yellow-circle-bg {
+                width: 280px;
+                height: 280px;
+            }
+
+            .child-rounded {
+                width: 220px;
+                height: 220px;
+            }
+
+            .edu-float-icon {
+                width: 35px;
+            }
+
+            .icon-cap {
+                top: -20px;
+                left: 12%;
+            }
+
+            .icon-trophy {
+                top: 15px;
+                right: 8%;
+            }
+
+            .icon-bulb {
+                bottom: 15%;
+                right: 8%;
+                width: 30px;
+            }
+
+            .icon-clock {
+                bottom: 10%;
+                left: 12%;
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero-new {
+                padding: 30px 4% 50px;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2rem;
+                line-height: 1.0;
+                margin-bottom: 12px;
+            }
+
+            .hero-text-side p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .hero-btn {
+                padding: 10px 25px;
+                font-size: 0.85rem;
+                width: 180px;
+            }
+
+            .contact-body {
+                padding: 30px 4%;
+                gap: 25px;
+            }
+
+            .form-card {
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 18px;
+            }
+
+            .form-group label {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 14px 18px;
+                font-size: 0.9rem;
+                border-radius: 15px;
+            }
+
+            .yellow-circle-bg {
+                width: 240px;
+                height: 240px;
+            }
+
+            .child-rounded {
+                width: 180px;
+                height: 180px;
+                border: 6px solid white;
+            }
+
+            .edu-float-icon {
+                width: 28px;
+            }
+
+            .icon-cap {
+                top: -15px;
+                left: 10%;
+            }
+
+            .icon-trophy {
+                top: 10px;
+                right: 10%;
+            }
+
+            .icon-bulb {
+                bottom: 12%;
+                right: 10%;
+                width: 25px;
+            }
+
+            .icon-clock {
+                bottom: 8%;
+                left: 10%;
+                width: 25px;
+            }
+
+            .map-container {
+                border-radius: 20px;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-hero-new {
+                padding: 25px 3% 40px;
+            }
+
+            .hero-text-side h1 {
+                font-size: 1.7rem;
+                margin-bottom: 10px;
+            }
+
+            .hero-text-side p {
+                font-size: 0.85rem;
+            }
+
+            .hero-btn {
+                width: 160px;
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+
+            .form-card {
+                padding: 20px 12px;
+            }
+
+            .form-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .yellow-circle-bg {
+                width: 200px;
+                height: 200px;
+            }
+
+            .child-rounded {
+                width: 150px;
+                height: 150px;
+                border: 5px solid white;
+            }
+
+            .edu-float-icon {
+                width: 22px;
+            }
+
+            .icon-cap {
+                top: -12px;
+                left: 8%;
+            }
+
+            .icon-trophy {
+                top: 8px;
+                right: 8%;
+            }
+
+            .icon-bulb {
+                bottom: 10%;
+                right: 8%;
+                width: 20px;
+            }
+
+            .icon-clock {
+                bottom: 6%;
+                left: 8%;
+                width: 20px;
+            }
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        /* Mobile bread image enhancements */
+        @media (max-width: 768px) {
+            .cloud-divider {
+                bottom: -8px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 120px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 6s ease-in-out infinite;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cloud-divider {
+                bottom: -10px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 100px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 8s ease-in-out infinite;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cloud-divider {
+                bottom: -12px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 80px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 10s ease-in-out infinite;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -206,12 +639,19 @@
             <li><a href="#">Pages</a></li>
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
+
 
     <section class="contact-hero-new">
         <div class="hero-text-side">
             <h1>BEST <span>SCHOOL</span> FOR<br>YOUR CHILDS</h1>
-            <p>Have a question or want to visit our campus? Our friendly team is here to guide you and your child to the right path of education.</p>
+            <p>Have a question or want to visit our campus? Our friendly team is here to guide you and your child to the
+                right path of education.</p>
             <div class="btn-group">
                 <a href="#" class="hero-btn btn-orange">LEARN MORE</a>
                 <a href="#" class="hero-btn btn-teal">OUR CLASS</a>
@@ -220,13 +660,19 @@
 
         <div class="hero-visual-side">
             <img src="images/cap.png" class="edu-float-icon icon-cap" alt="Cap">
-            <img src="https://cdn-icons-png.flaticon.com/512/3112/3112946.png" class="edu-float-icon icon-trophy" alt="Trophy">
-            <img src="https://cdn-icons-png.flaticon.com/512/2436/2436702.png" class="edu-float-icon icon-bulb" alt="Lightbulb">
+            <img src="https://cdn-icons-png.flaticon.com/512/3112/3112946.png" class="edu-float-icon icon-trophy"
+                alt="Trophy">
+            <img src="https://cdn-icons-png.flaticon.com/512/2436/2436702.png" class="edu-float-icon icon-bulb"
+                alt="Lightbulb">
             <img src="images/goal.png" class="edu-float-icon icon-clock" alt="Clock">
-            
+
             <div class="yellow-circle-bg"></div>
-            
+
             <img src="./images/contact-us.jpg" class="child-rounded" alt="Student Portrait">
+        </div>
+        <div class="cloud-divider">
+            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud"
+                style="width:100%; display:block; filter: invert(1) brightness(2);" />
         </div>
     </section>
 
@@ -246,35 +692,126 @@
                     <label>How can we help?</label>
                     <textarea rows="5" placeholder="Tell us about your child's needs..."></textarea>
                 </div>
-                <button type="submit" class="hero-btn btn-orange" style="border:none; cursor:pointer;">SEND MESSAGE</button>
+                <button type="submit" class="hero-btn btn-orange" style="border:none; cursor:pointer;">SEND
+                    MESSAGE</button>
             </form>
         </div>
 
         <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61747.88604313054!2d76.88310328731362!3d15.135401925184852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb71391d84f9977%3A0x867332219159f42b!2sBallari%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1706440000000!5m2!1sen!2sin" 
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61747.88604313054!2d76.88310328731362!3d15.135401925184852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb71391d84f9977%3A0x867332219159f42b!2sBallari%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1706440000000!5m2!1sen!2sin"
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </section>
+    <div class="footer-bread-top">
+        <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
+    </div>
+    <footer>
+        <div class="footer-girl-paint">
+            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+        </div>
+        <div class="footer-arrow">
+            <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
+                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
+        </div>
 
-   <footer>
-        <div class="footer-grid">
-            <div>
-                <h2 style="color: white;">TINY TOTS</h2>
-                <p style="color: #aaa; margin-top: 20px;">Leading the way in early childhood education with passion and
-                    innovation for Tiny Tots Bellary.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div
+                        style="width: 40px; height: 40px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">
+                        KDS</div>
+                    <h2>Kids</h2>
+                </div>
+                <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div>
-                <h3 style="color: white; font-size: 1.5rem;">Quick Links</h3>
-                <p style="margin-top: 15px; color: #aaa;">About Us<br>Our Team<br>News Feed</p>
+
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="about.html">About Ninos</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">News Feed</a></li>
+                    <li><a href="#">Infrastructure</a></li>
+                </ul>
             </div>
-            <div>
-                <h3 style="color: white; font-size: 1.5rem;">Support</h3>
-                <p style="margin-top: 15px; color: #aaa;">Contact Us<br>FAQs<br>Shipping Policy</p>
+
+            <div class="footer-section">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Start a Return</a></li>
+                    <li><a href="#">Shipping & Return Policy</a></li>
+                    <li><a href="#">F.A.Q</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Our Galleries</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Kids studying"></div>
+                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Learning activities"></div>
+                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Educational fun"></div>
+                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Happy learning"></div>
+                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Baby playing"></div>
+                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="Kids activities"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                Copyright © 2023 Kids by Wedesigntech. All Rights Reserved.
+            </div>
+            <div class="footer-hand-horizontal">
+                <img src="images/sidehand.png" alt="Colorful hands"
+                    style="height: 300px; width: auto; transform: rotate(90deg);">
+            </div>
+            <div style="color: #b8e6e4; font-size: 0.9rem;">
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Privacy Policy</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Terms</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Conditions</a>
             </div>
         </div>
     </footer>
+    <script>
+        // Hamburger Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburgerMenu.addEventListener('click', function () {
+                hamburgerMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 
 </body>
+
 </html>

@@ -28,25 +28,75 @@
      color: #ff4d6d;
  }
 
+ /* Hamburger Menu Styles */
+ .hamburger-menu {
+     display: none;
+     flex-direction: column;
+     cursor: pointer;
+     padding: 5px;
+ }
+
+ .hamburger-menu span {
+     width: 25px;
+     height: 3px;
+     background-color: #333;
+     margin: 3px 0;
+     transition: 0.3s;
+     border-radius: 2px;
+ }
+
+ /* Hamburger Animation */
+ .hamburger-menu.active span:nth-child(1) {
+     transform: rotate(45deg) translate(9px, 9px);
+ }
+
+ .hamburger-menu.active span:nth-child(2) {
+     opacity: 0;
+ }
+
+ .hamburger-menu.active span:nth-child(3) {
+     transform: rotate(-45deg) translate(7px, -6px);
+ }
+
  /* --- FOOTER (New Design) --- */
  footer {
      background: #0a6375;
      color: white;
-     padding: 60px 5% 0;
+     padding: 0;
      position: relative;
      overflow: hidden;
  }
 
- footer::before {
-     content: '';
-     position: absolute;
+ .footer-bread-top {
+     position: relative;
+     width: 100%;
+     height: auto;
      top: 0;
      left: 0;
-     right: 0;
-     height: 40px;
-     background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C120,20 240,0 360,10 C480,20 600,0 720,15 C840,30 960,10 1080,25 C1140,32 1170,35 1200,40 L1200,0 L0,0 Z" fill="%23ffffff"/></svg>') repeat-x;
-     background-size: 1200px 40px;
+     z-index: 1;
  }
+
+ .footer-bread-image {
+     width: 100%;
+     height: auto;
+     display: block;
+ }
+
+ .footer-girl-paint {
+     position: absolute;
+     top: 20px;
+     left: 20px;
+     z-index: 4;
+ }
+
+ .footer-girl-image {
+     width: 120px;
+     height: auto;
+     display: block;
+     filter: brightness(1.2) saturate(1.1);
+     transform: scaleX(-1);
+ }
+
 
  .footer-container {
      max-width: 1200px;
@@ -56,6 +106,7 @@
      gap: 40px;
      position: relative;
      z-index: 2;
+     padding: 60px 5% 0;
  }
 
  .footer-brand {
@@ -92,7 +143,7 @@
  .footer-section h3 {
      font-family: 'Fredoka One', cursive;
      font-size: 1.2rem;
-     color: white;
+     color: #fff;
      margin-bottom: 20px;
  }
 
@@ -107,19 +158,19 @@
  }
 
  .footer-section ul li a {
-     color: #b8e6e4;
+     color: #fff;
      text-decoration: none;
      font-size: 0.9rem;
      transition: color 0.3s ease;
  }
 
  .footer-section ul li a:hover {
-     color: white;
+     color: #b8e6e4;
  }
 
  .footer-bottom {
      height: 200px;
-     padding-bottom: 0;
+     padding: 0 5%;
      border-top: 1px solid rgba(255, 255, 255, 0.1);
      display: flex;
      justify-content: space-between;
@@ -162,23 +213,324 @@
      transform: translateY(-2px);
  }
 
+ /* Gallery Grid Styles */
+ .gallery-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 8px;
+     margin-top: 10px;
+ }
+
+ .gallery-item {
+     border-radius: 8px;
+     overflow: hidden;
+ }
+
+ .gallery-item img {
+     width: 100%;
+     height: 60px;
+     object-fit: cover;
+     transition: transform 0.3s ease;
+ }
+
+ .gallery-item:hover img {
+     transform: scale(1.1);
+ }
+
+ /* Footer Arrow */
+ .footer-arrow {
+     position: relative;
+ }
+
+ /* Footer Hand */
+ .footer-hand-horizontal {
+     display: flex;
+     align-items: center;
+ }
+
+ /* Copyright */
+ .copyright {
+     color: #b8e6e4;
+     font-size: 0.9rem;
+ }
+
 
  @media (max-width: 768px) {
+     .footer-bread-top {
+         height: auto;
+     }
+     
+     .footer-bread-image {
+         height: 100px;
+         object-fit: cover;
+     }
+     
      .footer-container {
-         grid-template-columns: 1fr 1fr;
-         gap: 30px;
+         grid-template-columns: 1fr;
+         gap: 35px;
+         padding: 50px 4% 0;
+         text-align: center;
+     }
+     
+     .footer-brand {
+         grid-column: span 1;
+         text-align: center;
+         margin-bottom: 30px;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+         padding-bottom: 30px;
+     }
+     
+     .footer-section {
+         text-align: center;
+         margin-bottom: 30px;
+     }
+     
+     .footer-section h3 {
+         text-align: center;
+         margin-bottom: 25px;
+         font-size: 1.3rem;
+     }
+     
+     .footer-section ul {
+         text-align: center;
+     }
+     
+     .footer-section ul li {
+         text-align: center;
+         margin-bottom: 10px;
+     }
+     
+     .footer-section ul li a {
+         text-align: center;
+         font-size: 1rem;
+     }
+     
+     .gallery-grid {
+         grid-template-columns: repeat(3, 1fr);
+         gap: 8px;
+         max-width: 280px;
+         margin: 20px auto 0;
+     }
+     
+     .gallery-item img {
+         height: 65px;
+         border-radius: 8px;
+     }
+     
+     .footer-girl-paint {
+         display: none;
+     }
+     
+     .footer-arrow img {
+         width: 60px !important;
+         top: 15px !important;
+         right: 15px !important;
      }
 
      .footer-bottom {
          flex-direction: column;
          text-align: center;
+         height: auto;
+         padding: 30px 4%;
+         gap: 15px;
+     }
+     
+     .footer-hand-horizontal {
+         display: none;
      }
  }
 
  @media (max-width: 480px) {
+     .footer-bread-image {
+         height: 80px;
+     }
+     
      .footer-container {
          grid-template-columns: 1fr;
          text-align: center;
+         padding: 40px 4% 0;
+         gap: 30px;
+     }
+     
+     .footer-brand {
+         grid-column: span 1;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+         padding-bottom: 25px;
+         margin-bottom: 20px;
+         text-align: center;
+     }
+     
+     .footer-logo {
+         justify-content: center;
+         margin-bottom: 15px;
+     }
+     
+     .footer-logo h2 {
+         font-size: 1.4rem;
+     }
+     
+     .footer-description {
+         font-size: 1rem;
+         margin-bottom: 20px;
+         max-width: 280px;
+         margin-left: auto;
+         margin-right: auto;
+         line-height: 1.6;
+     }
+     
+     .social-links {
+         justify-content: center;
+         gap: 15px;
+         margin-bottom: 10px;
+     }
+     
+     .social-link {
+         width: 45px;
+         height: 45px;
+         background: rgba(255, 255, 255, 0.15);
+         font-size: 1.1rem;
+     }
+     
+     .footer-section {
+         margin-bottom: 35px;
+         text-align: center;
+     }
+     
+     .footer-section h3 {
+         font-size: 1.3rem;
+         margin-bottom: 25px;
+         color: #fff;
+         text-align: center;
+     }
+     
+     .footer-section ul {
+         text-align: center;
+         display: block;
+     }
+     
+     .footer-section ul li {
+         margin-bottom: 12px;
+         text-align: center;
+     }
+     
+     .footer-section ul li a {
+         font-size: 1rem;
+         padding: 5px 0;
+         display: block;
+         color: #fff;
+         text-align: center;
+     }
+     
+     .footer-girl-paint {
+         display: none;
+     }
+     
+     .footer-arrow img {
+         width: 50px !important;
+         top: 10px !important;
+         right: 10px !important;
+     }
+     
+     .gallery-grid {
+         grid-template-columns: repeat(3, 1fr);
+         gap: 10px;
+         max-width: 240px;
+         margin: 20px auto 0;
+     }
+     
+     .gallery-item {
+         border-radius: 6px;
+     }
+     
+     .gallery-item img {
+         height: 60px;
+         border-radius: 6px;
+     }
+     
+     .footer-bottom {
+         padding: 25px 4%;
+         border-top: 1px solid rgba(255, 255, 255, 0.1);
+     }
+     
+     .footer-hand-horizontal {
+         display: none;
+     }
+     
+     .copyright {
+         font-size: 0.9rem;
+         line-height: 1.4;
+     }
+ }
+ 
+ @media (max-width: 360px) {
+     .footer-bread-image {
+         height: 60px;
+     }
+     
+     .footer-container {
+         padding: 30px 3% 0;
+         gap: 25px;
+     }
+     
+     .footer-logo h2 {
+         font-size: 1.3rem;
+     }
+     
+     .footer-description {
+         font-size: 0.95rem;
+         max-width: 220px;
+     }
+     
+     .social-link {
+         width: 40px;
+         height: 40px;
+         font-size: 1rem;
+     }
+     
+     .footer-section {
+         margin-bottom: 30px;
+     }
+     
+     .footer-section h3 {
+         font-size: 1.2rem;
+         color: #fff;
+         margin-bottom: 20px;
+     }
+     
+     .footer-section ul li {
+         margin-bottom: 10px;
+         text-align: center;
+     }
+     
+     .footer-section ul li a {
+         font-size: 0.95rem;
+         color: #fff;
+         text-align: center;
+     }
+     
+     .footer-girl-paint {
+         display: none;
+     }
+     
+     .footer-arrow img {
+         width: 45px !important;
+     }
+     
+     .gallery-grid {
+         max-width: 200px;
+         gap: 8px;
+     }
+     
+     .gallery-item img {
+         height: 50px;
+     }
+     
+     .footer-hand-horizontal {
+         display: none;
+     }
+     
+     .copyright {
+         font-size: 0.85rem;
      }
  }
 
@@ -193,6 +545,37 @@
 
      .nav-links {
          display: none;
-         /* Recommended: Add a burger menu or hide for now to prevent overlap */
+         position: fixed;
+         top: 80px;
+         right: 0;
+         width: 100%;
+         height: calc(100vh - 80px);
+         background: white;
+         flex-direction: column;
+         align-items: center;
+         justify-content: flex-start;
+         padding-top: 50px;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         gap: 20px;
+     }
+
+     .nav-links.active {
+         display: flex;
+     }
+
+     .nav-links li {
+         margin: 10px 0;
+     }
+
+     .nav-links a {
+         font-size: 1.5rem;
+         padding: 15px;
+         display: block;
+         width: 100%;
+         text-align: center;
+     }
+
+     .hamburger-menu {
+         display: flex;
      }
  }

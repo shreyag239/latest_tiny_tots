@@ -10,6 +10,100 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <style>
+        .creative-section {
+            padding: 100px 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Content Styling */
+        .creative-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .icon-cap {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 0px;
+        }
+
+        .sub-title {
+            color: #ff1e56;
+            /* The pinkish-red from the image */
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .main-heading {
+            font-size: 2.5rem;
+            color: #000;
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .description {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-creative {
+            display: inline-block;
+            background-color: #ff1e56;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Image Gallery & Arch Styling */
+        .image-gallery {
+            flex: 2;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-box {
+            width: 350px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* This creates the curved cut-out effect */
+        .arch-bottom {
+            border-bottom-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+        .arch-top {
+            border-top-left-radius: 150px;
+            border-top-right-radius: 150px;
+            align-self: flex-end;
+            /* Offsets the second image slightly lower */
+        }
+
+
+
         @media (max-width: 1100px) {
             .about-intro {
                 flex-direction: column;
@@ -336,7 +430,7 @@
         }
 
         h2 {
-            font-size: 3.5rem;
+            font-size: 2.0rem;
             margin-bottom: 20px;
         }
 
@@ -619,72 +713,7 @@
             background: #e61a4d;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 10px;
-        }
 
-        .gallery-item {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .footer-bottom {
-            height: 200px;
-            padding-bottom: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .copyright {
-            color: #b8e6e4;
-            font-size: 0.9rem;
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .payment-method {
-            width: 40px;
-            height: 25px;
-            background: white;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .footer-decorations {
-            position: absolute;
-            top: -20px;
-            right: 5%;
-            width: 80px;
-            height: 80px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="40" r="25" fill="%23ffd93d"/><circle cx="45" cy="35" r="3" fill="%23333"/><circle cx="55" cy="35" r="3" fill="%23333"/><path d="M40,50 Q50,60 60,50" stroke="%23333" stroke-width="2" fill="none"/><path d="M35,20 L40,10 M50,15 L50,5 M65,20 L60,10 M70,30 L80,25 M70,50 L80,55 M65,70 L60,80" stroke="%23ffd93d" stroke-width="3"/></svg>') no-repeat center;
-            background-size: contain;
-            animation: bounce 2s ease-in-out infinite;
-        }
 
         @keyframes bounce {
 
@@ -707,25 +736,6 @@
 
             50% {
                 transform: rotate(10deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
             }
         }
 
@@ -885,7 +895,7 @@
 
         /* Applying to your specific classes */
         .creativity-cap {
-            animation: capFloat 4s ease-in-out infinite;
+            animation: capToss 4s ease-in-out infinite;
             transform-origin: center;
         }
 
@@ -1075,6 +1085,143 @@
             pointer-events: none;
         }
 
+        /* --- LEAF DISCOVERY SECTION --- */
+        .leaf-discovery-section {
+            padding:0px 8% 0px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leaf-discovery-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .leaf-discovery-text {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .leaf-discovery-cap {
+            width: 50px;
+            height: 50px;
+            filter: grayscale(100%) contrast(0.8) brightness(0.7);
+            opacity: 0.6;
+            transform: rotate(-15deg);
+            margin-bottom: 20px;
+        }
+
+        .leaf-discovery-subtitle {
+            color: #ff1e56;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .leaf-discovery-text h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: #333;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .leaf-discovery-text p {
+            color: #777;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        .leaf-discovery-btn {
+            display: inline-block;
+            background: #ff1e56;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka One', cursive;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .leaf-discovery-btn:hover {
+            background: #e61a4d;
+            transform: translateY(-3px);
+        }
+
+        .leaf-discovery-images {
+            flex: 1;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .leaf-main-shape {
+            position: absolute;
+            width: 420px;
+            height: 320px;
+            background: #e91e63;
+            border-radius: 60px 180px 100px 140px;
+            overflow: hidden;
+            top: 50px;
+            left: 20px;
+            transform: rotate(-8deg);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
+        }
+
+        .leaf-main-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leaf-circle-shape {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #ff9800;
+            border-radius: 50%;
+            overflow: hidden;
+            bottom: 30px;
+            right: 98px;
+            z-index: 2;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
+        }
+
+        .leaf-circle-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leaf-arrow {
+            position: absolute;
+            bottom: 80px;
+            left: -60px;
+            z-index: 3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .leaf-train-icon {
+            position: absolute;
+            top: 10px;
+            left: 500px;
+            width: 80px;
+            opacity: 0.7;
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
         /* --- FACILITIES SECTION --- */
         .facilities-section {
             background: #ff9800;
@@ -1085,7 +1232,6 @@
 
         .facilities-header {
             position: relative;
-            padding-top: 60px;
             padding-bottom: 40px;
             text-align: center;
         }
@@ -1433,8 +1579,55 @@
             .about-intro,
             .mental-growth-section,
             .creativity-section,
-            .facilities-section {
+            .facilities-section,
+            .leaf-discovery-section {
                 padding: 60px 5% !important;
+            }
+
+            /* 4. Leaf Discovery Section Mobile Fix */
+            .leaf-discovery-content {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .leaf-discovery-text {
+                max-width: 100%;
+            }
+
+            .leaf-discovery-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .leaf-discovery-images {
+                min-height: 420px;
+                margin-top: 20px;
+            }
+
+            .leaf-main-shape {
+                width: 350px;
+                height: 280px;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%) rotate(-8deg);
+            }
+
+            .leaf-circle-shape {
+                width: 160px;
+                height: 160px;
+                bottom: 40px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .leaf-arrow {
+                display: none; /* Hide complex decorative elements on mobile */
+            }
+
+            .leaf-train-icon {
+                width: 50px;
+                top: 10px;
+                left: 10px;
             }
 
             /* 1. Mental Growth Section Fix */
@@ -1482,6 +1675,11 @@
             /* 2. Facilities Section Fix (Prevents Crowding) */
             .facilities-header {
                 padding-top: 40px;
+            }
+
+            /* Hide wave paths on mobile */
+            .news-wave-top {
+                display: none;
             }
 
             .facilities-bg {
@@ -1592,33 +1790,6 @@
                 padding-left: 0;
                 text-align: center;
             }
-        }
-
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-            animation: playInOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-
-        .play-icon::before {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 32px solid #ef1866;
-            border-top: 18px solid transparent;
-            border-bottom: 18px solid transparent;
-            margin-left: 10px;
         }
 
         /* --- CREATIVITY SECTION --- */
@@ -1863,14 +2034,58 @@
             }
 
             /* Facilities Section Fixes */
-            .facilities-header-content h2 {
-                font-size: 2rem;
+            .facilities-section {
+                padding: 40px 0 60px 0;
             }
 
-            .facilities-suncloud,
+            .facilities-header {
+                padding-bottom: 40px;
+            }
+
+            .facilities-header-content {
+                padding: 0 15px;
+                max-width: 100%;
+            }
+
+            .facilities-header-content h2 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                margin-bottom: 15px;
+            }
+
+            .facilities-header-content p {
+                font-size: 1rem;
+                line-height: 1.5;
+                max-width: 100%;
+            }
+
+            .facilities-bg {
+                height: 120px;
+                opacity: 0.3;
+            }
+
+            .facilities-suncloud {
+                width: 50px;
+                left: 15px;
+                top: 10px;
+            }
+
+            .facilities-sun {
+                width: 25px;
+                left: 25%;
+                top: 15px;
+            }
+
             .facilities-rainbow {
-                width: 100px;
-                /* Scale down background deco */
+                width: 70px;
+                right: 15px;
+                top: 5px;
+            }
+
+            .facilities-butterflies {
+                width: 40px;
+                left: 15%;
+                bottom: 5px;
             }
 
             .facility-card {
@@ -1892,9 +2107,52 @@
 
             .btn-action,
             .mg-btn,
-            .creativity-btn {
+            .creativity-btn,
+            .leaf-discovery-btn {
                 padding: 12px 30px;
                 font-size: 1rem;
+            }
+
+            /* Leaf Discovery Section - Extra Small Screens */
+            .leaf-discovery-text h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .leaf-main-shape {
+                width: 300px;
+                height: 240px;
+            }
+
+            .leaf-circle-shape {
+                width: 130px;
+                height: 130px;
+                bottom: 20px;
+            }
+
+            /* Facilities Section - Extra Small Screens */
+            .facilities-section {
+                padding: 30px 0 50px 0;
+            }
+
+            .facilities-header-content h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
+
+            .facilities-header-content p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+
+            .facilities-bg {
+                height: 100px;
+                opacity: 0.2;
+            }
+
+            .leaf-train-icon {
+                width: 40px;
             }
         }
     </style>
@@ -1914,6 +2172,11 @@
             <li><a href="#">Pages</a></li>
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <section class="hero-banner">
@@ -1981,8 +2244,48 @@
 
     <div style="height: 80px;"></div>
 
+    <!-- BEGIN: Leaf Discovery Section -->
+    <section class="leaf-discovery-section">
+        <div class="leaf-discovery-content">
+            <div class="leaf-discovery-text">
+                <img src="images/graduation-cap.png" alt="Cap" class="leaf-discovery-cap" />
+                <div class="leaf-discovery-subtitle">Explore & Discover</div>
+                <h2>Unlock Your Child's<br>Natural Talents!</h2>
+                <p>Through hands-on exploration and guided discovery, we help children uncover their
+                    natural abilities and interests. Our nurturing environment encourages curiosity,
+                    problem-solving, and creative expression in every child.</p>
+                <a href="#" class="leaf-discovery-btn">Discover More</a>
+            </div>
+            <div class="leaf-discovery-images">
+                <div class="leaf-main-shape">
+                    <img src="images/a1.jpg" alt="Children learning together" />
+                </div>
+                <div class="leaf-circle-shape">
+                    <img src="images/baby_play.jpg" alt="Kids playing creatively" />
+                </div>
+                <!-- Decorative dashed arrow -->
+                <div class="leaf-arrow">
+                    <svg width="140" height="90" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30C20 20 40 10 70 25M70 25L65 20M70 25L65 30" stroke="#ff9800" stroke-width="2"
+                            stroke-dasharray="5,5" fill="none" />
+                    </svg>
+                </div>
+                <!-- Small decorative train icon -->
+                <img src="images/launch.png" alt="Train" class="leaf-train-icon">
+            </div>
+        </div>
+    </section>
+
     <!-- BEGIN: Facilities Section -->
     <section class="facilities-section">
+        <div class="news-wave-top">
+            <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- First wave layer (back) -->
+                <path d="M0 0C240 120 480 120 720 70C960 0 1200 0 1440 90V0H0Z" fill="white" />
+                <!-- Second wave layer (front) with slight offset -->
+                <path d="M0 20C240 140 480 140 720 90C960 20 1200 20 1440 110V0H0Z" fill="rgba(255,255,255,0.8)" />
+            </svg>
+        </div>
         <div class="facilities-header">
             <div class="facilities-bg">
                 <img src="images/cloud.png" alt="Sun Cloud" class="facilities-suncloud" />
@@ -2027,42 +2330,48 @@
                 <div class="facility-icon"><img src="images/playground.png" alt="Playground" /></div>
                 <a href="#" class="facility-btn">View More</a>
             </div>
-            <div class="facility-card facility-blue">
-                <div class="facility-img-wrap"><img src="images/about_image_4.jpg" alt="Smart Class" /></div>
-                <h3>Smart Class</h3>
-                <div class="facility-divider"></div>
-                <p>Dolor morbi non arcu risus. Bibendum arcu vitae elementum curabitur vitae nunc. Commodo viverra
-                    maecenas accumsan lacus.</p>
-                <div class="facility-icon"><img src="images/open-book.png" alt="Smart" /></div>
-                <a href="#" class="facility-btn">View More</a>
-            </div>
+           
         </div>
     </section>
 
     <!-- BEGIN: Creativity Section -->
-    <section class="creativity-section">
-        <div class="creativity-content">
-            <div class="creativity-text">
-                <img src="images/cap.png" alt="Cap" class="creativity-cap" />
-                <div class="creativity-subtitle">Find Kid’s Creativity</div>
-                <h2>Your Children’s<br>Creativity Works!</h2>
-                <p>Molestie at elementum eu facilisis sed odio morbi quis. Magna etiam tempor orci eu lobortis.
-                    Ullamcorper dignissim cras tincidunt lobortis. Volutpat blandit aliquam etiam erat velit.</p>
-                <a href="#" class="creativity-btn">Creative Works</a>
+    <section class="creative-section" data-animate="fade-up">
+        <div class="container">
+            <div class="creative-content">
+                <div class="icon-cap"><img src="images/graduation-cap.png" alt="Graduation"
+                        style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);">
+                </div>
+                <span class="sub-title">Holistic</span>
+                <h2 class="main-heading">Creative Learning for Little Learners</h2>
+                <p class="description">
+                    We celebrate festivals, art, music and movement to help children explore
+                    culture and creativity. Activities include clay work, finger painting, rhymes
+                    and introductory numeracy and phonics.
+                </p>
+                <a href="#" class="btn-creative">See Activities</a>
             </div>
-            <div class="creativity-images">
-                <div class="creativity-img creativity-img-left">
-                    <img src="images/contact-us.jpg" alt="Creativity 1" />
+
+            <div class="image-gallery">
+                <div class="image-box arch-bottom">
+                    <img src="images/a1.jpg" alt="Child playing with clay">
                 </div>
-                <div class="creativity-img creativity-img-right">
-                    <img src="images/cube.jpg" alt="Creativity 2" />
+                <div class="image-box arch-top">
+                    <img src="images/a2 (1).jpg" alt="Child painting">
                 </div>
+                <!-- Decorative pens icon -->
+                <img src="images/penss.png" alt="Pens"
+                    style="position: absolute; top: 130px; right: 80px; width: 90px; opacity: 0.7; transform: rotate(25deg); z-index: 5;">
             </div>
         </div>
-        <img src="images/sidehand.png" alt="Side Hands" class="creativity-sidehand" />
     </section>
 
+    <div class="footer-bread-top">
+        <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
+    </div>
     <footer>
+        <div class="footer-girl-paint">
+            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+        </div>
         <div class="footer-arrow">
             <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
                 style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
@@ -2135,6 +2444,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburgerMenu.addEventListener('click', function () {
+                hamburgerMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 
