@@ -139,6 +139,30 @@
      animation: bounce 2s ease-in-out infinite;
  }
 
+ .social-links {
+     display: flex;
+     gap: 10px;
+ }
+
+ .social-link {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 35px;
+     height: 35px;
+     background: rgba(255, 255, 255, 0.1);
+     border-radius: 50%;
+     color: white;
+     text-decoration: none;
+     transition: all 0.3s ease;
+ }
+
+ .social-link:hover {
+     background: rgba(255, 255, 255, 0.2);
+     transform: translateY(-2px);
+ }
+
+
  @media (max-width: 768px) {
      .footer-container {
          grid-template-columns: 1fr 1fr;

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- <link rel="stylesheet" href="css/global.css"> -->
+    <link rel="stylesheet" href="css/global.css">
     <style>
         @media (max-width: 1100px) {
             .about-intro {
@@ -345,35 +345,6 @@
             color: #666;
         }
 
-        /* --- HEADER (Identical to Index) --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .nav-links a:hover {
-            color: #ff4d6d;
-        }
 
         /* --- ABOUT HERO SECTION --- */
         .hero-banner {
@@ -646,118 +617,6 @@
         .btn-action:hover {
             transform: translateY(-5px);
             background: #e61a4d;
-        }
-
-        /* --- FOOTER (New Design) --- */
-        footer {
-            background: #0a6375;
-            color: white;
-            padding: 60px 5% 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C120,20 240,0 360,10 C480,20 600,0 720,15 C840,30 960,10 1080,25 C1140,32 1170,35 1200,40 L1200,0 L0,0 Z" fill="%23ffffff"/></svg>') repeat-x;
-            background-size: 1200px 40px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .footer-logo img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .footer-logo h2 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.5rem;
-            color: white;
-            margin: 0;
-        }
-
-        .footer-description {
-            color: #b8e6e4;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .footer-section h3 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section ul li a {
-            color: #b8e6e4;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: white;
         }
 
         .gallery-grid {
@@ -1437,7 +1296,7 @@
                 max-width: 340px;
             }
         }
-   
+
         .mental-growth-section {
             background: #ef1866;
             padding: 80px 0 0 0;
@@ -1907,16 +1766,6 @@
         /* --- UPDATED MOBILE & TABLET RESPONSIVENESS --- */
 
         @media (max-width: 1100px) {
-
-            /* Navbar gap reduction */
-            nav {
-                padding: 15px 5%;
-            }
-
-            .nav-links {
-                display: none;
-                /* Recommended: Add a burger menu or hide for now to prevent overlap */
-            }
 
             /* Hero Text Scaling */
             .hero-banner h1 {
