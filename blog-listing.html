@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Poppins', sans-serif; color: #444; background-color: #fff; }
+        h1, h2, h3 { font-family: 'Fredoka', sans-serif; margin: 0; color: #111; }
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: flex; gap: 40px; }
+        
+        /* --- Banner Section with Cloud Effect --- */
+        .article-banner {
+            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), 
+                        url('https://img.freepik.com/free-photo/kids-playing-park_23-2148844368.jpg'); /* Replace with your kids-on-grass image */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .breadcrumb { font-size: 0.9rem; margin-top: 10px; font-weight: 500; }
+        .breadcrumb span { color: #e91e63; }
+        .cloud-divider {
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        /* --- Main Content Area --- */
+        .main-feed { flex: 2.5; }
+        .article-item { display: flex; gap: 30px; margin-bottom: 40px; border-bottom: 1px dashed #ccc; padding-bottom: 40px; }
+        .article-item:last-child { border-bottom: none; }
+        
+        .img-container { position: relative; flex: 1; min-width: 300px; }
+        .article-img { width: 100%; border-radius: 15px; height: 200px; object-fit: cover; }
+        .date-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: #086d82; color: white; padding: 10px;
+            border-radius: 8px; text-align: center; font-size: 0.75rem; line-height: 1.2;
+        }
+        .date-badge span { display: block; font-size: 1.1rem; font-weight: bold; }
+
+        .article-details { flex: 2; }
+        .article-details h2 { font-size: 1.8rem; margin-bottom: 15px; }
+        .article-details p { color: #777; font-size: 0.95rem; line-height: 1.6; }
+        .read-more { 
+            color: #111; text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            display: inline-block; margin-top: 15px; border-bottom: 2px orange dotted;
+        }
+
+        /* --- Sidebar Section --- */
+        .sidebar { flex: 1; }
+        .sidebar-widget { background: #fffaf0; padding: 25px; border-radius: 15px; margin-bottom: 30px; }
+        .search-box { display: flex; background: #fff; border-radius: 30px; padding: 10px 20px; align-items: center; border: 1px solid #eee; }
+        .search-box input { border: none; outline: none; width: 100%; font-size: 0.9rem; }
+        
+        .recent-post-item { margin-top: 20px; }
+        .recent-post-item h4 { font-size: 0.95rem; margin-bottom: 5px; cursor: pointer; }
+        .post-meta { font-size: 0.75rem; color: #e91e63; display: flex; gap: 10px; }
+
+        .sale-banner { 
+            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.jpg'); /* Representative Sale Image */
+            background-size: cover; height: 350px; border-radius: 15px; margin-bottom: 30px;
+        }
+
+        /* --- Pagination --- */
+        .pagination { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+        .page-num { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 5px; text-decoration: none; color: #333; }
+        .page-num.active { background: #e91e63; color: white; border-color: #e91e63; }
+
+        .rocket-icon { position: fixed; bottom: 20px; right: 20px; width: 45px; }
+    </style>
+</head>
+<body>
+
+    <div class="article-banner">
+        <h1 style="font-size: 3.5rem;">Articles</h1>
+        <div class="breadcrumb">Home / <span>Articles</span></div>
+        <div class="cloud-divider"></div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="main-feed">
+            
+            <div class="article-item">
+                <div class="img-container">
+                    <img src="https://img.freepik.com/free-photo/kids-playing-playground_23-2149036505.jpg" class="article-img">
+                    <div class="date-badge">📅<br><span>29,</span>2022</div>
+                </div>
+                <div class="article-details">
+                    <h2>Kindergarten Outdoor Play Area</h2>
+                    <p>An Overview Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Viverra adipiscing at in tellus. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-item">
+                <div class="img-container">
+                    <img src="https://img.freepik.com/free-photo/children-doing-indoor-activities_23-2148844350.jpg" class="article-img">
+                    <div class="date-badge">📅<br><span>29,</span>2022</div>
+                </div>
+                <div class="article-details">
+                    <h2>Well Equipped With Indoor Class Rooms</h2>
+                    <p>An Overview Quisque id diam vel quam. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Mauris pellentesque pulvinar pellentesque habitant morbi...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-item">
+                <div class="img-container">
+                    <img src="https://img.freepik.com/free-photo/mother-hugging-her-child_23-2148844346.jpg" class="article-img">
+                    <div class="date-badge">📅<br><span>29,</span>2022</div>
+                </div>
+                <div class="article-details">
+                    <h2>Education Filled With Fun & Games</h2>
+                    <p>An Overview Nisl rhoncus mattis rhoncus urna. Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id. Facilisi etiam dignissim diam quis enim lobortis...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="page-num active">1</a>
+                <a href="#" class="page-num">2</a>
+                <a href="#" class="page-num">»</a>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-widget">
+                <div class="search-box">
+                    <input type="text" placeholder="Enter Keyword">
+                    <span>🔍</span>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">Recent Posts</h3>
+                <div class="recent-post-item">
+                    <h4>Kindergarten Outdoor Play Area</h4>
+                    <div class="post-meta"><span>📅 Dec 29</span> <span>💬 0</span></div>
+                </div>
+                <div class="recent-post-item">
+                    <h4>Well Equipped With Indoor Class Rooms</h4>
+                    <div class="post-meta"><span>📅 Dec 29</span> <span>💬 0</span></div>
+                </div>
+                <div class="recent-post-item">
+                    <h4>Education Filled With Fun & Games</h4>
+                    <div class="post-meta"><span>📅 Dec 29</span> <span>💬 0</span></div>
+                </div>
+            </div>
+
+            <div class="sale-banner"></div>
+
+            <div class="sidebar-widget">
+                <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">Recent Comments</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 15px;"><strong>wpfw</strong> on <span style="color: #e91e63;">Spoken English</span></p>
+                <p style="font-size: 0.85rem;"><strong>Prabha</strong> on <span style="color: #e91e63;">Excellent Care & Learning</span></p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">Categories</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Communication</p>
+                <p style="font-size: 0.9rem;">Language</p>
+            </div>
+        </div>
+    </div>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1043/1043255.png" class="rocket-icon">
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Poppins', sans-serif; color: #444; overflow-x: hidden; }
+        h1, h2, h3, .kids-font { font-family: 'Fredoka', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+
+        /* --- HEADER (Identical to Index) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d6d;
+        }
+
+        /* --- ABOUT HERO SECTION --- */
+        .hero-banner {
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/baby_play.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero-banner h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 10px; 
+            color: white; 
+        }
+
+        .hero-banner .breadcrumb { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #fff; 
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        /* --- Section 1: Features --- */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 50px; }
+        .feature-card { 
+            border: 2px dashed #ffb7c5; border-radius: 20px; padding: 30px; position: relative; 
+            background: #fff; transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { width: 50px; height: 50px; margin-bottom: 15px; }
+        .char-decor { position: absolute; width: 60px; top: -30px; right: -10px; }
+
+        /* --- Section 2: Innovative Works (Pink Banner) --- */
+        .pink-banner { background-color: #e91e63; color: white; padding: 80px 20px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .banner-content { display: flex; align-items: center; max-width: 1200px; gap: 40px; text-align: left; }
+        .banner-text { flex: 1; }
+        .banner-images { flex: 2; display: flex; gap: 20px; }
+        .banner-img { border-radius: 0 100px 0 100px; width: 100%; height: 300px; object-fit: cover; border: 5px solid white; }
+        .btn-white { background: white; color: #e91e63; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: 600; }
+
+        /* --- Section 3: Online Courses --- */
+        .filter-nav { margin: 30px 0; display: flex; justify-content: center; gap: 20px; font-weight: 600; }
+        .filter-nav span { cursor: pointer; color: #333; }
+        .filter-nav span.active { color: #e91e63; border-bottom: 2px solid #e91e63; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .course-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left; }
+        .course-img { width: 100%; height: 200px; object-fit: cover; }
+        .course-info { padding: 20px; position: relative; }
+        .price-tag { position: absolute; right: 20px; top: 20px; font-size: 1.2rem; font-weight: bold; color: #333; }
+        .price-old { text-decoration: line-through; color: #e91e63; font-size: 0.9rem; margin-left: 5px; }
+
+        /* --- Section 4: Activity Class (Teal Banner) --- */
+        .teal-banner { background-color: #086d82; color: white; margin: 60px 0; padding: 60px 0; border-radius: 0 50px 50px 0; position: relative; overflow: hidden; }
+        .teal-content { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; gap: 40px; }
+        .activity-img-frame { flex: 1; position: relative; }
+        .activity-img { width: 100%; border-radius: 150px 30px 150px 30px; border: 10px solid #ffa500; }
+        .btn-teal { background: #16c2c2; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; }
+
+        /* --- Section 5: FAQ & Support --- */
+        .faq-support-row { display: flex; gap: 30px; align-items: flex-start; margin-top: 50px; }
+        .faq-accordion { flex: 2; text-align: left; }
+        .accordion-item { border: 1px solid #ddd; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+        .accordion-header { padding: 20px; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; }
+        .active-header { background: #e91e63; color: white; }
+        .support-sidebar { flex: 1; }
+        .support-card { background: #16c2c2; color: white; padding: 40px 20px; border-radius: 20px; margin-bottom: 20px; }
+        .app-card { background: #0a4d5a; color: white; padding: 30px 20px; border-radius: 20px; }
+        .store-btns { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+        .store-btns img { height: 40px; }
+
+        /* Decorative Elements */
+        .rocket-float { position: fixed; bottom: 20px; right: 20px; width: 40px; z-index: 100; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <h2 style="margin:0;"><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Facilities</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="contact.html">Ask Us</a></li>
+        </ul>
+        <div style="font-size: 1.8rem;">🔍 🛒</div>
+    </nav>
+
+    <section class="hero-banner">
+        <div>
+            <h1>Programs</h1>
+            <p class="breadcrumb">Home ● Programs</p>
+        </div>
+        <div class="cloud-divider">
+            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud" style="width:100%; display:block; filter: invert(1) brightness(2);" />
+        </div>
+    </section>
+
+    <div class="container">
+        <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Educational Programs</p>
+        <h1 style="font-size: 2.5rem; margin-top: 0;">Meet Our Creators</h1>
+        <p style="max-width: 700px; margin: 0 auto; color: #777;">Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3048/3048122.png" class="feature-icon">
+                <h3>24x7 Tutor Availability</h3>
+                <p style="font-size: 0.9rem; color: #888;">Integer eget felis varius, porta odio vel, eleifend magna. Fusce dapibus sodales ante.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2097/2097061.png" class="feature-icon">
+                <h3>Easy Access Technique</h3>
+                <p style="font-size: 0.9rem; color: #888;">Amet ante tincidunt ultrices nec ac justo. Aliquam semper vitae lacus eu commodo.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3468/3468192.png" class="feature-icon">
+                <h3>White board Class</h3>
+                <p style="font-size: 0.9rem; color: #888;">Nunc eget lacus tincidunt, interdum metus eu, eleifend purus. Donec rutrum nec eros.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2436/2436636.png" class="feature-icon">
+                <h3>Experienced Tutors</h3>
+                <p style="font-size: 0.9rem; color: #888;">Pellentesque vel sollicitudin arcu. Duis sit amet leo nec tortor dignissim laoreet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pink-banner">
+        <div class="banner-content">
+            <div class="banner-text">
+                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Creative</p>
+                <h2 style="font-size: 2.2rem;">Our Teams Innovative Works With Your Kids</h2>
+                <p>Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
+                <a href="#" class="btn-white">More Works</a>
+            </div>
+            <div class="banner-images">
+                <img src="images/about_image_1.jpg" class="banner-img">
+                <img src="images/about_image_2.jpg" class="banner-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Educational Programs</p>
+        <h1 style="font-size: 2.5rem; margin-top: 0;">Our Online Courses</h1>
+        <div class="filter-nav">
+            <span class="active">All</span>
+            <span>Arts & Crafts</span>
+            <span>Dance</span>
+            <span>Language</span>
+            <span>Music</span>
+            <span>Sports</span>
+        </div>
+
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="https://img.freepik.com/free-photo/boy-playing-chess-home_23-2148761458.jpg" class="course-img">
+                <div class="course-info">
+                    <span style="color: #e91e63; font-size: 0.8rem;">Language</span>
+                    <div class="price-tag">$55 <span class="price-old">$60</span></div>
+                    <h3 style="margin: 10px 0 0 0;">Wizards of Chess</h3>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://img.freepik.com/free-photo/kids-playing-piano_23-2148844358.jpg" class="course-img">
+                <div class="course-info">
+                    <span style="color: #e91e63; font-size: 0.8rem;">Arts & Crafts</span>
+                    <div class="price-tag">$45 <span class="price-old">$50</span></div>
+                    <h3 style="margin: 10px 0 0 0;">Keyboard and Piano</h3>
+                </div>
+            </div>
+            <div class="course-card" style="border: 3px solid #e91e63;">
+                <img src="https://img.freepik.com/free-photo/happy-girl-doing-crafts_23-2148844332.jpg" class="course-img">
+                <div class="course-info">
+                    <span style="color: #e91e63; font-size: 0.8rem;">Arts & Crafts</span>
+                    <div class="price-tag">$35 <span class="price-old">$70</span></div>
+                    <h3 style="margin: 10px 0 0 0;">Art and Craft Course</h3>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://img.freepik.com/free-photo/boy-with-headphones-using-laptop_23-2148761450.jpg" class="course-img">
+                <div class="course-info">
+                    <span style="color: #e91e63; font-size: 0.8rem;">Language</span>
+                    <div class="price-tag">$35 <span class="price-old">$40</span></div>
+                    <h3 style="margin: 10px 0 0 0;">Spoken English</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teal-banner">
+        <div class="teal-content">
+            <div style="flex: 1; padding-left: 50px;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Opening New Activity Class 2023</h2>
+                <p style="opacity: 0.9;">Duis sit amet augue rutrum sem interdum fermentum. Vestibulum in volutpat lorem, ac tincidunt tellus. Curabitur volutpat porta rutrum.</p>
+                <p style="margin-top: 20px;"><strong>Mail:</strong> kidscool@activity.com<br><strong>Phone:</strong> +04 258 654 4552</p>
+                <a href="#" class="btn-teal">REGISTER NOW</a>
+            </div>
+            <div class="activity-img-frame">
+                <img src="https://img.freepik.com/free-photo/group-children-playing-musical-instruments_23-2148844342.jpg" class="activity-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="faq-support-row">
+            <div class="faq-accordion">
+                <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Our Expert Answers</p>
+                <h2 style="font-size: 2.2rem; margin-top: 0;">Frequently <span style="color: #086d82;">Asked Questions</span></h2>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header active-header">If you are going to use a passage of Lorem Ipsum, <span>▼</span></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">The standard chunk of Lorem Ipsum used since the 1500 <span>▲</span></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">It uses a dictionary of over 200 Latin words, <span>▲</span></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">The standard chunk of Lorem Ipsum used since the 1500 <span>▲</span></div>
+                </div>
+            </div>
+
+            <div class="support-sidebar">
+                <div class="support-card">
+                    <img src="https://img.freepik.com/free-photo/school-children-walking-hallway_23-2148844372.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="margin: 0;">Need Support?</h3>
+                    <p style="font-size: 0.8rem; opacity: 0.9;">Cras efficitur tellus sed tempus lobortis. Suspendisse nisl augue, hendrerit eu.</p>
+                    <p style="font-weight: bold; font-size: 1.2rem;">📞 +88 256 358 9877</p>
+                    <a href="#" class="btn-white" style="background: #0a4d5a; color: white; display: block; margin-bottom: 10px;">Contact Us</a>
+                    <a href="#" class="btn-white" style="display: block;">Chat With Us</a>
+                </div>
+
+                <div class="app-card">
+                    <h3 style="margin: 0;">Kids Cool App</h3>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">Download our mobile app for better experience and tracking.</p>
+                    <div class="store-btns">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1043/1043255.png" class="rocket-float">
+
+</body>
+</html>
