@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
     <style>
         body { margin: 0; font-family: 'Poppins', sans-serif; color: #444; overflow-x: hidden; }
         h1, h2, h3, .kids-font { font-family: 'Fredoka', sans-serif; }
@@ -118,9 +119,20 @@
         /* --- Section 5: FAQ & Support --- */
         .faq-support-row { display: flex; gap: 30px; align-items: flex-start; margin-top: 50px; }
         .faq-accordion { flex: 2; text-align: left; }
-        .accordion-item { border: 1px solid #ddd; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-        .accordion-header { padding: 20px; background: #fff; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; }
-        .active-header { background: #e91e63; color: white; }
+        /* FAQ: topic + question styles */
+        .faq-section { background: transparent; }
+        .topic { border-radius: 12px; overflow: hidden; margin-bottom: 16px; border: 1px solid #f2f2f2; background: #fff; }
+        .topic-header { padding: 18px 20px; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.02rem; }
+        .topic-header.active, .topic-header:hover { background: #e91e63; color: #fff; }
+        .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.42s cubic-bezier(.2,.8,.2,1), padding 0.28s ease; background: #fff; padding: 0 20px; }
+        .topic-body.open { max-height: 1200px; padding-bottom: 12px; }
+        .question { border-top: 1px solid #f4f4f4; }
+        .question-header { padding: 14px 6px; cursor: default; display: flex; justify-content: space-between; align-items: center; background: #fff; font-size: 0.98rem; }
+        /* Keep question headers readable (dark) even when topic is active */
+        .question-header { color: #1d3d4a; }
+        .question-header.active { color: #1d3d4a; font-weight: 700; }
+        .question-answer { padding: 12px 0 16px 0; color: #444; background: #fff; max-height: 0; overflow: hidden; transition: max-height 0.32s ease, padding 0.3s ease; font-size: 0.96rem; line-height: 1.7; }
+        .question-answer.open { max-height: 600px; padding-bottom: 12px; }
         .support-sidebar { flex: 1; }
         .support-card { background: #16c2c2; color: white; padding: 40px 20px; border-radius: 20px; margin-bottom: 20px; }
         .app-card { background: #0a4d5a; color: white; padding: 30px 20px; border-radius: 20px; }
@@ -129,13 +141,37 @@
 
         /* Decorative Elements */
         .rocket-float { position: fixed; bottom: 20px; right: 20px; width: 40px; z-index: 100; }
+
+        /* --- Students Section --- */
+        .students-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 30px; }
+        .student-card { background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); overflow: hidden; text-align: left; }
+        .student-photo { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .student-info { padding: 16px; }
+        .student-name { font-weight: 700; color: #1d3d4a; margin: 6px 0; }
+        .student-meta { color: #e91e63; font-weight: 700; font-size: 0.9rem; }
+
+        /* --- Kindergarten Section --- */
+        .kg-section { padding: 80px 10%; background: linear-gradient(135deg,#fff8fb,#f7fffe); border-radius: 20px; margin: 40px auto; }
+        .kg-grid { display: flex; gap: 30px; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .kg-cards { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .kg-card { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left; }
+        .kg-card h3 { margin-top: 0; color: #1d3d4a; }
+        .kg-illustration { flex: 1; display: flex; align-items: center; justify-content: center; }
+        .kg-illustration img { width: 320px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .kg-cta { margin-top: 15px; display: inline-block; background: #ff4d6d; color: #fff; padding: 12px 26px; border-radius: 24px; text-decoration: none; font-weight: 700; }
+
+        @media (max-width: 900px) {
+            .kg-grid { flex-direction: column; }
+            .kg-cards { grid-template-columns: 1fr; }
+            .kg-illustration img { width: 260px; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
+     <nav>
         <div class="logo">
-            <h2 style="margin:0;"><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2>
+            <h2 style="margin:0;"><span style="color:#ff4d6d;">TINY</span> <span style="color:#73d2d6;">TOTS</span></h2>
         </div>
         <ul class="nav-links">
             <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
@@ -145,7 +181,11 @@
             <li><a href="#">Pages</a></li>
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
-        <div style="font-size: 1.8rem;">🔍 🛒</div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <section class="hero-banner">
@@ -203,50 +243,79 @@
     </div>
 
     <div class="container">
-        <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Educational Programs</p>
-        <h1 style="font-size: 2.5rem; margin-top: 0;">Our Online Courses</h1>
-        <div class="filter-nav">
-            <span class="active">All</span>
-            <span>Arts & Crafts</span>
-            <span>Dance</span>
-            <span>Language</span>
-            <span>Music</span>
-            <span>Sports</span>
-        </div>
+        <div style="text-align:center; margin-bottom:8px; color:#e91e63; font-weight:700;">Top Students</div>
+        <h1 style="font-size:2.2rem; margin:6px 0 10px 0;">Our Top Achievers — 2025</h1>
+        <p style="max-width:760px; margin:0 auto 20px; color:#777;">Celebrating students who showed outstanding learning, kindness and creativity during the year.</p>
 
-        <div class="course-grid">
-            <div class="course-card">
-                <img src="https://img.freepik.com/free-photo/boy-playing-chess-home_23-2148761458.jpg" class="course-img">
-                <div class="course-info">
-                    <span style="color: #e91e63; font-size: 0.8rem;">Language</span>
-                    <div class="price-tag">$55 <span class="price-old">$60</span></div>
-                    <h3 style="margin: 10px 0 0 0;">Wizards of Chess</h3>
+        <div class="students-grid">
+            <div class="student-card">
+                <img src="https://img.freepik.com/free-photo/smiling-little-girl_23-2148851166.jpg" class="student-photo" alt="Ananya Sharma">
+                <div class="student-info">
+                    <div class="student-meta">KG 2 — Academic Excellence</div>
+                    <div class="student-name">Ananya Sharma</div>
+                    <p style="margin:6px 0 0; color:#666;">Demonstrated exceptional progress in language, curiosity and cooperative play.</p>
                 </div>
             </div>
-            <div class="course-card">
-                <img src="https://img.freepik.com/free-photo/kids-playing-piano_23-2148844358.jpg" class="course-img">
-                <div class="course-info">
-                    <span style="color: #e91e63; font-size: 0.8rem;">Arts & Crafts</span>
-                    <div class="price-tag">$45 <span class="price-old">$50</span></div>
-                    <h3 style="margin: 10px 0 0 0;">Keyboard and Piano</h3>
+
+            <div class="student-card">
+                <img src="https://img.freepik.com/free-photo/happy-child-playing_23-2148803391.jpg" class="student-photo" alt="Rohan Patel">
+                <div class="student-info">
+                    <div class="student-meta">KG 1 — Creative Leader</div>
+                    <div class="student-name">Rohan Patel</div>
+                    <p style="margin:6px 0 0; color:#666;">Shines in creative arts and helps classmates in group activities.</p>
                 </div>
             </div>
-            <div class="course-card" style="border: 3px solid #e91e63;">
-                <img src="https://img.freepik.com/free-photo/happy-girl-doing-crafts_23-2148844332.jpg" class="course-img">
-                <div class="course-info">
-                    <span style="color: #e91e63; font-size: 0.8rem;">Arts & Crafts</span>
-                    <div class="price-tag">$35 <span class="price-old">$70</span></div>
-                    <h3 style="margin: 10px 0 0 0;">Art and Craft Course</h3>
+
+            <div class="student-card">
+                <img src="https://img.freepik.com/free-photo/cheerful-child_23-2148803395.jpg" class="student-photo" alt="Meera Iyer">
+                <div class="student-info">
+                    <div class="student-meta">Pre-K — Kindness Ambassador</div>
+                    <div class="student-name">Meera Iyer</div>
+                    <p style="margin:6px 0 0; color:#666;">Recognised for empathy, helpfulness and steady social growth.</p>
                 </div>
             </div>
-            <div class="course-card">
-                <img src="https://img.freepik.com/free-photo/boy-with-headphones-using-laptop_23-2148761450.jpg" class="course-img">
-                <div class="course-info">
-                    <span style="color: #e91e63; font-size: 0.8rem;">Language</span>
-                    <div class="price-tag">$35 <span class="price-old">$40</span></div>
-                    <h3 style="margin: 10px 0 0 0;">Spoken English</h3>
+
+            <div class="student-card">
+                <img src="https://img.freepik.com/free-photo/little-boy_23-2148803403.jpg" class="student-photo" alt="Arjun Rao">
+                <div class="student-info">
+                    <div class="student-meta">KG 2 — Sports & Coordination</div>
+                    <div class="student-name">Arjun Rao</div>
+                    <p style="margin:6px 0 0; color:#666;">Outstanding progress in motor skills, teamwork and confidence.</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Kindergarten Section -->
+    <div class="container kg-section">
+        <p style="color: #e91e63; font-weight: bold; margin-bottom: 6px;">Kindergarten Program</p>
+        <h2 style="font-size: 2rem; margin-top: 0;">Early Years — Playful Learning for Little Minds</h2>
+        <div class="kg-grid">
+            <div class="kg-cards">
+                <div class="kg-card">
+                    <h3>Balanced Curriculum</h3>
+                    <p>Play-based learning that develops social, emotional and cognitive skills through guided activities and meaningful play.</p>
+                    <p><strong>Age Group:</strong> 3–5 years</p>
+                </div>
+                <div class="kg-card">
+                    <h3>Safe & Nurturing Environment</h3>
+                    <p>Trained caregivers, small groups and child-friendly classrooms focused on wellbeing and positive routines.</p>
+                </div>
+                <div class="kg-card">
+                    <h3>Daily Routines & Life Skills</h3>
+                    <p>Morning circles, story time, creative arts, music and simple self-help routines to build independence and confidence.</p>
+                </div>
+                <div class="kg-card">
+                    <h3>Parent Partnership</h3>
+                    <p>Regular updates, take-home activities and parent workshops to support learning and smooth transitions.</p>
+                </div>
+            </div>
+            <div class="kg-illustration">
+                <img src="images/section-content-image-j2.jpg" alt="Kindergarten activities">
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="contact.html" class="kg-cta">Enquire About Admissions</a>
         </div>
     </div>
 
@@ -270,43 +339,231 @@
                 <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Our Expert Answers</p>
                 <h2 style="font-size: 2.2rem; margin-top: 0;">Frequently <span style="color: #086d82;">Asked Questions</span></h2>
                 
-                <div class="accordion-item">
-                    <div class="accordion-header active-header">If you are going to use a passage of Lorem Ipsum, <span>▼</span></div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">The standard chunk of Lorem Ipsum used since the 1500 <span>▲</span></div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">It uses a dictionary of over 200 Latin words, <span>▲</span></div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">The standard chunk of Lorem Ipsum used since the 1500 <span>▲</span></div>
+                <div class="faq-section">
+                    <!-- Topic 1: Admissions -->
+                    <div class="topic">
+                        <div class="topic-header">Admissions & Enrollment <span class="chev">▾</span></div>
+                        <div class="topic-body">
+                            <div class="question">
+                                <div class="question-header">What are the age criteria for each class? <span>+</span></div>
+                                <div class="question-answer">We accept children from 2.5 to 5 years across Pre-K, KG1 and KG2. Exact placement is determined during orientation and assessment.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">How do I apply for admissions? <span>+</span></div>
+                                <div class="question-answer">Applications are accepted online or via our admissions desk. Please bring birth certificate, recent photo and immunisation record.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">Are there open days or trial classes? <span>+</span></div>
+                                <div class="question-answer">Yes — we hold monthly open days and limited trial sessions. Contact admissions to reserve a spot.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 2: Daily Routine -->
+                    <div class="topic">
+                        <div class="topic-header">Daily Routine & Meals <span class="chev">▾</span></div>
+                        <div class="topic-body">
+                            <div class="question">
+                                <div class="question-header">What does a typical day look like? <span>+</span></div>
+                                <div class="question-answer">Our day includes circle time, guided play, outdoor activity, creative sessions and calm rest times to balance learning and play.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">Do you provide meals and snacks? <span>+</span></div>
+                                <div class="question-answer">We provide healthy snacks and lunch options. Please inform us about allergies or special dietary needs during registration.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">How are naps handled? <span>+</span></div>
+                                <div class="question-answer">Naps are in a supervised, calm space with individual mats. Schedules are adjusted per child's routine and family preferences.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 3: Health & Safety -->
+                    <div class="topic">
+                        <div class="topic-header">Health & Safety <span class="chev">▾</span></div>
+                        <div class="topic-body">
+                            <div class="question">
+                                <div class="question-header">What safety measures are in place? <span>+</span></div>
+                                <div class="question-answer">Secure entry, child-safe furniture, trained staff and first-aid-certified caregivers. We perform regular safety checks.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">How do you handle illnesses? <span>+</span></div>
+                                <div class="question-answer">Parents are contacted immediately if a child is unwell. We follow health guidance on exclusions and re-admissions.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">Are staff background-checked? <span>+</span></div>
+                                <div class="question-answer">Yes — all staff undergo background checks and regular professional training to ensure safe, high-quality care.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 4: Learning & Curriculum -->
+                    <div class="topic">
+                        <div class="topic-header">Learning & Curriculum <span class="chev">▾</span></div>
+                        <div class="topic-body">
+                            <div class="question">
+                                <div class="question-header">What teaching approach do you follow? <span>+</span></div>
+                                <div class="question-answer">We follow a play-based, inquiry-led approach focusing on social-emotional learning, early literacy and creative expression.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">How is progress shared with parents? <span>+</span></div>
+                                <div class="question-answer">We provide regular progress notes, parent-teacher meetings and practical take-home activities to support learning at home.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">Do you support language development? <span>+</span></div>
+                                <div class="question-answer">Yes — targeted language activities, storytelling and small-group interactions to build vocabulary and expressive skills.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic 5: Parent Engagement -->
+                    <div class="topic">
+                        <div class="topic-header">Parent Engagement & Extras <span class="chev">▾</span></div>
+                        <div class="topic-body">
+                            <div class="question">
+                                <div class="question-header">How can parents participate? <span>+</span></div>
+                                <div class="question-answer">We welcome parent volunteers, workshops and family events. Seasonal celebrations often involve families joining classroom activities.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">Are extracurriculars available? <span>+</span></div>
+                                <div class="question-answer">Optional extras such as music, movement and creative clubs are available depending on age group and schedule.</div>
+                            </div>
+                            <div class="question">
+                                <div class="question-header">How are fees and payments handled? <span>+</span></div>
+                                <div class="question-answer">Fees are billed monthly or termly. We provide clear invoices and multiple payment options; contact admissions for details.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="support-sidebar">
-                <div class="support-card">
-                    <img src="https://img.freepik.com/free-photo/school-children-walking-hallway_23-2148844372.jpg" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
-                    <h3 style="margin: 0;">Need Support?</h3>
-                    <p style="font-size: 0.8rem; opacity: 0.9;">Cras efficitur tellus sed tempus lobortis. Suspendisse nisl augue, hendrerit eu.</p>
-                    <p style="font-weight: bold; font-size: 1.2rem;">📞 +88 256 358 9877</p>
-                    <a href="#" class="btn-white" style="background: #0a4d5a; color: white; display: block; margin-bottom: 10px;">Contact Us</a>
-                    <a href="#" class="btn-white" style="display: block;">Chat With Us</a>
-                </div>
 
-                <div class="app-card">
-                    <h3 style="margin: 0;">Kids Cool App</h3>
-                    <p style="font-size: 0.8rem; opacity: 0.8;">Download our mobile app for better experience and tracking.</p>
-                    <div class="store-btns">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg">
-                    </div>
+                <div class="support-card">
+                    <h3 style="margin: 0;">Admissions & Kindergarten Support</h3>
+                    <p style="font-size: 0.9rem; color:#444; margin: 10px 0 12px;">Everything parents need to know about our Kindergarten intake, routines and how we support young learners.</p>
+                    <ul style="text-align:left; color:#666; font-size:0.9rem; margin-left:14px;">
+                        <li><strong>Age Groups:</strong> Ages 2.5 – 5 years (Pre-K, KG1, KG2)</li>
+                        <li><strong>Class Size:</strong> Small groups (max 18) with 1:6 adult ratio</li>
+                        <li><strong>Open Days:</strong> Sat 14 Feb • Sat 28 Feb — tours & trial classes</li>
+                    </ul>
+                    <p style="font-weight:700; font-size:1rem; margin:12px 0 6px;">📞 Admissions: +91 98765 43210</p>
+                    <p style="margin:0 0 12px; color:#666; font-size:0.9rem;"><strong>Email:</strong> admissions@kidscool.in</p>
+                    <a href="contact.html#admissions" class="btn-white" style="background: #0a4d5a; color: white; display: block; margin-bottom: 10px;">Enquire About Admissions</a>
+                    <a href="contact.html#visit" class="btn-white" style="display: block;">Book an Open Day Slot</a>
                 </div>
             </div>
         </div>
     </div>
 
     <img src="https://cdn-icons-png.flaticon.com/512/1043/1043255.png" class="rocket-float">
+
+    <script>
+        // Topic-based FAQ: clicking a topic reveals all its Q&A and highlights header
+        (function(){
+            const topics = document.querySelectorAll('.topic');
+            topics.forEach(t => {
+                const header = t.querySelector('.topic-header');
+                const body = t.querySelector('.topic-body');
+                header.addEventListener('click', () => {
+                    const isOpen = body.classList.contains('open');
+                    // close all
+                    topics.forEach(other => {
+                        other.querySelector('.topic-header').classList.remove('active');
+                        other.querySelector('.topic-body').classList.remove('open');
+                        other.querySelectorAll('.question-header').forEach(qh => qh.classList.remove('active'));
+                        other.querySelectorAll('.question-answer').forEach(qa => qa.classList.remove('open'));
+                    });
+                    if (!isOpen) {
+                        header.classList.add('active');
+                        body.classList.add('open');
+                        t.querySelectorAll('.question-header').forEach(qh => qh.classList.add('active'));
+                        t.querySelectorAll('.question-answer').forEach(qa => qa.classList.add('open'));
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <div class="footer-bread-top">
+        <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
+    </div>
+    <footer>
+        <div class="footer-girl-paint">
+            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+        </div>
+        <div class="footer-arrow">
+            <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
+                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div
+                        style="width: 40px; height: 40px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">
+                        KDS</div>
+                    <h2>Kids</h2>
+                </div>
+                <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="about.html">About Ninos</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">News Feed</a></li>
+                    <li><a href="#">Infrastructure</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Start a Return</a></li>
+                    <li><a href="#">Shipping & Return Policy</a></li>
+                    <li><a href="#">F.A.Q</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Our Galleries</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Kids studying"></div>
+                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Learning activities"></div>
+                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Educational fun"></div>
+                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Happy learning"></div>
+                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Baby playing"></div>
+                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="Kids activities"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                Copyright © 2023 Kids by Wedesigntech. All Rights Reserved.
+            </div>
+            <div class="footer-hand-horizontal">
+                <img src="images/sidehand.png" alt="Colorful hands"
+                    style="height: 300px; width: auto; transform: rotate(90deg);">
+            </div>
+            <div style="color: #b8e6e4; font-size: 0.9rem;">
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Privacy Policy</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Terms</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Conditions</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
