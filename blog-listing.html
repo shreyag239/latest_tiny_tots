@@ -2,11 +2,43 @@
 <html lang="en">
 <head>
     
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
     <style>
-        body { margin: 0; font-family: 'Poppins', sans-serif; color: #444; background-color: #fff; }
-        h1, h2, h3 { font-family: 'Fredoka', sans-serif; margin: 0; color: #111; }
+            * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            color: #444;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo-text {
+            font-family: 'Fredoka One', cursive;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #666;
+        }
         .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: flex; gap: 40px; }
         
         /* --- Banner Section with Cloud Effect --- */
@@ -80,16 +112,16 @@
 </head>
 <body>
 
-     <nav>
+      <nav>
         <div class="logo">
-            <h2 style="margin:0;"><span style="color:#ff4d6d;">TINY</span> <span style="color:#73d2d6;">TOTS</span></h2>
+            <img src="images/logo.png" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Facilities</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">Pages</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="blog-listing.html" style="color:#ff4d6d;">Blogs</a></li>
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
         <div class="hamburger-menu" id="hamburger-menu">
@@ -193,7 +225,7 @@
 
     <img src="https://cdn-icons-png.flaticon.com/512/1043/1043255.png" class="rocket-icon">
 
-     <div class="footer-bread-top">
+    <div class="footer-bread-top">
         <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
     </div>
     <footer>
@@ -208,12 +240,9 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">
-                        KDS</div>
-                    <h2>Kids</h2>
+                    <img src="images/logo.png" alt="Bright Future Academy" style="height: 60px; width: auto;">
                 </div>
-                <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod</p>
+                <p class="footer-description">Quality education for academic excellence and bright futures.</p>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -225,39 +254,39 @@
             <div class="footer-section">
                 <h3>Pages</h3>
                 <ul>
-                    <li><a href="about.html">About Ninos</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">News Feed</a></li>
-                    <li><a href="#">Infrastructure</a></li>
+                    <li><a href="about.html">About Our School</a></li>
+                    <li><a href="#">Faculty & Staff</a></li>
+                    <li><a href="#">School News</a></li>
+                    <li><a href="#">Campus Facilities</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h3>Help</h3>
                 <ul>
-                    <li><a href="#">Start a Return</a></li>
-                    <li><a href="#">Shipping & Return Policy</a></li>
-                    <li><a href="#">F.A.Q</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Student Enrollment</a></li>
+                    <li><a href="#">Academic Policies</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="contact.html">Contact School Office</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Our Galleries</h3>
+                <h3>School Life Gallery</h3>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Kids studying"></div>
-                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Learning activities"></div>
-                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Educational fun"></div>
-                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Happy learning"></div>
-                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Baby playing"></div>
-                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="Kids activities"></div>
+                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="School campus life"></div>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="copyright">
-                Copyright © 2023 Kids by Wedesigntech. All Rights Reserved.
+                © All Rights reserved to Kodemapa.
             </div>
             <div class="footer-hand-horizontal">
                 <img src="images/sidehand.png" alt="Colorful hands"
