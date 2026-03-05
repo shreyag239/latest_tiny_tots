@@ -10,6 +10,526 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <style>
+        /* --- HERO SECTION (Cream & Yellow Design) --- */
+        .contact-hero-new {
+            position: relative;
+            background-color: #fef5e7;
+            padding: 80px 10% 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 75vh;
+            overflow: hidden;
+        }
+
+        .hero-text-side {
+            flex: 1;
+            z-index: 10;
+        }
+
+        .hero-text-side h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-side h1 span {
+            color: #ff9d2d;
+        }
+
+        .hero-text-side p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-family: 'Fredoka One';
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-orange {
+            background: #ff9d2d;
+            color: white;
+            box-shadow: 0 8px 15px rgba(255, 157, 45, 0.3);
+        }
+
+        .btn-teal {
+            background: #73d2d6;
+            color: white;
+            box-shadow: 0 8px 15px rgba(115, 210, 214, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* Hero Visual Side with Masked Portrait */
+        .hero-visual-side {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .yellow-circle-bg {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background-color: #ffce32;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .child-rounded {
+            position: relative;
+            z-index: 5;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating Icons exactly as requested */
+        .edu-float-icon {
+            position: absolute;
+            z-index: 6;
+            width: 65px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .icon-cap {
+            top: -40px;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .icon-trophy {
+            top: 0px;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .icon-bulb {
+            bottom: 10%;
+            right: 10%;
+            width: 55px;
+            animation-delay: 2s;
+        }
+
+        .icon-clock {
+            bottom: 5%;
+            left: 15%;
+            width: 55px;
+            animation-delay: 2.5s;
+        }
+
+        /* --- FORM & MAP --- */
+        .contact-body {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 50px;
+            padding: 80px 10%;
+            background: #fff;
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            border-left: 10px solid #ffce32;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #f8f8f8;
+            border-radius: 20px;
+            font-family: 'Quicksand';
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .map-container {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            background: #f0f0f0;
+            height: 100%;
+            min-height: 500px;
+        }
+
+
+        @media (max-width: 992px) {
+            .contact-hero-new {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5% 80px;
+            }
+
+            .hero-visual-side {
+                margin-top: 40px;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .contact-body {
+                grid-template-columns: 1fr;
+                padding: 60px 5%;
+                gap: 40px;
+            }
+
+            .yellow-circle-bg {
+                width: 320px;
+                height: 320px;
+            }
+
+            .child-rounded {
+                width: 250px;
+                height: 250px;
+            }
+
+            .edu-float-icon {
+                width: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero-new {
+                padding: 40px 4% 60px;
+                min-height: auto;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+
+            .hero-text-side p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+                max-width: 100%;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+                width: 200px;
+                text-align: center;
+            }
+
+            .contact-body {
+                padding: 40px 4%;
+                gap: 30px;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+
+            .form-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .yellow-circle-bg {
+                width: 280px;
+                height: 280px;
+            }
+
+            .child-rounded {
+                width: 220px;
+                height: 220px;
+            }
+
+            .edu-float-icon {
+                width: 35px;
+            }
+
+            .icon-cap {
+                top: -20px;
+                left: 12%;
+            }
+
+            .icon-trophy {
+                top: 15px;
+                right: 8%;
+            }
+
+            .icon-bulb {
+                bottom: 15%;
+                right: 8%;
+                width: 30px;
+            }
+
+            .icon-clock {
+                bottom: 10%;
+                left: 12%;
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero-new {
+                padding: 30px 4% 50px;
+            }
+
+            .hero-text-side h1 {
+                font-size: 2rem;
+                line-height: 1.0;
+                margin-bottom: 12px;
+            }
+
+            .hero-text-side p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .hero-btn {
+                padding: 10px 25px;
+                font-size: 0.85rem;
+                width: 180px;
+            }
+
+            .contact-body {
+                padding: 30px 4%;
+                gap: 25px;
+            }
+
+            .form-card {
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 18px;
+            }
+
+            .form-group label {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 14px 18px;
+                font-size: 0.9rem;
+                border-radius: 15px;
+            }
+
+            .yellow-circle-bg {
+                width: 240px;
+                height: 240px;
+            }
+
+            .child-rounded {
+                width: 180px;
+                height: 180px;
+                border: 6px solid white;
+            }
+
+            .edu-float-icon {
+                width: 28px;
+            }
+
+            .icon-cap {
+                top: -15px;
+                left: 10%;
+            }
+
+            .icon-trophy {
+                top: 10px;
+                right: 10%;
+            }
+
+            .icon-bulb {
+                bottom: 12%;
+                right: 10%;
+                width: 25px;
+            }
+
+            .icon-clock {
+                bottom: 8%;
+                left: 10%;
+                width: 25px;
+            }
+
+            .map-container {
+                border-radius: 20px;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-hero-new {
+                padding: 25px 3% 40px;
+            }
+
+            .hero-text-side h1 {
+                font-size: 1.7rem;
+                margin-bottom: 10px;
+            }
+
+            .hero-text-side p {
+                font-size: 0.85rem;
+            }
+
+            .hero-btn {
+                width: 160px;
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+
+            .form-card {
+                padding: 20px 12px;
+            }
+
+            .form-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .yellow-circle-bg {
+                width: 200px;
+                height: 200px;
+            }
+
+            .child-rounded {
+                width: 150px;
+                height: 150px;
+                border: 5px solid white;
+            }
+
+            .edu-float-icon {
+                width: 22px;
+            }
+
+            .icon-cap {
+                top: -12px;
+                left: 8%;
+            }
+
+            .icon-trophy {
+                top: 8px;
+                right: 8%;
+            }
+
+            .icon-bulb {
+                bottom: 10%;
+                right: 8%;
+                width: 20px;
+            }
+
+            .icon-clock {
+                bottom: 6%;
+                left: 8%;
+                width: 20px;
+            }
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        /* Mobile bread image enhancements */
+        @media (max-width: 768px) {
+            .cloud-divider {
+                bottom: -8px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 120px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 6s ease-in-out infinite;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cloud-divider {
+                bottom: -10px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 100px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 8s ease-in-out infinite;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cloud-divider {
+                bottom: -12px;
+                overflow: hidden;
+            }
+            
+            .cloud-divider img {
+                height: 80px;
+                object-fit: cover;
+            }
+            
+            .moving-cloud {
+                animation: moveCloudMobile 10s ease-in-out infinite;
+            }
+        }
         /* Mental Health Growth Section */
         .mental-growth-section {
             background: #ef1866;
@@ -87,8 +607,7 @@
         .mg-hand1 {
             position: absolute;
             right: 80px;
-            top: 0;
-            .mg-bee width: 45px;
+            top: 0; width: 45px;
             filter: invert(1) brightness(2);
             animation: butterflyFlutter 4s ease-in-out infinite;
         }
@@ -329,7 +848,7 @@
             right: 5%;
             bottom: 10px;
         }
-        }
+        
 
         @media (max-width: 480px) {
             .play-icon {
@@ -391,7 +910,7 @@
             /* This stays the anchor for the images */
             overflow: hidden;
             /* Add your background image here */
-            background: url('images/Untitled design 1.svg') no-repeat center center/cover;
+            background: url('webp/Untitled design 1.svg') no-repeat center center/cover;
         }
 
         /* 2. Styling the content in the middle */
@@ -534,7 +1053,7 @@
             display: flex;
             align-items: center;
             gap: 50px;
-            background: #fdfaf5;
+            background: #fff9ef;
         }
 
         .pencil-girl-container {
@@ -686,10 +1205,6 @@
                 transform: scale(1.5);
                 opacity: 0;
             }
-        }
-
-        border-color: transparent transparent transparent #ff9d2d;
-        margin-left: 5px;
         }
 
         /* --- ABOUT US SECTION STYLES --- */
@@ -888,7 +1403,7 @@
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
-            background: #fdfaf5;
+            background: #a1f1ff;
         }
 
         .age-circle-item {
@@ -1321,7 +1836,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 50px;
-            padding: 40px 10% 100px;
+            padding: 80px 10% 100px;
             background: #fff;
             position: relative;
         }
@@ -2033,7 +2548,7 @@
 
         /* --- EDUCATION NEWS STYLES --- */
         .education-news {
-            background-color: #0b5e65;
+            background-color: #3696c2;
             /* Dark teal */
             color: white;
             padding: 100px 8%;
@@ -2508,7 +3023,7 @@
             }
 
             .percent-text {
-                font-size: 6rem;
+                font-size: 4rem;
                 line-height: 0.9;
                 text-shadow: 6px 6px 0 rgba(103, 58, 183, 0.45);
             }
@@ -2566,7 +3081,7 @@
                 position: relative;
             }
 
-            .image-gallery img[src*="penss.png"] {
+            .image-gallery img[src*="penss.webp"] {
                 display: none !important;
             }
 
@@ -2666,8 +3181,8 @@
             }
 
             /* Hide launch icons and decorative elements in mobile */
-            .age-group-section img[src*="launch.png"],
-            .age-group-section img[src*="ufo.png"],
+            .age-group-section img[src*="launch.webp"],
+            .age-group-section img[src*="ufo.webp"],
             .t-rocket-small {
                 display: none !important;
             }
@@ -2936,12 +3451,11 @@
 
     <nav>
         <div>
-            <img src="images/logo.png" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
+            <img src="webp/logo.webp" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
         </div>
         <ul class="nav-links">
             <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="programs.html">Programs</a></li>
             <li><a href="activities.html">Activities</a></li>
             <li><a href="blog-listing.html">Blogs</a></li>
             <li><a href="contact.html">Ask Us</a></li>
@@ -2953,103 +3467,91 @@
         </div>
     </nav>
 
-    <section class="hero" data-animate="zoom-in">
-        <div class="hero-side left-side">
-            <img src="images/super1.png" alt="Kid with wings">
+    <section class="contact-hero-new">
+        <div class="hero-text-side">
+            <h1>EXCELLENCE IN <span>EDUCATION</span><br>FOR YOUR CHILD</h1>
+            <p>Ready to discover how our comprehensive academic programs can unlock your child's potential? Our dedicated educators are here to discuss your child's educational journey and academic success.</p>
+            <div class="btn-group">
+                <a href="#" class="hero-btn btn-orange">ACADEMIC PROGRAMS</a>
+                <a href="#" class="hero-btn btn-teal">SCHOOL TOUR</a>
+            </div>
         </div>
 
-        <div class="hero-center">
-            <h1 class="percent-text">20%</h1>
-            <h2 class="flat-off">Admission Offer</h2>
-            <p class="on-reg">Get the Admission Soon</p>
-            <a href="#" class="btn-know">Apply Now</a>
+        <div class="hero-visual-side">
+            <img src="webp/cap.webp" class="edu-float-icon icon-cap" alt="Cap">
+            <img src="https://cdn-icons-png.flaticon.com/512/3112/3112946.png" class="edu-float-icon icon-trophy"
+                alt="Trophy">
+            <img src="https://cdn-icons-png.flaticon.com/512/2436/2436702.png" class="edu-float-icon icon-bulb"
+                alt="Lightbulb">
+            <img src="webp/goal.webp" class="edu-float-icon icon-clock" alt="Clock">
+
+            <div class="yellow-circle-bg"></div>
+
+            <img src="./webp/contact-us.webp" class="child-rounded" alt="Student Portrait">
         </div>
-
-        <div class="hero-side right-side">
-            <img src="images/super2.png" alt="Kid in superhero costume">
+        <div class="cloud-divider">
+            <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
+                style="width:100%; display:block; filter: invert(1) brightness(2);" />
         </div>
-
-    </section>
-
-    <!-- About Us Section -->
-    <section class="about-us-section" data-animate="fade-up">
-        <div class="about-image-container">
-            <img src="images/contact-us.jpg" alt="Children playing with colorful blocks" class="about-main-image">
-            <!-- Decorative icons -->
-            <img src="images/learning.png" alt="Learning icon" class="about-icon learning-icon">
-        </div>
-
-        <div class="about-content">
-            <span class="about-tag">About Us</span>
-            <h2>We Educate Knowledge & Essential Skills!</h2>
-            <p>Our comprehensive curriculum focuses on developing critical thinking, problem-solving abilities, and academic excellence. We provide personalized learning experiences that nurture each student's potential while building strong foundational skills in mathematics, science, language arts, and character development.</p>
-            <a href="#" class="btn-read-more">Read More</a>
-        </div>
-
-        <div class="play-boy-container">
-            <img src="images/play_pencil_boy.png" alt="Play boy character" class="play-boy-image">
-        </div>
-
     </section>
 
     <section class="smart-activities-grid stagger" data-animate="stagger">
 
         <div class="activity-box">
-            <img src="images/school.png" class="top-icon" alt="School">
+            <img src="webp/school.webp" class="top-icon" alt="School">
             <div class="shape-wrap sq-border">
-                <img src="images/a1.jpg" class="shape-img" alt="Swimming">
+                <img src="webp/a1.webp" class="shape-img" alt="Swimming">
             </div>
             <h3>Physical Play</h3>
             <p>Gross motor development through games, movement songs, and safe outdoor play.</p>
         </div>
 
         <div class="activity-box">
-            <img src="images/bff.png" class="top-icon" alt="Kids">
+            <img src="webp/bff.webp" class="top-icon" alt="Kids">
             <div class="shape-wrap ci-border">
-                <img src="images/baby_play.jpg" class="shape-img" alt="Learning">
+                <img src="webp/baby_play.webp" class="shape-img" alt="Learning">
             </div>
             <h3>Group Learning</h3>
             <p>Cooperative activities that build sharing, communication and early social skills.</p>
         </div>
 
         <div class="activity-box">
-            <img src="images/sports.png" class="top-icon" alt="School">
+            <img src="webp/sports.webp" class="top-icon" alt="School">
             <div class="shape-wrap tr-border">
-                <img src="images/a2 (1).jpg" class="shape-img" alt="Physical Play">
+                <img src="webp/a2 (1).webp" class="shape-img" alt="Physical Play">
             </div>
-            <h3>Physical Play</h3>
-            <p>Gross motor development through games, movement songs, and safe outdoor play.</p>
+            <h3>Smart Classroom</h3>
+            <p>Interactive screens & audio-visual tools make every lesson exciting and engaging.</p>
         </div>
 
 
-        <img src="images/saturn.png" class="float-doodle rocket-tiny" alt="Rocket">
+        <img src="webp/saturn.webp" class="float-doodle rocket-tiny" alt="Rocket">
     </section>
 
     <section class="creative-section" data-animate="fade-up">
         <div class="container">
             <div class="creative-content">
-                <div class="icon-cap"><img src="images/graduation-cap.png" alt="Graduation"
+                <div class="icon-cap"><img src="webp/graduation-cap.webp" alt="Graduation"
                         style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);">
                 </div>
                 <span class="sub-title">Holistic</span>
                 <h2 class="main-heading">Creative Learning for Little Learners</h2>
                 <p class="description">
                     We celebrate festivals, art, music and movement to help children explore
-                    culture and creativity. Activities include clay work, finger painting, rhymes
-                    and introductory numeracy and phonics.
+                    culture and creativity by following child safety measures. Activities include clay work, finger painting, rhymes and introductory numeracy and phonics.
                 </p>
-                <a href="#" class="btn-creative">See Activities</a>
+                <a href="activities.html" class="btn-creative">See Activities</a>
             </div>
 
             <div class="image-gallery">
                 <div class="image-box arch-bottom">
-                    <img src="images/a1.jpg" alt="Child playing with clay">
+                    <img src="webp/a1.webp" alt="Child playing with clay">
                 </div>
                 <div class="image-box arch-top">
-                    <img src="images/a2 (1).jpg" alt="Child painting">
+                    <img src="webp/a2 (1).webp" alt="Child painting">
                 </div>
                 <!-- Decorative pens icon -->
-                <img src="images/penss.png" alt="Pens"
+                <img src="webp/penss.webp" alt="Pens"
                     style="position: absolute; top: 130px; right: 80px; width: 90px; opacity: 0.7; transform: rotate(25deg); z-index: 5;">
             </div>
         </div>
@@ -3057,7 +3559,7 @@
 
 
     <section class="education-news" data-animate="fade-up">
-        <img src="images/curved-arrow-with-broken-line.png" alt="Arrow Thread" class="news-arrow-thread">
+        <img src="webp/curved-arrow-with-broken-line.webp" alt="Arrow Thread" class="news-arrow-thread">
         <div class="news-wave-top">
             <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- First wave layer (back) -->
@@ -3070,18 +3572,17 @@
         <div class="news-container">
             <div class="news-text">
                 <span class="blog-tag">News</span>
-                <h2>News & Events</h2>
+                <h2>Events</h2>
                 <div class="news-item">
                     <div class="news-header">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2838/2838779.png" class="news-icon"
+                        <img src="https://cdn-icons-webp.flaticon.com/512/2838/2838779.webp" class="news-icon"
                             alt="calendar">
-                        <span class="news-date">Dec 29, 2022</span>
+                        <span class="news-date">Feb 28, 2025</span>
                     </div>
-                    <span class="news-title">New Outdoor Play Area Inaugurated</span>
-                    <p class="news-excerpt">Tiny Tots opened a shaded play area with safe equipment to encourage free
-                        play and gross-motor skills.</p>
+                    <span class="news-title">Celebrating our Little graduates</span>
+                    <p class="news-excerpt">Our UKG students proudly wore their gowns in a heartwarming ceremony, making their big first move. We celebrated their journey and wished the best for class 1.</p>
                 </div>
-                <a href="#" class="view-more-btn">View More</a>
+                <a href="programs.html" class="view-more-btn">View More</a>
             </div>
 
             <div class="news-image-wrap">
@@ -3096,16 +3597,16 @@
 
     <section class="methodology-section" data-animate="fade-up">
         <div class="pencil-girl-container">
-            <img src="images/play_pencil_girl.png" alt="Girl with pencil" class="pencil-girl-image">
+            <img src="webp/play_pencil_girl.webp" alt="Girl with pencil" class="pencil-girl-image">
         </div>
         <div class="methodology-content">
-            <div class="icon-cap"><img src="images/graduation-cap.png" alt="Graduation"
+            <div class="icon-cap"><img src="webp/graduation-cap.webp" alt="Graduation"
                     style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);">
             </div>
             <span class="active-tag">Active</span>
-            <h2>Visual Methodology!</h2>
-            <p>Our innovative visual teaching approach combines interactive presentations, multimedia resources, and hands-on learning tools to engage students effectively. We use technology, visual aids, and creative methods to make complex concepts easier to understand and retain.</p>
-            <a href="#" class="btn-read-more" style="background: #ff3b6b;">Creative Works</a>
+            <h2>Smart Play for Smart Kids!</h2>
+            <p>Since we know they can unlock a smartphone faster than a secret agent, we use Interactive Technology to spark curiosity. We blend traditional wooden blocks with digital storytelling to create a "Phygital" (Physical + Digital) wonderland.</p>
+            <a href="activities.html" class="btn-read-more" style="background: #ff3b6b;">Creative Works</a>
         </div>
         <div class="video-container">
             <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200"
@@ -3116,9 +3617,9 @@
 
     <section class="age-group-section" data-animate="fade-up" style="position: relative;">
         <!-- Decorative floating images -->
-        <img src="images/launch.png" alt="Launch rocket"
+        <img src="webp/launch.webp" alt="Launch rocket"
             style="position: absolute; top: 70%; left: 5%; width: 120px; animation: float 4s ease-in-out infinite; animation-delay: 0.5s; opacity: 0.8; z-index: 1;">
-        <img src="images/ufo.png" alt="UFO"
+        <img src="webp/ufo.webp" alt="UFO"
             style="position: absolute; top: 30%; right: 8%; width: 100px; animation: float 3.5s ease-in-out infinite; animation-delay: 1s; opacity: 0.8; z-index: 1;">
 
         <div class="age-circle-item">
@@ -3126,37 +3627,37 @@
                 <span class="range">2-3</span>
                 <span class="unit">Years</span>
             </div>
-            <span class="age-label" style="color: #00796b; border-bottom: 2px dashed #ff9800;">Infant</span>
-        </div>
-
-        <div class="age-circle-item">
-            <div class="age-circle" style="background: #ff9800;">
-                <span class="range">4-6</span>
-                <span class="unit">Years</span>
-            </div>
             <span class="age-label" style="color: #e91e63;">Kindergarten</span>
         </div>
 
         <div class="age-circle-item">
-            <div class="age-circle" style="background: #8bc34a;">
-                <span class="range">7-8</span>
+            <div class="age-circle" style="background: #ff9800;">
+                <span class="range">3-4</span>
                 <span class="unit">Years</span>
             </div>
-            <span class="age-label" style="color: #e91e63;">Pre-Primary</span>
+            <span class="age-label" style="color: #e91e63;">Nursery</span>
+        </div>
+
+        <div class="age-circle-item">
+            <div class="age-circle" style="background: #8bc34a;">
+                <span class="range">4-5</span>
+                <span class="unit">Years</span>
+            </div>
+            <span class="age-label" style="color: #e91e63;">LKG</span>
         </div>
 
         <div class="age-circle-item">
             <div class="age-circle" style="background: #00bcd4;">
-                <span class="range">9-10</span>
+                <span class="range">5-6</span>
                 <span class="unit">Years</span>
             </div>
-            <span class="age-label" style="color: #e91e63;">Primary</span>
+            <span class="age-label" style="color: #e91e63;">UKG</span>
         </div>
     </section>
 
     <!-- <section class="testimonials-section" data-animate="fade-up">
         <div class="testimonials-header">
-            <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png" class="strawberry-icon"
+            <img src="https://cdn-icons-webp.flaticon.com/512/590/590685.webp" class="strawberry-icon"
                 alt="Happy Parents">
             <span class="tag">Parent Voices</span>
             <h2>What Parents Say</h2>
@@ -3165,7 +3666,7 @@
         </div>
 
         <div class="testimonial-card-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/1043/1043440.png" class="t-doodle t-rocket-small" style="transform: rotate(-45deg);" alt="Rocket">
+            <img src="https://cdn-icons-webp.flaticon.com/512/1043/1043440.webp" class="t-doodle t-rocket-small" style="transform: rotate(-45deg);" alt="Rocket">
 
             <div class="profile-overlap">
                 <img src="#" alt="Parent photo">
@@ -3191,13 +3692,13 @@
     <!-- <section class="mental-growth-section">
         <div class="mg-container">
             <div class="mg-image-box">
-                <img src="images/cube.jpg" alt="Child learning" />
+                <img src="webp/cube.webp" alt="Child learning" />
                 <span class="play-icon"></span>
             </div>
             <div class="mg-content-box">
                 <div class="mg-icons">
-                    <img src="images/bee.png" alt="Bee" class="mg-bee" />
-                    <img src="images/butterfly.png" alt="Hand 1" class="mg-hand1" />
+                    <img src="webp/bee.webp" alt="Bee" class="mg-bee" />
+                    <img src="webp/butterfly.webp" alt="Hand 1" class="mg-hand1" />
                 </div>
                 <span class="mg-tag">Mental Health Growth</span>
                 <h2>Solve Problem<br>And Learn More</h2>
@@ -3208,12 +3709,12 @@
                 <a href="#" class="mg-btn">More Videos</a>
             </div>
         </div>
-        <img src="images/butterfly.png" alt="Rocket" class="mg-rocket" />
+        <img src="webp/butterfly.webp" alt="Rocket" class="mg-rocket" />
     </section> -->
 
     <section class="newsletter-section" data-animate="fade-up">
-        <img src="images/saturn.png" class="news-decor news-planet" alt="Planet">
-        <img src="images/shoot.png" class="news-decor news-ufo" alt="UFO">
+        <img src="webp/saturn.webp" class="news-decor news-planet" alt="Planet">
+        <img src="webp/shoot.webp" class="news-decor news-ufo" alt="UFO">
 
         <span class="newsletter-tag">Stay Connected</span>
         <h2>Subscribe for Updates & Events</h2>
@@ -3226,21 +3727,21 @@
         </form>
     </section>
     <div class="footer-bread-top">
-        <img src="images/2.png" alt="Footer decorative top" class="footer-bread-image">
+        <img src="webp/2.webp" alt="Footer decorative top" class="footer-bread-image">
     </div>
     <footer>
         <div class="footer-girl-paint">
-            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+            <img src="webp/girlpaint.webp" alt="Girl painting" class="footer-girl-image">
         </div>
         <div class="footer-arrow">
-            <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
+            <img src="webp/curved-arrow-with-broken-line.webp" alt="Dotted arrow"
                 style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
         </div>
 
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Bright Future Academy" style="height: 60px; width: auto;">
+                    <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 60px; width: auto;">
                 </div>
                 <p class="footer-description">Quality education for academic excellence and bright futures.</p>
                 <div class="social-links">
@@ -3274,12 +3775,12 @@
             <div class="footer-section">
                 <h3>School Life Gallery</h3>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Students in classroom"></div>
-                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Science laboratory activities"></div>
-                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Mathematics learning session"></div>
-                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Students reading together"></div>
-                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Early childhood education"></div>
-                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="School campus life"></div>
+                    <div class="gallery-item"><img src="webp/study-1.webp" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="webp/study-2.webp" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="webp/study-3.webp" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="webp/study-4.webp" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="webp/baby_play.webp" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="webp/contact-us.webp" alt="School campus life"></div>
                 </div>
             </div>
         </div>
@@ -3289,7 +3790,7 @@
                 © All Rights reserved to Kodemapa.
             </div>
             <div class="footer-hand-horizontal">
-                <img src="images/sidehand.png" alt="Colorful hands"
+                <img src="webp/sidehand.webp" alt="Colorful hands"
                     style="height: 300px; width: auto; transform: rotate(90deg);">
             </div>
             <div style="color: #b8e6e4; font-size: 0.9rem;">

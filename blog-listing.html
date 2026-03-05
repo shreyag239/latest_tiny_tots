@@ -46,7 +46,7 @@
         /* --- HERO BANNER SECTION --- */
         .hero-banner {
             height: 65vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('images/article22.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('webp/article22.webp');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -120,8 +120,9 @@
         .date-badge span { display: block; font-size: 1.1rem; font-weight: bold; }
 
         .article-details { flex: 2; }
-        .article-details h2 { font-size: 1.8rem; margin-bottom: 15px; }
+        .article-details h2 { font-size: 1.8rem; margin-bottom: 15px;color:rgb(255, 178, 70); }
         .article-details p { color: #777; font-size: 0.95rem; line-height: 1.6; }
+        .article-details li { color: #777; font-size: 0.95rem; line-height: 1.6; }
         .read-more { 
             color: #111; text-decoration: none; font-weight: bold; font-size: 0.9rem;
             display: inline-block; margin-top: 15px; border-bottom: 2px orange dotted;
@@ -138,7 +139,7 @@
         .post-meta { font-size: 0.75rem; color: #e91e63; display: flex; gap: 10px; }
 
         .sale-banner { 
-            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.jpg'); /* Representative Sale Image */
+            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.webp'); /* Representative Sale Image */
             background-size: cover; height: 350px; border-radius: 15px; margin-bottom: 30px;
         }
 
@@ -192,6 +193,11 @@
             .article-details p {
                 font-size: 0.9rem;
                 line-height: 1.5;
+            }
+
+            .article-details li {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
             }
 
             .sidebar-widget {
@@ -250,7 +256,12 @@
             }
 
             .article-details p {
-                font-size: 0.85rem;
+                font-size: 0.105rem;
+                line-height: 1.4;
+            }
+
+            .article-details ul {
+                font-size: 0.105rem;
                 line-height: 1.4;
             }
 
@@ -295,12 +306,11 @@
 
       <nav>
         <div class="logo">
-            <img src="images/logo.png" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
+            <img src="webp/logo.webp" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="programs.html">Programs</a></li>
             <li><a href="activities.html">Activities</a></li>
             <li><a href="blog-listing.html" style="color:#ff4d6d;">Blogs</a></li>
             <li><a href="contact.html">Ask Us</a></li>
@@ -318,7 +328,7 @@
             <p class="breadcrumb">Home ● Blogs</p>
         </div>
         <div class="cloud-divider">
-            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud"
+            <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
                 style="width:100%; display:block; filter: invert(1) brightness(2);" />
         </div>
     </section>
@@ -328,40 +338,61 @@
             
             <div class="article-item">
                 <div class="img-container">
-                    <img src="https://img.freepik.com/free-photo/kids-playing-playground_23-2149036505.jpg" class="article-img">
-                    <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Dec 29,</span>2026</div>
+                    <img src="webp/sideways-child-taking-virtual-courses.webp" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Dec 29,</span>2026</div> -->
                 </div>
                 <div class="article-details">
                     <h2>Kindergarten Outdoor Play Area</h2>
-                    <h3 style="font-size: 1.6rem; color: #000; margin-bottom: 10px; font-weight: 300;">Exploring Nature Through Play</h3>
-                    <p>An Overview Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Viverra adipiscing at in tellus. Sagittis eu volutpat odio facilisis mauris sit amet massa vitae...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3 style="font-size: 1.6rem; color: #723e3e; margin-bottom: 10px; font-weight: 300;">Balancing Screen Time for Early Development</h3>
+                    <p>Finding the right balance with digital media is essential for a child’s cognitive and social growth. While technology offers interactive learning opportunities, excessive screen time can displace vital physical play and face to face interaction. At Satyam Tiny Tots Ballari, we recommend prioritizing high quality, educational content and maintaining clear boundaries to ensure screens remain a helpful tool rather than a distraction from real-world exploration.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Slow-paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
+                        <li>Video calls with grandparents and family</li>
+                        <li>Educational apps that require active participation rather than passive watching</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
                 </div>
             </div>
 
             <div class="article-item">
                 <div class="img-container">
-                    <img src="https://img.freepik.com/free-photo/children-doing-indoor-activities_23-2148844350.jpg" class="article-img">
-                    <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Jan 15,</span>2025</div>
+                    <img src="images/kids-healthy-snack-treats-with-fresh-fruits.jpg" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Jan 15,</span>2025</div> -->
                 </div>
                 <div class="article-details">
                     <h2>Well Equipped With Indoor Class Rooms</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Modern Learning Environment</h3>
-                    <p>An Overview Quisque id diam vel quam. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Mauris pellentesque pulvinar pellentesque habitant morbi...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">No-Stress Nutrition Guide for Toddlers</h3>
+                    <p>Focus on offering a "rainbow plate" of nutrient-dense whole foods like lean proteins and colorful vegetables to support rapid brain development and physical growth during the critical ages 1–3. By prioritizing healthy fats, managing picky eating habits through repeated exposure, and providing five or six small mini meals throughout the day, you can establish lifelong wellness habits and maintain steady energy levels without the mealtime stress.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Slow paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
+                        <li>Video calls with grandparents and family</li>
+                        <li>Educational apps that require active participation rather than passive watching</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
                 </div>
             </div>
 
             <div class="article-item">
                 <div class="img-container">
-                    <img src="https://img.freepik.com/free-photo/mother-hugging-her-child_23-2148844346.jpg" class="article-img">
-                    <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div>
+                    <img src="images/kids-playing-wooden-game.jpg" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div> -->
                 </div>
                 <div class="article-details">
                     <h2>Education Filled With Fun & Games</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Learning Made Enjoyable</h3>
-                    <p>An Overview Nisl rhoncus mattis rhoncus urna. Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id. Facilisi etiam dignissim diam quis enim lobortis...</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Simple Ways to Get More Outdoor Time</h3>
+                    <p>Children who spend regular time outdoors are more physically active, develop stronger gross motor skills (running, jumping, climbing, balancing), and have better hand-eye coordination. At Satyam tiny tots, ballari we support Outdoor activites which promotes healthy sleep, a stronger immune system, and reduced risk of childhood obesity.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Fuel growth with energy dense whole grains like oats or roti for essential fiber and daily fuel</li>
+                        <li>Fill half the plate with colorful produce for a broad, stress free vitamin intake.</li>
+                        <li>Serve small portions of lentils, eggs, or paneer to meet the daily 13–15g protein requirement.</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
                 </div>
             </div>
 
@@ -374,21 +405,21 @@
     </div>
 
     <div class="footer-bread-top">
-        <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
+        <img src="webp/footer22.webp" alt="Footer decorative top" class="footer-bread-image">
     </div>
     <footer>
         <div class="footer-girl-paint">
-            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+            <img src="webp/girlpaint.webp" alt="Girl painting" class="footer-girl-image">
         </div>
         <div class="footer-arrow">
-            <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
+            <img src="webp/curved-arrow-with-broken-line.webp" alt="Dotted arrow"
                 style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
         </div>
 
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Bright Future Academy" style="height: 60px; width: auto;">
+                    <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 60px; width: auto;">
                 </div>
                 <p class="footer-description">Quality education for academic excellence and bright futures.</p>
                 <div class="social-links">
@@ -422,12 +453,12 @@
             <div class="footer-section">
                 <h3>School Life Gallery</h3>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Students in classroom"></div>
-                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Science laboratory activities"></div>
-                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Mathematics learning session"></div>
-                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Students reading together"></div>
-                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Early childhood education"></div>
-                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="School campus life"></div>
+                    <div class="gallery-item"><img src="webp/study-1.webp" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="webp/study-2.webp" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="webp/study-3.webp" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="webp/study-4.webp" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="webp/baby_play.webp" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="webp/contact-us.webp" alt="School campus life"></div>
                 </div>
             </div>
         </div>
@@ -437,7 +468,7 @@
                 © All Rights reserved to Kodemapa.
             </div>
             <div class="footer-hand-horizontal">
-                <img src="images/sidehand.png" alt="Colorful hands"
+                <img src="webp/sidehand.webp" alt="Colorful hands"
                     style="height: 300px; width: auto; transform: rotate(90deg);">
             </div>
             <div style="color: #b8e6e4; font-size: 0.9rem;">

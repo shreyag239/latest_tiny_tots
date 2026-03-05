@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programs - Tiny Tots Kindergarten</title>
+    <title>Programs - Satyam TinyTots Ballari</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="css/global.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
     <style>
+        /* --- GLOBAL STYLES & REFINEMENT --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,18 +19,48 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
             color: #444;
-            background-color: #fff;
+            line-height: 1.6;
             overflow-x: hidden;
+            background-color: #fff;
         }
 
-        h1, h2, h3, .kids-font { font-family: 'Fredoka One', cursive; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+        h1, h2, h3, .logo-text {
+            font-family: 'Fredoka One', cursive;
+        }
 
-        /* --- ABOUT HERO SECTION --- */
+        /* --- ANIMATIONS --- */
+        @keyframes bubbleDrift {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(15px); }
+        }
+
+        @keyframes moveCloud {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(30px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- HERO SECTION --- */
         .hero-banner {
             height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/baby_play.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('webp/baby_play.webp');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -39,16 +71,16 @@
             color: white;
         }
 
-        .hero-banner h1 { 
-            font-size: 4.5rem; 
-            margin-bottom: 10px; 
-            color: white; 
+        .hero-banner h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero-banner .breadcrumb { 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            color: #fff; 
+        .hero-banner .breadcrumb {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
         }
 
         .cloud-divider {
@@ -60,340 +92,337 @@
             z-index: 5;
         }
 
-        .cloud-divider svg {
-            display: block;
-            width: 100%;
-            height: 150px;
-            fill: #ffffff;
-        }
-
-        /* --- Section 1: Features --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 50px; }
-        .feature-card { 
-            border: 2px dashed #ffb7c5; border-radius: 20px; padding: 30px; position: relative; 
-            background: #fff; transition: transform 0.3s;
-        }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-icon { width: 50px; height: 50px; margin-bottom: 15px; }
-        .char-decor { position: absolute; width: 60px; top: -30px; right: -10px; }
-
-        /* --- Section 2: Innovative Works (Pink Banner) --- */
-        .pink-banner { background-color: #e91e63; color: white; padding: 80px 20px; display: flex; align-items: center; justify-content: center; position: relative; }
-        .banner-content { display: flex; align-items: center; max-width: 1200px; gap: 40px; text-align: left; }
-        .banner-text { flex: 1; }
-        .banner-images { flex: 2; display: flex; gap: 20px; }
-        .banner-img { border-radius: 0 100px 0 100px; width: 100%; height: 300px; object-fit: cover; border: 5px solid white; }
-        .btn-white { background: white; color: #e91e63; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: 600; }
-
-        /* --- Section 3: Online Courses --- */
-        .filter-nav { margin: 30px 0; display: flex; justify-content: center; gap: 20px; font-weight: 600; }
-        .filter-nav span { cursor: pointer; color: #333; }
-        .filter-nav span.active { color: #e91e63; border-bottom: 2px solid #e91e63; }
-        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .course-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left; }
-        .course-img { width: 100%; height: 200px; object-fit: cover; }
-        .course-info { padding: 20px; position: relative; }
-        .price-tag { position: absolute; right: 20px; top: 20px; font-size: 1.2rem; font-weight: bold; color: #333; }
-        .price-old { text-decoration: line-through; color: #e91e63; font-size: 0.9rem; margin-left: 5px; }
-
-        /* --- Section 4: Activity Class (Teal Banner) --- */
-        .teal-banner { background-color: #086d82; color: white; margin: 60px 0; padding: 60px 0; border-radius: 0 50px 50px 0; position: relative; overflow: hidden; }
-        .teal-content { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; gap: 40px; }
-        .activity-img-frame { flex: 1; position: relative; }
-        .activity-img { width: 100%; border-radius: 150px 30px 150px 30px; border: 10px solid #ffa500; }
-        .btn-teal { background: #16c2c2; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; }
-
-        /* --- Section 5: FAQ & Support --- */
-        .faq-support-row { display: flex; gap: 30px; align-items: flex-start; margin-top: 50px; }
-        .faq-accordion { flex: 2; text-align: left; }
-        /* FAQ: topic + question styles */
-        .faq-section { background: transparent; }
-        .topic { border-radius: 12px; overflow: hidden; margin-bottom: 16px; border: 1px solid #f2f2f2; background: #fff; }
-        .topic-header { padding: 18px 20px; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.02rem; }
-        .topic-header.active, .topic-header:hover { background: #e91e63; color: #fff; }
-        .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.42s cubic-bezier(.2,.8,.2,1), padding 0.28s ease; background: #fff; padding: 0 20px; }
-        .topic-body.open { max-height: 1200px; padding-bottom: 12px; }
-        .question { border-top: 1px solid #f4f4f4; }
-        .question-header { padding: 14px 6px; cursor: default; display: flex; justify-content: space-between; align-items: center; background: #fff; font-size: 0.98rem; }
-        /* Keep question headers readable (dark) even when topic is active */
-        .question-header { color: #1d3d4a; }
-        .question-header.active { color: #1d3d4a; font-weight: 700; }
-        .question-answer { padding: 12px 0 16px 0; color: #444; background: #fff; max-height: 0; overflow: hidden; transition: max-height 0.32s ease, padding 0.3s ease; font-size: 0.96rem; line-height: 1.7; }
-        .question-answer.open { max-height: 600px; padding-bottom: 12px; }
-        .support-sidebar { flex: 1; }
-        .support-card { background: #16c2c2; color: white; padding: 40px 20px; border-radius: 20px; margin-bottom: 20px; }
-        .app-card { background: #0a4d5a; color: white; padding: 30px 20px; border-radius: 20px; }
-        .store-btns { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-        .store-btns img { height: 40px; }
-
-        /* --- Students Section --- */
-        .students-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 30px; }
-        .student-card { background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); overflow: hidden; text-align: left; }
-        .student-photo { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .student-info { padding: 16px; }
-        .student-name { font-weight: 700; color: #1d3d4a; margin: 6px 0; }
-        .student-meta { color: #e91e63; font-weight: 700; font-size: 0.9rem; }
-
-        /* --- Kindergarten Section --- */
-        .kg-section { padding: 80px 10%; background: linear-gradient(135deg,#fff8fb,#f7fffe); border-radius: 20px; margin: 40px auto; }
-        .kg-grid { display: flex; gap: 30px; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .kg-cards { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .kg-card { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left; }
-        .kg-card h3 { margin-top: 0; color: #1d3d4a; }
-        .kg-illustration { flex: 1; display: flex; align-items: center; justify-content: center; }
-        .kg-illustration img { width: 320px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .kg-cta { margin-top: 15px; display: inline-block; background: #ff4d6d; color: #fff; padding: 12px 26px; border-radius: 24px; text-decoration: none; font-weight: 700; }
-
-        /* --- ANIMATION FOR MOVING OVERLAY IMAGE --- */
-        @keyframes moveCloud {
-            0% {
-                transform: translateX(0);
-            }
-
-            50% {
-                transform: translateX(30px);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
-
         .moving-cloud {
             animation: moveCloud 6s ease-in-out infinite;
         }
 
-        @media (max-width: 900px) {
-            .kg-grid { flex-direction: column; }
-            .kg-cards { grid-template-columns: 1fr; }
-            .kg-illustration img { width: 260px; }
+        /* --- CREATORS/FEATURES SECTION --- */
+        .creators-section {
+            padding: 120px 8%;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
         }
 
-        /* Mobile responsive styles */
-        @media (max-width: 768px) {
-            .hero-banner {
-                height: 48vh;
-                padding: 28px 12px;
-            }
+        /* Background Bubbles (Matching About Page) */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.2;
+            animation: bubbleDrift 6s ease-in-out infinite;
+        }
+        .b-pink { background: #ff4d6d; width: 120px; height: 120px; top: 10%; left: 5%; }
+        .b-teal { background: #73d2d6; width: 80px; height: 80px; bottom: 15%; left: 10%; }
+        .b-yellow { background: #ffce32; width: 100px; height: 100px; top: 20%; right: 5%; }
 
-            .hero-banner h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-banner .breadcrumb {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 40px 15px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-top: 30px;
-            }
-
-            .feature-card {
-                padding: 25px 20px;
-            }
-
-            .pink-banner {
-                padding: 60px 15px;
-            }
-
-            .banner-content {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .banner-images {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .banner-img {
-                height: 200px;
-            }
-
-            .students-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-            }
-
-            .teal-banner {
-                margin: 40px 0;
-                padding: 50px 15px;
-                border-radius: 0;
-            }
-
-            .teal-content {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .teal-content div:first-child {
-                padding-left: 0 !important;
-            }
-
-            .faq-support-row {
-                flex-direction: column;
-                gap: 40px;
-                margin-top: 30px;
-            }
-
-            .support-card {
-                padding: 30px 15px;
-            }
-
-            .kg-section {
-                padding: 60px 5%;
-                margin: 30px auto;
-            }
-
-            .kg-grid {
-                gap: 30px;
-            }
-
-            .kg-cards {
-                gap: 15px;
-            }
-
-            .kg-card {
-                padding: 15px;
-            }
-
-            .kg-illustration img {
-                width: 100%;
-                max-width: 300px;
-            }
+        .section-tag {
+            color: #ff1e56;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        @media (max-width: 480px) {
-            .hero-banner {
-                height: 40vh;
-                padding: 20px 10px;
-            }
+        .section-heading {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1a2b48;
+        }
 
-            .hero-banner h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
-            }
+        .section-desc {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: #777;
+            font-size: 1.15rem;
+        }
 
-            .hero-banner .breadcrumb {
-                font-size: 0.9rem;
-            }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
 
-            .container {
-                padding: 30px 10px;
-            }
+        .feature-card {
+            background: #fff;
+            border: 2px dashed #ffb7c5;
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
 
-            .container h1 {
-                font-size: 2rem !important;
-            }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-style: solid;
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.1);
+        }
 
-            .features-grid {
-                gap: 15px;
-                margin-top: 25px;
-            }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
 
-            .feature-card {
-                padding: 20px 15px;
-            }
+        .feature-card h3 {
+            color: #1a2b48;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
 
-            .feature-card h3 {
-                font-size: 1.3rem;
-            }
+        /* --- INNOVATIVE PINK BANNER --- */
+        .pink-banner {
+            background: #ef1866;
+            padding: 100px 8%;
+            color: white;
+            position: relative;
+        }
 
-            .pink-banner {
-                padding: 40px 10px;
-            }
+        .banner-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-            .pink-banner h2 {
-                font-size: 1.8rem !important;
-            }
+        .banner-text { flex: 1; }
+        .banner-text h2 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.1; }
+        .banner-text p { font-size: 1.25rem; margin-bottom: 35px; opacity: 0.95; }
 
-            .students-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+        .banner-images {
+            flex: 1.2;
+            display: flex;
+            gap: 20px;
+        }
 
-            .student-photo {
-                height: 180px;
-            }
+        .banner-img {
+            width: 50%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 40px 10px 40px 10px;
+            border: 8px solid white;
+            transition: transform 0.4s ease;
+        }
 
-            .student-info {
-                padding: 12px;
-            }
+        .banner-img:hover { transform: scale(1.03); }
 
-            .teal-banner {
-                padding: 40px 10px;
-                margin: 30px 0;
-            }
+        .btn-white {
+            background: white;
+            color: #ef1866;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka One';
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
 
-            .teal-content h2 {
-                font-size: 1.8rem !important;
-            }
+        .btn-white:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-            .faq-support-row {
-                margin-top: 25px;
-            }
+        /* --- TOP ACHIEVERS SECTION --- */
+        .students-section {
+            padding: 100px 8%;
+            background: #fff;
+        }
 
-            .topic-header {
-                padding: 15px;
-                font-size: 1rem;
-            }
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
 
-            .question-header {
-                padding: 12px 6px;
-                font-size: 0.95rem;
-            }
+        .student-card {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
 
-            .question-answer {
-                font-size: 0.9rem;
-                padding: 10px 0 12px 0;
-            }
+        .student-card:hover { transform: translateY(-10px); }
 
-            .support-card {
-                padding: 25px 12px;
-            }
+        .student-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
 
-            .support-card h3 {
-                font-size: 1.3rem;
-            }
+        .student-info {
+            padding: 25px;
+            background: #fff;
+        }
 
-            .kg-section {
-                padding: 40px 4%;
-                margin: 25px auto;
-                border-radius: 15px;
-            }
+        .student-meta {
+            color: #ef1866;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
 
-            .kg-section h2 {
-                font-size: 1.6rem !important;
-            }
+        .student-name {
+            font-size: 1.3rem;
+            color: #1a2b48;
+            margin-bottom: 10px;
+        }
 
-            .kg-card h3 {
-                font-size: 1.2rem;
-            }
+        /* --- KINDERGARTEN ENROLLMENT --- */
+        .kg-section {
+            padding: 100px 8%;
+            background: linear-gradient(135deg,#fff8fb,#f7fffe);
+            border-radius: 60px;
+            margin: 40px 5%;
+        }
 
-            .kg-card p {
-                font-size: 0.9rem;
-            }
+        .kg-grid {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
 
-            .kg-illustration img {
-                width: 100%;
-                max-width: 250px;
+        .kg-cards {
+            flex: 1.3;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .kg-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .kg-card h3 { color: #1d3d4a; margin-bottom: 15px; }
+
+        .kg-illustration {
+            flex: 1;
+            text-align: center;
+        }
+
+        .kg-illustration img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: pulse-soft 4s ease-in-out infinite;
+        }
+
+        /* --- TEAL BANNER --- */
+        .teal-banner {
+            background: #086d82;
+            padding: 80px 8%;
+            color: white;
+            margin: 80px 0;
+            border-radius: 0 100px 100px 0;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .activity-img {
+            width: 450px;
+            border-radius: 150px 30px 150px 30px;
+            border: 10px solid #ffa500;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            padding: 100px 8%;
+            display: flex;
+            gap: 60px;
+        }
+
+        .faq-accordion { flex: 2; }
+        .topic { margin-bottom: 20px; border-radius: 20px; border: 1px solid #eee; overflow: hidden; }
+        .topic-header {
+            padding: 25px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        .topic-header.active { background: #ef1866; color: white; }
+
+        .support-sidebar {
+            flex: 1;
+        }
+        .support-card {
+            background: #16c2c2;
+            color: white;
+            padding: 40px;
+            border-radius: 30px;
+            position: sticky;
+            top: 20px;
+        }
+
+        /* --- FAQ Q&A STYLES --- */
+        .topic-body .question {
+            padding: 12px 0;
+            border-bottom: 1px dashed #f0f0f0;
+        }
+        .topic-body .question:last-child { border-bottom: none; }
+
+        .topic-body .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 6px 0;
+            color: #1a2b48;
+        }
+
+        .topic-body .question-header span {
+            color: #ef1866;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .topic-body .question-answer {
+            margin-top: 8px;
+            color: #666;
+            padding-left: 6px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1100px) {
+            .topic-body .question-header { font-size: 1rem; }
+            .topic-body .question-answer { font-size: 0.95rem; }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            .hero-banner h1 { font-size: 3rem; }
+            .banner-content, .kg-grid, .teal-banner, .faq-section {
+                flex-direction: column;
+                text-align: center;
             }
+            .banner-images, .kg-cards { grid-template-columns: 1fr; width: 100%; }
+            .banner-img, .activity-img { width: 100%; max-width: 400px; margin: 0 auto; }
+            .teal-banner { border-radius: 0; }
         }
     </style>
 </head>
+
 <body>
 
-     <nav>
-        <div>
-            <img src="images/logo.png" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
+    <nav>
+        <div class="logo">
+            <img src="webp/logo.webp" alt="Satyam TinyTots" style="height: 50px; width: auto;">
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -404,168 +433,161 @@
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
         <div class="hamburger-menu" id="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
     <section class="hero-banner">
         <div>
-            <h1>Programs</h1>
+            <h1>Educational Programs</h1>
             <p class="breadcrumb">Home ● Programs</p>
         </div>
         <div class="cloud-divider">
-            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud" style="width:100%; display:block; filter: invert(1) brightness(2);" />
+            <img src="webp/bread-cum-overlay.webp" alt="Overlay" class="moving-cloud"
+                style="width:100%; display:block; filter: invert(1) brightness(2);" />
         </div>
     </section>
 
-    <div class="container">
-        <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Educational Programs</p>
-        <h1 style="font-size: 2.5rem; margin-top: 0;">Meet Our Creators</h1>
-        <p style="max-width: 700px; margin: 0 auto; color: #777;">Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
+    <section class="creators-section">
+        <div class="bubble b-pink"></div>
+        <div class="bubble b-teal"></div>
+        <div class="bubble b-yellow"></div>
+        
+        <span class="section-tag">Our Experts</span>
+        <h2 class="section-heading">Meet Our Creators</h2>
+        <p class="section-desc">We combine decades of pedagogical experience with a love for creative exploration, ensuring your child receives a balanced and stimulating start to their journey.</p>
         
         <div class="features-grid">
-            <div class="feature-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3048/3048122.png" class="feature-icon">
+            <div class="feature-card" style="animation-delay: 0.1s;">
+                <img src="https://cdn-icons-webp.flaticon.com/512/3048/3048122.webp" class="feature-icon">
                 <h3>24x7 Tutor Availability</h3>
-                <p style="font-size: 0.9rem; color: #888;">Integer eget felis varius, porta odio vel, eleifend magna. Fusce dapibus sodales ante.</p>
+                <p>Continuous support for parent queries and student learning paths throughout the academic term.</p>
             </div>
-            <div class="feature-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2097/2097061.png" class="feature-icon">
+            <div class="feature-card" style="animation-delay: 0.2s;">
+                <img src="https://cdn-icons-webp.flaticon.com/512/2097/2097061.webp" class="feature-icon">
                 <h3>Easy Access Technique</h3>
-                <p style="font-size: 0.9rem; color: #888;">Amet ante tincidunt ultrices nec ac justo. Aliquam semper vitae lacus eu commodo.</p>
+                <p>Simplified learning modules that focus on sensory-based interaction and intuitive play.</p>
             </div>
-            <div class="feature-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3468/3468192.png" class="feature-icon">
+            <div class="feature-card" style="animation-delay: 0.3s;">
+                <img src="https://cdn-icons-webp.flaticon.com/512/3468/3468192.webp" class="feature-icon">
                 <h3>White board Class</h3>
-                <p style="font-size: 0.9rem; color: #888;">Nunc eget lacus tincidunt, interdum metus eu, eleifend purus. Donec rutrum nec eros.</p>
+                <p>Interactive visual sessions that bring concepts to life using modern digital aids and illustrations.</p>
             </div>
-            <div class="feature-card">
-                <img src="https://cdn-icons-png.flaticon.com/512/2436/2436636.png" class="feature-icon">
+            <div class="feature-card" style="animation-delay: 0.4s;">
+                <img src="https://cdn-icons-webp.flaticon.com/512/2436/2436636.webp" class="feature-icon">
                 <h3>Experienced Tutors</h3>
-                <p style="font-size: 0.9rem; color: #888;">Pellentesque vel sollicitudin arcu. Duis sit amet leo nec tortor dignissim laoreet.</p>
+                <p>Our educators are certified specialists in Early Childhood Education with a passion for nurturing talent.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="pink-banner">
+    <section class="pink-banner">
         <div class="banner-content">
             <div class="banner-text">
-                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Creative</p>
-                <h2 style="font-size: 2.2rem;">Our Teams Innovative Works With Your Kids</h2>
-                <p>Phasellus gravida lacus quis eros lobortis, nec dapibus quam gravida. Duis sed augue vitae felis pellentesque varius nec quis nunc.</p>
-                <a href="#" class="btn-white">More Works</a>
+                <p style="text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px;">Creative Excellence</p>
+                <h2>Our Teams Innovative Works With Your Kids</h2>
+                <p>At Satyam TinyTots Ballari, innovation isn't just a word—it's how we design our play zones, our digital literacy blocks, and our art rooms. We turn everyday lessons into extraordinary memories.</p>
+                <a href="#" class="btn-white">Explore Gallery</a>
             </div>
             <div class="banner-images">
-                <img src="images/about_image_1.jpg" class="banner-img">
-                <img src="images/about_image_2.jpg" class="banner-img">
+                <img src="webp/about_image_1.webp" class="banner-img" alt="Innovation 1">
+                <img src="webp/about_image_2.webp" class="banner-img" alt="Innovation 2">
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container">
-        <div style="text-align:center; margin-bottom:8px; color:#e91e63; font-weight:700;">Top Students</div>
-        <h1 style="font-size:2.2rem; margin:6px 0 10px 0;">Our Top Achievers — 2025</h1>
-        <p style="max-width:760px; margin:0 auto 20px; color:#777;">Celebrating students who showed outstanding learning, kindness and creativity during the year.</p>
+    <section class="students-section">
+        <span class="section-tag">Future Leaders</span>
+        <h2 class="section-heading">Our Top Achievers — 2025</h2>
+        <p class="section-desc">Celebrating the curiosity, kindness, and milestones of our wonderful TinyTots family.</p>
 
         <div class="students-grid">
             <div class="student-card">
-                <img src="https://img.freepik.com/free-photo/smiling-little-girl_23-2148851166.jpg" class="student-photo" alt="Ananya Sharma">
+                <img src="https://img.freepik.com/free-photo/smiling-little-girl_23-2148851166.webp" class="student-photo" alt="Ananya">
                 <div class="student-info">
-                    <div class="student-meta">KG 2 — Academic Excellence</div>
-                    <div class="student-name">Ananya Sharma</div>
-                    <p style="margin:6px 0 0; color:#666;">Demonstrated exceptional progress in language, curiosity and cooperative play.</p>
+                    <span class="student-meta">KG 2 — Academic Excellence</span>
+                    <h3 class="student-name">Ananya Sharma</h3>
+                    <p style="font-size: 0.95rem; color: #666;">Exceptional progress in language and cooperative play.</p>
                 </div>
             </div>
-
             <div class="student-card">
-                <img src="https://img.freepik.com/free-photo/happy-child-playing_23-2148803391.jpg" class="student-photo" alt="Rohan Patel">
+                <img src="https://img.freepik.com/free-photo/happy-child-playing_23-2148803391.webp" class="student-photo" alt="Rohan">
                 <div class="student-info">
-                    <div class="student-meta">KG 1 — Creative Leader</div>
-                    <div class="student-name">Rohan Patel</div>
-                    <p style="margin:6px 0 0; color:#666;">Shines in creative arts and helps classmates in group activities.</p>
+                    <span class="student-meta">KG 1 — Creative Leader</span>
+                    <h3 class="student-name">Rohan Patel</h3>
+                    <p style="font-size: 0.95rem; color: #666;">Shines in creative arts and peer mentorship.</p>
                 </div>
             </div>
-
             <div class="student-card">
-                <img src="https://img.freepik.com/free-photo/cheerful-child_23-2148803395.jpg" class="student-photo" alt="Meera Iyer">
+                <img src="https://img.freepik.com/free-photo/cheerful-child_23-2148803395.webp" class="student-photo" alt="Meera">
                 <div class="student-info">
-                    <div class="student-meta">Pre-K — Kindness Ambassador</div>
-                    <div class="student-name">Meera Iyer</div>
-                    <p style="margin:6px 0 0; color:#666;">Recognised for empathy, helpfulness and steady social growth.</p>
+                    <span class="student-meta">Pre-K — Kindness Ambassador</span>
+                    <h3 class="student-name">Meera Iyer</h3>
+                    <p style="font-size: 0.95rem; color: #666;">Recognised for empathy and social growth.</p>
                 </div>
             </div>
-
             <div class="student-card">
-                <img src="https://img.freepik.com/free-photo/little-boy_23-2148803403.jpg" class="student-photo" alt="Arjun Rao">
+                <img src="https://img.freepik.com/free-photo/little-boy_23-2148803403.webp" class="student-photo" alt="Arjun">
                 <div class="student-info">
-                    <div class="student-meta">KG 2 — Sports & Coordination</div>
-                    <div class="student-name">Arjun Rao</div>
-                    <p style="margin:6px 0 0; color:#666;">Outstanding progress in motor skills, teamwork and confidence.</p>
+                    <span class="student-meta">KG 2 — Sports Pro</span>
+                    <h3 class="student-name">Arjun Rao</h3>
+                    <p style="font-size: 0.95rem; color: #666;">Outstanding coordination and teamwork skills.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Kindergarten Section -->
-    <div class="container kg-section">
-        <p style="color: #e91e63; font-weight: bold; margin-bottom: 6px;">Kindergarten Program</p>
-        <h2 style="font-size: 2rem; margin-top: 0;">Early Years — Playful Learning for Little Minds</h2>
+    <section class="kg-section">
+        <span class="section-tag">Admissions Open</span>
+        <h2 class="section-heading">Early Years — Playful Learning</h2>
         <div class="kg-grid">
             <div class="kg-cards">
                 <div class="kg-card">
                     <h3>Balanced Curriculum</h3>
-                    <p>Play-based learning that develops social, emotional and cognitive skills through guided activities and meaningful play.</p>
-                    <p><strong>Age Group:</strong> 3–5 years</p>
+                    <p>Play-based learning for social and cognitive development.</p>
+                    <p style="margin-top: 10px;"><strong>Ages:</strong> 3–5 Years</p>
                 </div>
                 <div class="kg-card">
-                    <h3>Safe & Nurturing Environment</h3>
-                    <p>Trained caregivers, small groups and child-friendly classrooms focused on wellbeing and positive routines.</p>
+                    <h3>Safe Environment</h3>
+                    <p>Child-safe infrastructure with 1:6 adult ratio for maximum care.</p>
                 </div>
                 <div class="kg-card">
-                    <h3>Daily Routines & Life Skills</h3>
-                    <p>Morning circles, story time, creative arts, music and simple self-help routines to build independence and confidence.</p>
+                    <h3>Life Skills</h3>
+                    <p>Building independence through daily routines and self-help tasks.</p>
                 </div>
                 <div class="kg-card">
                     <h3>Parent Partnership</h3>
-                    <p>Regular updates, take-home activities and parent workshops to support learning and smooth transitions.</p>
+                    <p>Regular updates and workshops for a holistic home-school link.</p>
                 </div>
             </div>
             <div class="kg-illustration">
-                <img src="images/section-content-image-j2.jpg" alt="Kindergarten activities">
+                <img src="webp/section-content-image-j2.webp" alt="Learning is fun">
+                <a href="contact.html" class="btn-creative" style="background:#ff4d6d; color:white; padding:15px 35px; border-radius:30px; display:inline-block; margin-top:30px; font-weight:bold; text-decoration:none;">Enquire Now</a>
             </div>
         </div>
-        <div style="text-align:center; margin-top:20px;">
-            <a href="contact.html" class="kg-cta">Enquire About Admissions</a>
-        </div>
-    </div>
+    </section>
 
-    <div class="teal-banner">
-        <div class="teal-content">
-            <div style="flex: 1; padding-left: 50px;">
-                <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Opening New Activity Class 2023</h2>
-                <p style="opacity: 0.9;">Duis sit amet augue rutrum sem interdum fermentum. Vestibulum in volutpat lorem, ac tincidunt tellus. Curabitur volutpat porta rutrum.</p>
-                <p style="margin-top: 20px;"><strong>Mail:</strong> kidscool@activity.com<br><strong>Phone:</strong> +04 258 654 4552</p>
-                <a href="#" class="btn-teal">REGISTER NOW</a>
-            </div>
-            <div class="activity-img-frame">
-                <img src="https://img.freepik.com/free-photo/group-children-playing-musical-instruments_23-2148844342.jpg" class="activity-img">
-            </div>
+    <section class="teal-banner">
+        <div style="flex: 1.2;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Register for New Activity Classes 2026</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Discover our weekend and after-school clubs focusing on music, dance, and basic robotics for young minds.</p>
+            <p><strong>Mail:</strong> admissions@satyamtinytots.com<br><strong>Phone:</strong> +91 98765 43210</p>
+            <a href="#" class="btn-white" style="margin-top: 25px;">REGISTER NOW</a>
         </div>
-    </div>
+        <div style="flex: 0.8;">
+            <img src="https://img.freepik.com/free-photo/group-children-playing-musical-instruments_23-2148844342.webp" class="activity-img" alt="Activities">
+        </div>
+    </section>
 
-    <div class="container">
-        <div class="faq-support-row">
-            <div class="faq-accordion">
-                <p style="color: #e91e63; font-weight: bold; margin-bottom: 5px;">Our Expert Answers</p>
-                <h2 style="font-size: 2.2rem; margin-top: 0;">Frequently <span style="color: #086d82;">Asked Questions</span></h2>
-                
-                <div class="faq-section">
+    <section class="faq-section">
+        <div class="faq-accordion">
+            <span class="section-tag" style="text-align: left;">Support</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 40px; color: #1a2b48;">Frequently Asked Questions</h2>
+            
                     <!-- Topic 1: Admissions -->
                     <div class="topic">
                         <div class="topic-header">Admissions & Enrollment <span class="chev">▾</span></div>
-                        <div class="topic-body">
+                        <div class="topic-body" style="padding: 0 25px 25px; display: none;">
                             <div class="question">
                                 <div class="question-header">What are the age criteria for each class? <span>+</span></div>
                                 <div class="question-answer">We accept children from 2.5 to 5 years across Pre-K, KG1 and KG2. Exact placement is determined during orientation and assessment.</div>
@@ -584,7 +606,7 @@
                     <!-- Topic 2: Daily Routine -->
                     <div class="topic">
                         <div class="topic-header">Daily Routine & Meals <span class="chev">▾</span></div>
-                        <div class="topic-body">
+                        <div class="topic-body" style="padding: 0 25px 25px; display: none;">
                             <div class="question">
                                 <div class="question-header">What does a typical day look like? <span>+</span></div>
                                 <div class="question-answer">Our day includes circle time, guided play, outdoor activity, creative sessions and calm rest times to balance learning and play.</div>
@@ -603,7 +625,7 @@
                     <!-- Topic 3: Health & Safety -->
                     <div class="topic">
                         <div class="topic-header">Health & Safety <span class="chev">▾</span></div>
-                        <div class="topic-body">
+                        <div class="topic-body" style="padding: 0 25px 25px; display: none;">
                             <div class="question">
                                 <div class="question-header">What safety measures are in place? <span>+</span></div>
                                 <div class="question-answer">Secure entry, child-safe furniture, trained staff and first-aid-certified caregivers. We perform regular safety checks.</div>
@@ -622,7 +644,7 @@
                     <!-- Topic 4: Learning & Curriculum -->
                     <div class="topic">
                         <div class="topic-header">Learning & Curriculum <span class="chev">▾</span></div>
-                        <div class="topic-body">
+                        <div class="topic-body" style="padding: 0 25px 25px; display: none;">
                             <div class="question">
                                 <div class="question-header">What teaching approach do you follow? <span>+</span></div>
                                 <div class="question-answer">We follow a play-based, inquiry-led approach focusing on social-emotional learning, early literacy and creative expression.</div>
@@ -641,7 +663,7 @@
                     <!-- Topic 5: Parent Engagement -->
                     <div class="topic">
                         <div class="topic-header">Parent Engagement & Extras <span class="chev">▾</span></div>
-                        <div class="topic-body">
+                        <div class="topic-body" style="padding: 0 25px 25px; display: none;">
                             <div class="question">
                                 <div class="question-header">How can parents participate? <span>+</span></div>
                                 <div class="question-answer">We welcome parent volunteers, workshops and family events. Seasonal celebrations often involve families joining classroom activities.</div>
@@ -656,13 +678,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
 
-            <div class="support-sidebar">
-
-                <div class="support-card">
-                    <h3 style="margin: 0;">Admissions & Kindergarten Support</h3>
+        <div class="support-sidebar">
+            <div class="support-card">
+                 <h3 style="margin: 0;">Admissions & Kindergarten Support</h3>
                     <p style="font-size: 0.9rem; color:#444; margin: 10px 0 12px;">Everything parents need to know about our Kindergarten intake, routines and how we support young learners.</p>
                     <ul style="text-align:left; color:#666; font-size:0.9rem; margin-left:14px;">
                         <li><strong>Age Groups:</strong> Ages 2.5 – 5 years (Pre-K, KG1, KG2)</li>
@@ -671,85 +691,28 @@
                     </ul>
                     <p style="font-weight:700; font-size:1rem; margin:12px 0 6px;">📞 Admissions: +91 98765 43210</p>
                     <p style="margin:0 0 12px; color:#666; font-size:0.9rem;"><strong>Email:</strong> admissions@kidscool.in</p>
-                    <a href="contact.html#admissions" class="btn-white" style="background: #0a4d5a; color: white; display: block; margin-bottom: 10px;">Enquire About Admissions</a>
-                    <a href="contact.html#visit" class="btn-white" style="display: block;">Book an Open Day Slot</a>
-                </div>
+
+                <a href="contact.html" class="btn-white" style="display: block; text-align: center;">Contact Office</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        // Topic-based FAQ: clicking a topic reveals all its Q&A and highlights header
-        (function(){
-            const topics = document.querySelectorAll('.topic');
-            topics.forEach(t => {
-                const header = t.querySelector('.topic-header');
-                const body = t.querySelector('.topic-body');
-                header.addEventListener('click', () => {
-                    const isOpen = body.classList.contains('open');
-                    // close all
-                    topics.forEach(other => {
-                        other.querySelector('.topic-header').classList.remove('active');
-                        other.querySelector('.topic-body').classList.remove('open');
-                        other.querySelectorAll('.question-header').forEach(qh => qh.classList.remove('active'));
-                        other.querySelectorAll('.question-answer').forEach(qa => qa.classList.remove('open'));
-                    });
-                    if (!isOpen) {
-                        header.classList.add('active');
-                        body.classList.add('open');
-                        t.querySelectorAll('.question-header').forEach(qh => qh.classList.add('active'));
-                        t.querySelectorAll('.question-answer').forEach(qa => qa.classList.add('open'));
-                    }
-                });
-            });
-        })();
-    </script>
-
-    <script>
-        // Hamburger Menu Toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburgerMenu = document.getElementById('hamburger-menu');
-            const navLinks = document.querySelector('.nav-links');
-
-            hamburgerMenu.addEventListener('click', function () {
-                hamburgerMenu.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking on nav links
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function () {
-                    hamburgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
-                    hamburgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    </script>
-
-   <div class="footer-bread-top">
-        <img src="images/footer22.png" alt="Footer decorative top" class="footer-bread-image">
+     <div class="footer-bread-top">
+        <img src="webp/footer22.webp" alt="Footer decorative top" class="footer-bread-image">
     </div>
     <footer>
         <div class="footer-girl-paint">
-            <img src="images/girlpaint.png" alt="Girl painting" class="footer-girl-image">
+            <img src="webp/girlpaint.webp" alt="Girl painting" class="footer-girl-image">
         </div>
         <div class="footer-arrow">
-            <img src="images/curved-arrow-with-broken-line.png" alt="Dotted arrow"
+            <img src="webp/curved-arrow-with-broken-line.webp" alt="Dotted arrow"
                 style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
         </div>
 
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Bright Future Academy" style="height: 60px; width: auto;">
+                    <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 60px; width: auto;">
                 </div>
                 <p class="footer-description">Quality education for academic excellence and bright futures.</p>
                 <div class="social-links">
@@ -783,12 +746,12 @@
             <div class="footer-section">
                 <h3>School Life Gallery</h3>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="images/study-1.jpg" alt="Students in classroom"></div>
-                    <div class="gallery-item"><img src="images/study-2.jpg" alt="Science laboratory activities"></div>
-                    <div class="gallery-item"><img src="images/study-3.jpg" alt="Mathematics learning session"></div>
-                    <div class="gallery-item"><img src="images/study-4.jpg" alt="Students reading together"></div>
-                    <div class="gallery-item"><img src="images/baby_play.jpg" alt="Early childhood education"></div>
-                    <div class="gallery-item"><img src="images/contact-us.jpg" alt="School campus life"></div>
+                    <div class="gallery-item"><img src="webp/study-1.webp" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="webp/study-2.webp" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="webp/study-3.webp" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="webp/study-4.webp" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="webp/baby_play.webp" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="webp/contact-us.webp" alt="School campus life"></div>
                 </div>
             </div>
         </div>
@@ -798,7 +761,7 @@
                 © All Rights reserved to Kodemapa.
             </div>
             <div class="footer-hand-horizontal">
-                <img src="images/sidehand.png" alt="Colorful hands"
+                <img src="webp/sidehand.webp" alt="Colorful hands"
                     style="height: 300px; width: auto; transform: rotate(90deg);">
             </div>
             <div style="color: #b8e6e4; font-size: 0.9rem;">
@@ -811,5 +774,24 @@
         </div>
     </footer>
 
+    <script>
+        // Simple FAQ toggle logic
+        document.querySelectorAll('.topic-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const body = header.nextElementSibling;
+                body.style.display = body.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+
 </body>
+
 </html>
