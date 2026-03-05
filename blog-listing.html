@@ -300,6 +300,78 @@
             }
 
         }
+        /* --- SCROLL REVEAL ANIMATION SYSTEM (matching index/about) --- */
+        .anim-hidden {
+            opacity: 0;
+            transform: translateY(20px) scale(0.995);
+        }
+
+        .fade-up {
+            animation: fadeUpAnim 0.8s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .fade-left {
+            animation: fadeLeftAnim 0.9s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .fade-right {
+            animation: fadeRightAnim 0.9s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .zoom-in {
+            animation: zoomInAnim 0.7s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        @keyframes fadeUpAnim {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeLeftAnim {
+            from { opacity: 0; transform: translateX(-24px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeRightAnim {
+            from { opacity: 0; transform: translateX(24px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomInAnim {
+            from { opacity: 0; transform: scale(0.96); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        /* Stagger helper: elements with data-delay use inline --delay from JS */
+        [data-delay] {
+            animation-delay: var(--delay, 0s);
+        }
+
+        /* Button micro-interactions (matching index) */
+        .read-more,
+        .page-num {
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .read-more:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card hover lift (matching index) */
+        .article-item {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .article-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        .page-num:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -322,7 +394,7 @@
         </div>
     </nav>
 
-    <section class="hero-banner">
+    <section class="hero-banner animate-on-scroll anim-hidden" data-anim="zoom-in" data-delay="0.05">
         <div>
             <h1>Blogs</h1>
             <p class="breadcrumb">Home ● Blogs</p>
@@ -333,10 +405,10 @@
         </div>
     </section>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.1">
         <div class="main-feed">
             
-            <div class="article-item">
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.15">
                 <div class="img-container">
                     <img src="webp/sideways-child-taking-virtual-courses.webp" class="article-img">
                     <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Dec 29,</span>2026</div> -->
@@ -356,7 +428,7 @@
                 </div>
             </div>
 
-            <div class="article-item">
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.30">
                 <div class="img-container">
                     <img src="images/kids-healthy-snack-treats-with-fresh-fruits.jpg" class="article-img">
                     <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Jan 15,</span>2025</div> -->
@@ -376,7 +448,7 @@
                 </div>
             </div>
 
-            <div class="article-item">
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.45">
                 <div class="img-container">
                     <img src="images/kids-playing-wooden-game.jpg" class="article-img">
                     <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div> -->
@@ -396,7 +468,7 @@
                 </div>
             </div>
 
-            <div class="pagination">
+            <div class="pagination animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.55">
                 <a href="#" class="page-num active">1</a>
                 <a href="#" class="page-num">2</a>
                 <a href="#" class="page-num">»</a>
@@ -482,6 +554,45 @@
     </footer>
 
 </body>
+<script>
+    // Scroll-reveal animation system (matching index/about/activities)
+    (function () {
+        const toObserve = document.querySelectorAll('.animate-on-scroll');
+        if (!('IntersectionObserver' in window)) {
+            toObserve.forEach(el => {
+                el.classList.remove('anim-hidden');
+                el.classList.add(el.dataset.anim || 'fade-up');
+            });
+            return;
+        }
+        const obs = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const anim = el.dataset.anim || 'fade-up';
+                    const delay = el.dataset.delay ? (parseFloat(el.dataset.delay) + 's') : '0s';
+                    el.style.setProperty('--delay', delay);
+                    try { el.style.willChange = 'transform, opacity'; } catch (e) {}
+                    const map = { 'fade-up':'fade-up','fade-left':'fade-left','fade-right':'fade-right','zoom-in':'zoom-in' };
+                    const cls = map[anim] || 'fade-up';
+                    el.classList.remove('anim-hidden');
+                    el.classList.add(cls);
+                    const cleanUp = () => {
+                        try { el.style.willChange = ''; } catch (e) {}
+                        el.removeEventListener('animationend', cleanUp);
+                        el.removeEventListener('transitionend', cleanUp);
+                        clearTimeout(timeoutId);
+                    };
+                    el.addEventListener('animationend', cleanUp);
+                    el.addEventListener('transitionend', cleanUp);
+                    const timeoutId = setTimeout(cleanUp, 1200);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.12 });
+        toObserve.forEach(el => obs.observe(el));
+    })();
+</script>
  <script>
         // Hamburger Menu Toggle
         document.addEventListener('DOMContentLoaded', function () {

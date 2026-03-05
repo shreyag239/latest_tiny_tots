@@ -2654,7 +2654,7 @@
         .news-icon {
             width: 25px;
             height: 25px;
-            filter: invert(1);
+            color: white;
             opacity: 0.8;
             transition: transform 0.3s ease;
         }
@@ -3062,8 +3062,10 @@
 
             /* Cards / grids */
             .smart-activities-grid {
-                padding: 30px 6% 60px;
+                padding: 80px 6% 60px;
                 gap: 30px;
+                position: relative;
+                z-index: 6;
             }
 
             .creative-section .container {
@@ -3516,7 +3518,7 @@
         </div>
 
         <div class="activity-box">
-            <img src="webp/sports.webp" class="top-icon" alt="School">
+            <img src="webp/sports.webp" class="top-icon" alt="School" style="filter: brightness(0) saturate(100%) invert(62%) sepia(93%) saturate(1200%) hue-rotate(360deg) brightness(101%) contrast(106%);">
             <div class="shape-wrap tr-border">
                 <img src="webp/a2 (1).webp" class="shape-img" alt="Physical Play">
             </div>
@@ -3575,8 +3577,7 @@
                 <h2>Events</h2>
                 <div class="news-item">
                     <div class="news-header">
-                        <img src="https://cdn-icons-webp.flaticon.com/512/2838/2838779.webp" class="news-icon"
-                            alt="calendar">
+                         <i class="fa-solid fa-calendar-days news-icon" aria-hidden="true"></i>
                         <span class="news-date">Feb 28, 2025</span>
                     </div>
                     <span class="news-title">Celebrating our Little graduates</span>

@@ -256,6 +256,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            animation: imageShimmer 4s ease-in-out infinite;
         }
 
         /* White Dot Decoration on Image */
@@ -669,7 +670,35 @@
         }
 
         .btn-more-videos:hover {
-            transform: scale(1.05);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Button micro-interactions (matching index) */
+        .learn-more,
+        .view-more-btn,
+        .btn-more-videos {
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .learn-more:hover,
+        .view-more-btn:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Subtle card lift on hover (matching index) */
+        .extra-card,
+        .testimonial-main,
+        .extra-row {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .extra-card:hover,
+        .testimonial-main:hover,
+        .extra-row:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
         }
 
         /* --- Video Section with Overlap --- */
@@ -876,6 +905,36 @@
 
         .mini-icon {
             width: 45px;
+            animation: softPulse 3.5s ease-in-out infinite;
+        }
+
+        /* Slow shimmer on extra-section images */
+        .cut-img img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+            animation: imageShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes imageShimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.08); }
+        }
+
+        .cut-img:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Blink on tagline labels */
+        .tagline,
+        .tag-sub,
+        .extra-header .tag {
+            animation: glowBlink 3s ease-in-out infinite;
+        }
+
+        /* Gentle pulse on decorative SVGs */
+        .extra-kite,
+        .extra-star {
+            animation: softPulse 4s ease-in-out infinite;
         }
 
         .extra-content h3 {
@@ -1297,6 +1356,82 @@
             }
         }
 
+        /* --- Slow motion animation variants --- */
+        .fade-up-slow {
+            animation: fadeUpSlowAnim 1.8s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        .fade-left-slow {
+            animation: fadeLeftSlowAnim 1.8s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        .fade-right-slow {
+            animation: fadeRightSlowAnim 1.8s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        .zoom-in-slow {
+            animation: zoomInSlowAnim 2s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        .scale-up-slow {
+            animation: scaleUpSlowAnim 2s cubic-bezier(.16, 1, .3, 1) forwards;
+        }
+
+        @keyframes fadeUpSlowAnim {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeLeftSlowAnim {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeRightSlowAnim {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomInSlowAnim {
+            from {
+                opacity: 0;
+                transform: scale(0.88);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scaleUpSlowAnim {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         /* Stagger helper: elements with data-delay will use inline style --delay applied by JS */
         [data-delay] {
             animation-delay: var(--delay, 0s);
@@ -1567,6 +1702,47 @@
         /* Accent animations */
         .sparkle {
             animation: pulseColor 2.6s infinite ease-in-out;
+        }
+
+        /* Slow blink / pulse glow effect */
+        @keyframes slowBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes softPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        @keyframes glowBlink {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 0px transparent); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 157, 45, 0.5)); }
+        }
+
+        /* Apply slow blink to decorative floating elements */
+        .extra-stars,
+        .extra-cloud {
+            animation: slowBlink 3s ease-in-out infinite, bubbleDrift 6s ease-in-out infinite;
+        }
+
+        .decor-bee-small,
+        .extra-rocket {
+            animation: softPulse 3.5s ease-in-out infinite;
+        }
+
+        /* Glow blink on bubbles */
+        .bubble {
+            animation: bubbleDrift 6s ease-in-out infinite, slowBlink 4s ease-in-out infinite;
+        }
+
+        /* Subtle blink on section headings */
+        .programs-container h2,
+        .indian-section h2,
+        .extra-section h2,
+        .testimonial-section h2,
+        .education-news h2 {
+            animation: glowBlink 3s ease-in-out infinite;
         }
 
         @keyframes pulseColor {
@@ -2038,21 +2214,21 @@
         </div>
     </section>
 
-    <section class="programs-container animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.08">
+    <section class="programs-container">
         <div class="bubble b-pink"></div>
         <div class="bubble b-teal"></div>
         <img data-src="webp/bee.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>" alt="bee" class="decor-bee-small deferred-img" loading="lazy" decoding="async">
         <img data-src="webp/star.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>" alt="stars" class="extra-stars deferred-img" loading="lazy" decoding="async">
 
-        <span class="tagline">Our Programs</span>
-        <h2>Foundations for Confident Little Learners</h2>
-        <p class="description">
+        <span class="tagline animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Our Programs</span>
+        <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.15">Foundations for Confident Little Learners</h2>
+        <p class="description animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.25">
             Structured play and guided discovery for ages 2–6 literacy, numeracy readiness, creative arts,
             movement and social-emotional learning delivered in small, caring groups.
         </p>
 
         <div class="programs-grid">
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.10">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.1">
                 <div class="image-mask">
                     <img src="webp/blended-learning.webp" alt="Online Class" width="130" height="110" decoding="async" loading="eager">
                 </div>
@@ -2064,7 +2240,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.18">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.22">
                 <div class="image-mask">
                     <img src="webp/interactive-class.webp" alt="Interactive Class" width="130" height="110" decoding="async" loading="eager">
                 </div>
@@ -2076,7 +2252,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.26">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.34">
                 <div class="image-mask">
                     <img src="webp/safe-environment.webp" alt="Safety Facility" width="130" height="110" decoding="async" loading="eager">
                 </div>
@@ -2088,7 +2264,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.26">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.46">
                 <div class="image-mask">
                     <img src="webp/parent-teacher-app.webp" alt="Safety Facility" width="130" height="110" decoding="async" loading="eager">
                 </div>
@@ -2099,7 +2275,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.34">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.58">
                 <div class="image-mask">
                     <img data-src="webp/inclusive-support.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Special Education" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2111,7 +2287,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.42">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.70">
                 <div class="image-mask">
                     <img data-src="webp/creative-arts.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Creative Course" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2122,7 +2298,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.50">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.82">
                 <div class="image-mask">
                     <img data-src="webp/play-games.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Special Games" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2134,7 +2310,7 @@
             </div>
 
             <!-- Additional Activities -->
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.58">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.94">
                 <div class="image-mask">
                     <img data-src="webp/music-class.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Music Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2145,7 +2321,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.66">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="1.06">
                 <div class="image-mask">
                     <img data-src="webp/dancing.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Dance Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2156,7 +2332,7 @@
                 </div>
             </div>
 
-            <div class="program-card animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.74">
+            <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="1.18">
                 <div class="image-mask">
                     <img data-src="webp/language-class.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Language Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
@@ -2210,7 +2386,7 @@
         </div>
     </section>
 
-    <section class="extra-section animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.14">
+    <section class="extra-section">
         <!-- Decorative vectors for Extra Activities -->
         <svg class="extra-kite" viewBox="0 0 64 64" aria-hidden="true">
             <polygon points="32,4 60,32 32,60 4,32" fill="#ffce32" />
@@ -2221,16 +2397,16 @@
         </svg>
 
         <div class="extra-header">
-            <span class="tag">Problem Solving & Life Skills</span>
-            <h2>Extra Curricular Activities</h2>
-            <p class="extra-intro">Our extra-curricular program supports holistic development creativity, physical
+            <span class="tag animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Problem Solving & Life Skills</span>
+            <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.18">Extra Curricular Activities</h2>
+            <p class="extra-intro animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.30">Our extra-curricular program supports holistic development creativity, physical
                 skills, self-regulation and collaboration.
                 Activities are led by experienced instructors using playful, safe and age-appropriate methods.</p>
         </div>
 
         <div class="extra-container">
 
-            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left" data-delay="0.12">
+            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/creativity.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Creative</span>
                     <h3>Clay & Craft Studio</h3>
@@ -2245,7 +2421,7 @@
                 </div>
             </div>
 
-            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right" data-delay="0.18">
+            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/art.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Art</span>
                     <h3>Art & Painting Studio</h3>
@@ -2260,7 +2436,7 @@
                 </div>
             </div>
 
-            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left" data-delay="0.24">
+            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/sports.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Sports</span>
                     <h3>Sports & Movement</h3>
@@ -2275,7 +2451,7 @@
                 </div>
             </div>
 
-            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right" data-delay="0.36">
+            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/swimming.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Swimming</span>
                     <h3>Swimming Basics</h3>
@@ -2291,7 +2467,7 @@
             </div>
 
             <!-- Additional extra rows: Drama & Kids Yoga -->
-            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left" data-delay="0.60">
+            <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/performing.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Drama</span>
                     <h3>Drama & Roleplay</h3>
@@ -2306,7 +2482,7 @@
                 </div>
             </div>
 
-            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right" data-delay="0.75">
+            <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
                     <span class="tag-sub"><img src="webp/yoga.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Wellness</span>
                     <h3>Kids Yoga</h3>
@@ -2470,7 +2646,12 @@
                         'fade-up': 'fade-up',
                         'fade-left': 'fade-left',
                         'fade-right': 'fade-right',
-                        'zoom-in': 'zoom-in'
+                        'zoom-in': 'zoom-in',
+                        'fade-up-slow': 'fade-up-slow',
+                        'fade-left-slow': 'fade-left-slow',
+                        'fade-right-slow': 'fade-right-slow',
+                        'zoom-in-slow': 'zoom-in-slow',
+                        'scale-up-slow': 'scale-up-slow'
                     };
                     const cls = map[anim] || 'fade-up';
                     el.classList.remove('anim-hidden');
@@ -2485,7 +2666,8 @@
                     };
                     el.addEventListener('animationend', cleanUp);
                     el.addEventListener('transitionend', cleanUp);
-                    const timeoutId = setTimeout(cleanUp, 1200);
+                    const isSlow = cls.indexOf('slow') !== -1;
+                    const timeoutId = setTimeout(cleanUp, isSlow ? 3000 : 1200);
 
                     observer.unobserve(el);
                 }

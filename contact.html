@@ -105,7 +105,7 @@
         /* --- HERO SECTION (Cream & Yellow Design) --- */
         .contact-hero-new {
             position: relative;
-            background-color: #ffc86f;
+            background: linear-gradient(135deg, #b6e4ea 0%, #fff3e0 50%, #fce4ec 100%);
             padding: 80px 10% 120px;
             display: flex;
             align-items: center;
@@ -126,7 +126,7 @@
         }
 
         .hero-text-side h1 span {
-            color: #ff9d2d;
+            color: #73d2d6;
         }
 
         .hero-text-side p {
@@ -179,22 +179,38 @@
 
         .yellow-circle-bg {
             position: absolute;
-            width: 480px;
+            width: 500px;
             height: 480px;
-            background-color: #ffce32;
-            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9d2d, #ffce32);
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
             z-index: 1;
+            animation: blobMorph 8s ease-in-out infinite;
+        }
+
+        @keyframes blobMorph {
+            0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+            25% { border-radius: 55% 45% 35% 65% / 55% 40% 60% 45%; }
+            50% { border-radius: 35% 65% 55% 45% / 40% 55% 45% 60%; }
+            75% { border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%; }
         }
 
         .child-rounded {
             position: relative;
             z-index: 5;
-            width: 350px;
-            height: 350px;
+            width: 380px;
+            height: 400px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 10px solid white;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
+            border: 8px solid white;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            animation: blobImgMorph 8s ease-in-out infinite;
+        }
+
+        @keyframes blobImgMorph {
+            0%, 100% { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; }
+            25% { border-radius: 50% 50% 40% 60% / 60% 50% 50% 40%; }
+            50% { border-radius: 40% 60% 50% 50% / 45% 55% 45% 55%; }
+            75% { border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%; }
         }
 
         /* Floating Icons exactly as requested */
@@ -648,25 +664,17 @@
 
     <section class="contact-hero-new">
         <div class="hero-text-side">
-            <h1>EXCELLENCE IN <span>EDUCATION</span><br>FOR YOUR CHILD</h1>
-            <p>Ready to discover how our comprehensive academic programs can unlock your child's potential? Our dedicated educators are here to discuss your child's educational journey and academic success.</p>
+            <h1>GET IN <span>TOUCH</span><br>WITH US</h1>
+            <p>Have questions about admissions, programs or visiting our campus? Our friendly team is here to help — reach out and we'll get back to you promptly.</p>
             <div class="btn-group">
-                <a href="#" class="hero-btn btn-orange">ACADEMIC PROGRAMS</a>
-                <a href="#" class="hero-btn btn-teal">SCHOOL TOUR</a>
+                <a href="#contact-form" class="hero-btn btn-orange">SEND A MESSAGE</a>
+                <a href="tel:+919999999999" class="hero-btn btn-teal">CALL US NOW</a>
             </div>
         </div>
 
         <div class="hero-visual-side">
-            <img src="webp/cap.webp" class="edu-float-icon icon-cap" alt="Cap">
-           <img src="https://cdn-icons-png.flaticon.com/512/3112/3112946.png" class="edu-float-icon icon-trophy"
-                alt="Trophy">
-            <img src="https://cdn-icons-png.flaticon.com/512/2436/2436702.png" class="edu-float-icon icon-bulb"
-                alt="Lightbulb">
-            <img src="webp/goal.webp" class="edu-float-icon icon-clock" alt="Clock">
-
             <div class="yellow-circle-bg"></div>
-
-            <img src="./webp/contact-us.webp" class="child-rounded" alt="Student Portrait">
+            <img src="webp/baby_play.webp" class="child-rounded" alt="Kids learning together">
         </div>
         <div class="cloud-divider">
             <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
