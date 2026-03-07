@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Tiny Tots Kindergarten</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+            * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            color: #444;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo-text {
+            font-family: 'Fredoka One', cursive;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #666;
+        }
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: flex; gap: 40px; }
+        
+        /* --- HERO BANNER SECTION --- */
+        .hero-banner {
+            height: 65vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('webp/article22.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero-banner h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .hero-banner .breadcrumb {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .cloud-divider {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            z-index: 5;
+        }
+
+        .cloud-divider svg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            fill: #ffffff;
+        }
+
+        /* --- ANIMATION FOR MOVING OVERLAY IMAGE --- */
+        @keyframes moveCloud {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(30px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .moving-cloud {
+            animation: moveCloud 6s ease-in-out infinite;
+        }
+
+        /* --- Main Content Area --- */
+        .main-feed { flex: 1; width: 100%; }
+        .article-item { display: flex; gap: 30px; margin-bottom: 40px; border-bottom: 1px dashed #ccc; padding-bottom: 40px; }
+        .article-item:last-child { border-bottom: none; }
+        
+        .img-container { position: relative; flex: 1; min-width: 300px; overflow: hidden; }
+        .article-img { width: 90%; border-radius: 15px; height: 250px; object-fit: cover; transition: all 0.3s ease; }
+        .article-img:hover { filter: brightness(0.4); transform: scale(1.05); }
+        .date-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: #086d82; color: white; padding: 10px;
+            border-radius: 8px; text-align: center; font-size: 0.75rem; line-height: 1.2;
+        }
+        .date-badge span { display: block; font-size: 1.1rem; font-weight: bold; }
+
+        .article-details { flex: 2; }
+        .article-details h2 { font-size: 1.8rem; margin-bottom: 15px;color:rgb(255, 178, 70); }
+        .article-details p { color: #777; font-size: 0.95rem; line-height: 1.6; }
+        .article-details li { color: #777; font-size: 0.95rem; line-height: 1.6; }
+        .read-more { 
+            color: #111; text-decoration: none; font-weight: bold; font-size: 0.9rem;
+            display: inline-block; margin-top: 15px; border-bottom: 2px orange dotted;
+        }
+
+        /* --- Sidebar Section --- */
+        .sidebar { flex: 1; }
+        .sidebar-widget { background: #fffaf0; padding: 25px; border-radius: 15px; margin-bottom: 30px; }
+        .search-box { display: flex; background: #fff; border-radius: 30px; padding: 10px 20px; align-items: center; border: 1px solid #eee; }
+        .search-box input { border: none; outline: none; width: 100%; font-size: 0.9rem; }
+        
+        .recent-post-item { margin-top: 20px; }
+        .recent-post-item h4 { font-size: 0.95rem; margin-bottom: 5px; cursor: pointer; }
+        .post-meta { font-size: 0.75rem; color: #e91e63; display: flex; gap: 10px; }
+
+        .sale-banner { 
+            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.webp'); /* Representative Sale Image */
+            background-size: cover; height: 350px; border-radius: 15px; margin-bottom: 30px;
+        }
+
+        /* --- Pagination --- */
+        .pagination { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+        .page-num { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 5px; text-decoration: none; color: #333; }
+        .page-num.active { background: #e91e63; color: white; border-color: #e91e63; }
+
+        /* --- Mobile Responsive Styles --- */
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: 48vh;
+                padding: 28px 12px;
+            }
+
+            .hero-banner h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-banner .breadcrumb {
+                font-size: 1rem;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                padding: 30px 15px;
+                gap: 30px;
+            }
+
+            .article-item {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+            }
+
+            .img-container {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .article-img {
+                height: 200px;
+            }
+
+            .article-details h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .article-details p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .article-details li {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .sidebar-widget {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .sidebar-widget h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .recent-post-item h4 {
+                font-size: 0.9rem;
+            }
+
+            .sale-banner {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner {
+                height: 40vh;
+                padding: 20px 10px;
+            }
+
+            .hero-banner h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .hero-banner .breadcrumb {
+                font-size: 0.9rem;
+            }
+
+            .content-wrapper {
+                padding: 20px 10px;
+                gap: 20px;
+            }
+
+            .article-item {
+                gap: 15px;
+                margin-bottom: 25px;
+                padding-bottom: 25px;
+            }
+
+            .article-img {
+                height: 180px;
+                border-radius: 12px;
+            }
+
+            .article-details h2 {
+                font-size: 1.3rem;
+                line-height: 1.3;
+            }
+
+            .article-details p {
+                font-size: 0.105rem;
+                line-height: 1.4;
+            }
+
+            .article-details ul {
+                font-size: 0.105rem;
+                line-height: 1.4;
+            }
+
+            .date-badge {
+                padding: 8px;
+                font-size: 0.7rem;
+            }
+
+            .sidebar-widget {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .search-box {
+                padding: 8px 15px;
+            }
+
+            .search-box input {
+                font-size: 0.85rem;
+            }
+
+            .sale-banner {
+                height: 150px;
+                border-radius: 12px;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .page-num {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+        }
+        /* --- SCROLL REVEAL ANIMATION SYSTEM (matching index/about) --- */
+        .anim-hidden {
+            opacity: 0;
+            transform: translateY(20px) scale(0.995);
+        }
+
+        .fade-up {
+            animation: fadeUpAnim 0.8s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .fade-left {
+            animation: fadeLeftAnim 0.9s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .fade-right {
+            animation: fadeRightAnim 0.9s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        .zoom-in {
+            animation: zoomInAnim 0.7s cubic-bezier(.2, .85, .2, 1) forwards;
+        }
+
+        @keyframes fadeUpAnim {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeLeftAnim {
+            from { opacity: 0; transform: translateX(-24px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeRightAnim {
+            from { opacity: 0; transform: translateX(24px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomInAnim {
+            from { opacity: 0; transform: scale(0.96); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        /* Stagger helper: elements with data-delay use inline --delay from JS */
+        [data-delay] {
+            animation-delay: var(--delay, 0s);
+        }
+
+        /* Button micro-interactions (matching index) */
+        .read-more,
+        .page-num {
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .read-more:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card hover lift (matching index) */
+        .article-item {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .article-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        .page-num:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+      <nav>
+        <div class="logo">
+            <img src="webp/logo.webp" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="blog-listing.html" style="color:#ff4d6d;">Blogs</a></li>
+            <li><a href="contact.html">Ask Us</a></li>
+        </ul>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero-banner animate-on-scroll anim-hidden" data-anim="zoom-in" data-delay="0.05">
+        <div>
+            <h1>Blogs</h1>
+            <p class="breadcrumb">Home ● Blogs</p>
+        </div>
+        <div class="cloud-divider">
+            <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
+                style="width:100%; display:block; filter: invert(1) brightness(2);" />
+        </div>
+    </section>
+
+    <div class="content-wrapper animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.1">
+        <div class="main-feed">
+            
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.15">
+                <div class="img-container">
+                    <img src="webp/sideways-child-taking-virtual-courses.webp" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Dec 29,</span>2026</div> -->
+                </div>
+                <div class="article-details">
+                    <h2>Kindergarten Outdoor Play Area</h2>
+                    <h3 style="font-size: 1.6rem; color: #723e3e; margin-bottom: 10px; font-weight: 300;">Balancing Screen Time for Early Development</h3>
+                    <p>Finding the right balance with digital media is essential for a child’s cognitive and social growth. While technology offers interactive learning opportunities, excessive screen time can displace vital physical play and face to face interaction. At Satyam Tiny Tots Ballari, we recommend prioritizing high quality, educational content and maintaining clear boundaries to ensure screens remain a helpful tool rather than a distraction from real-world exploration.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Slow-paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
+                        <li>Video calls with grandparents and family</li>
+                        <li>Educational apps that require active participation rather than passive watching</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
+                </div>
+            </div>
+
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.30">
+                <div class="img-container">
+                    <img src="images/kids-healthy-snack-treats-with-fresh-fruits.jpg" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Jan 15,</span>2025</div> -->
+                </div>
+                <div class="article-details">
+                    <h2>Well Equipped With Indoor Class Rooms</h2>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">No-Stress Nutrition Guide for Toddlers</h3>
+                    <p>Focus on offering a "rainbow plate" of nutrient-dense whole foods like lean proteins and colorful vegetables to support rapid brain development and physical growth during the critical ages 1–3. By prioritizing healthy fats, managing picky eating habits through repeated exposure, and providing five or six small mini meals throughout the day, you can establish lifelong wellness habits and maintain steady energy levels without the mealtime stress.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Slow paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
+                        <li>Video calls with grandparents and family</li>
+                        <li>Educational apps that require active participation rather than passive watching</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
+                </div>
+            </div>
+
+            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.45">
+                <div class="img-container">
+                    <img src="images/kids-playing-wooden-game.jpg" class="article-img">
+                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div> -->
+                </div>
+                <div class="article-details">
+                    <h2>Education Filled With Fun & Games</h2>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Simple Ways to Get More Outdoor Time</h3>
+                    <p>Children who spend regular time outdoors are more physically active, develop stronger gross motor skills (running, jumping, climbing, balancing), and have better hand-eye coordination. At Satyam tiny tots, ballari we support Outdoor activites which promotes healthy sleep, a stronger immune system, and reduced risk of childhood obesity.</p><br>
+
+                    <h5>Better choices for young children:</h5><br>
+                    <ul>
+                        <li>Fuel growth with energy dense whole grains like oats or roti for essential fiber and daily fuel</li>
+                        <li>Fill half the plate with colorful produce for a broad, stress free vitamin intake.</li>
+                        <li>Serve small portions of lentils, eggs, or paneer to meet the daily 13–15g protein requirement.</li>
+                    </ul>
+                    <!-- <a href="#" class="read-more">Read More</a> -->
+                </div>
+            </div>
+
+            <div class="pagination animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.55">
+                <a href="#" class="page-num active">1</a>
+                <a href="#" class="page-num">2</a>
+                <a href="#" class="page-num">»</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bread-top">
+        <img src="webp/footer22.webp" alt="Footer decorative top" class="footer-bread-image">
+    </div>
+    <footer>
+        <div class="footer-girl-paint">
+            <img src="webp/girlpaint.webp" alt="Girl painting" class="footer-girl-image">
+        </div>
+        <div class="footer-arrow">
+            <img src="webp/curved-arrow-with-broken-line.webp" alt="Dotted arrow"
+                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 60px; width: auto;">
+                </div>
+                <p class="footer-description">Quality education for academic excellence and bright futures.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="about.html">About Our School</a></li>
+                    <li><a href="#">Faculty & Staff</a></li>
+                    <li><a href="#">School News</a></li>
+                    <li><a href="#">Campus Facilities</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Student Enrollment</a></li>
+                    <li><a href="#">Academic Policies</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="contact.html">Contact School Office</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>School Life Gallery</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="webp/study-1.webp" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="webp/study-2.webp" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="webp/study-3.webp" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="webp/study-4.webp" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="webp/baby_play.webp" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="webp/contact-us.webp" alt="School campus life"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © All Rights reserved to Kodemapa.
+            </div>
+            <div class="footer-hand-horizontal">
+                <img src="webp/sidehand.webp" alt="Colorful hands"
+                    style="height: 300px; width: auto; transform: rotate(90deg);">
+            </div>
+            <div style="color: #b8e6e4; font-size: 0.9rem;">
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Privacy Policy</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Terms</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+    // Scroll-reveal animation system (matching index/about/activities)
+    (function () {
+        const toObserve = document.querySelectorAll('.animate-on-scroll');
+        if (!('IntersectionObserver' in window)) {
+            toObserve.forEach(el => {
+                el.classList.remove('anim-hidden');
+                el.classList.add(el.dataset.anim || 'fade-up');
+            });
+            return;
+        }
+        const obs = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const anim = el.dataset.anim || 'fade-up';
+                    const delay = el.dataset.delay ? (parseFloat(el.dataset.delay) + 's') : '0s';
+                    el.style.setProperty('--delay', delay);
+                    try { el.style.willChange = 'transform, opacity'; } catch (e) {}
+                    const map = { 'fade-up':'fade-up','fade-left':'fade-left','fade-right':'fade-right','zoom-in':'zoom-in' };
+                    const cls = map[anim] || 'fade-up';
+                    el.classList.remove('anim-hidden');
+                    el.classList.add(cls);
+                    const cleanUp = () => {
+                        try { el.style.willChange = ''; } catch (e) {}
+                        el.removeEventListener('animationend', cleanUp);
+                        el.removeEventListener('transitionend', cleanUp);
+                        clearTimeout(timeoutId);
+                    };
+                    el.addEventListener('animationend', cleanUp);
+                    el.addEventListener('transitionend', cleanUp);
+                    const timeoutId = setTimeout(cleanUp, 1200);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.12 });
+        toObserve.forEach(el => obs.observe(el));
+    })();
+</script>
+ <script>
+        // Hamburger Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburgerMenu.addEventListener('click', function () {
+                hamburgerMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</html>

@@ -4,19 +4,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kids Cool Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <title>About Our School - Bright Future Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
     <style>
-                /* --- ANIMATION FOR MOVING OVERLAY IMAGE --- */
-                @keyframes moveCloud {
-                    0% { transform: translateX(0); }
-                    50% { transform: translateX(30px); }
-                    100% { transform: translateX(0); }
-                }
+        .creative-section {
+            padding: 100px 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-                .moving-cloud {
-                    animation: moveCloud 6s ease-in-out infinite;
-                }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Content Styling */
+        .creative-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .icon-cap {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 0px;
+        }
+
+        .sub-title {
+            color: #ff1e56;
+            /* The pinkish-red from the image */
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .main-heading {
+            font-size: 2.5rem;
+            color: #000;
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .description {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-creative {
+            display: inline-block;
+            background-color: #ff1e56;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Image Gallery & Arch Styling */
+        .image-gallery {
+            flex: 2;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-box {
+            width: 350px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* This creates the curved cut-out effect */
+        .arch-bottom {
+            border-bottom-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+        .arch-top {
+            border-top-left-radius: 150px;
+            border-top-right-radius: 150px;
+            align-self: flex-end;
+            /* Offsets the second image slightly lower */
+        }
+
+        /* Responsive for Creative Section */
+        @media (max-width: 992px) {
+            .creative-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-gallery {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .creative-section .container {
+                flex-direction: column;
+                padding: 0 16px;
+            }
+
+            .image-gallery {
+                width: 100%;
+                gap: 12px;
+            }
+
+            .image-box {
+                width: 100%;
+                height: 260px;
+            }
+
+            .creative-section {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .about-intro {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .blob-frame {
+                width: 400px;
+                height: 350px;
+            }
+
+            .hero-banner h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .mg-container {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px 0 0 0;
+            }
+
+            .mg-image-box img {
+                width: 320px;
+                height: 220px;
+            }
+
+            .mg-content-box {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .mg-bike-boy {
+                position: static;
+                display: block;
+                margin: 30px auto 0 auto;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .creativity-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .creativity-images {
+                justify-content: flex-start;
+                margin-top: 40px;
+                min-width: 0;
+                margin-right: 0;
+            }
+
+            .creativity-sidehand {
+                display: none;
+            }
+        }
+
+        /* Slow drifting for background bubbles */
+        @keyframes bubbleDrift {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(15px);
+            }
+        }
+
+        /* Entrance animation for the text content */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Entrance animation for the blob image */
+        @keyframes blobPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* Side-hand waving/sliding motion */
+        @keyframes handWave {
+
+            0%,
+            100% {
+                transform: translateY(-50%) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-50%) translateX(-20px);
+            }
+        }
+
+        /* Slide in from the left for text */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scale up for the overlapping images */
+        @keyframes imagePopUp {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+
+        /* --- ANIMATION FOR MOVING OVERLAY IMAGE --- */
+        @keyframes moveCloud {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(30px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Flying effect for the Bee */
+        @keyframes beeFly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(15px, -10px) rotate(5deg);
+            }
+
+            66% {
+                transform: translate(-10px, -20px) rotate(-5deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* Fluttering effect for Butterflies */
+        @keyframes butterflyFlutter {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(15deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Smooth slide-up for text */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Floating movement for the Sun and Cloud */
+        @keyframes sunCloudMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(10px, -10px) scale(1.05);
+            }
+        }
+
+        /* Gentle swaying for the Rainbow */
+        @keyframes rainbowSway {
+
+            0%,
+            100% {
+                transform: rotate(0deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(3deg) translateY(-5px);
+            }
+        }
+
+        /* Fluttering for the Butterflies */
+        @keyframes butterflyDance {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(15deg);
+            }
+        }
+
+        /* Graduation Cap "Toss" effect */
+        @keyframes capToss {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(-10deg);
+            }
+        }
+
+        /* Entrance for the Header Text */
+        @keyframes zoomInText {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animation for floating effect */
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.08);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes playInOut {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         /* --- GLOBAL STYLES (Identical to Index) --- */
         * {
             box-sizing: border-box;
@@ -33,13 +453,16 @@
             background-color: #fff;
         }
 
-        h1, h2, h3, .logo-text {
+        h1,
+        h2,
+        h3,
+        .logo-text {
             font-family: 'Fredoka One', cursive;
             color: #fff;
         }
 
         h2 {
-            font-size: 3.5rem;
+            font-size: 2.0rem;
             margin-bottom: 20px;
         }
 
@@ -48,40 +471,11 @@
             color: #666;
         }
 
-        /* --- HEADER (Identical to Index) --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .nav-links a:hover {
-            color: #ff4d6d;
-        }
 
         /* --- ABOUT HERO SECTION --- */
         .hero-banner {
             height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1500');
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1500');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -92,16 +486,16 @@
             color: white;
         }
 
-        .hero-banner h1 { 
-            font-size: 4.5rem; 
-            margin-bottom: 10px; 
-            color: white; 
+        .hero-banner h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            color: white;
         }
 
-        .hero-banner .breadcrumb { 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            color: #fff; 
+        .hero-banner .breadcrumb {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
         }
 
         .cloud-divider {
@@ -120,6 +514,99 @@
             fill: #ffffff;
         }
 
+        /* Applying animations to elements */
+        .about-intro .bubble {
+            animation: bubbleDrift 6s ease-in-out infinite;
+        }
+
+        /* Staggering the bubble animations so they don't move in sync */
+        .b-pink {
+            animation-delay: 0s;
+        }
+
+        .b-teal {
+            animation-delay: -1s;
+        }
+
+        .b-yellow {
+            animation-delay: -2s;
+        }
+
+        .b-orange {
+            animation-delay: -3s;
+        }
+
+        .b-soft-teal {
+            animation-delay: -4s;
+        }
+
+        .blob-mask-container {
+            animation: blobPop 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .intro-text-box .tag,
+        .intro-text-box h2,
+        .intro-text-box p,
+        .intro-text-box .btn-action {
+            opacity: 0;
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        /* Staggering the text appearance */
+        .intro-text-box h2 {
+            animation-delay: 0.3s;
+        }
+
+        .intro-text-box p {
+            animation-delay: 0.5s;
+        }
+
+        .intro-text-box .btn-action {
+            animation-delay: 0.7s;
+        }
+
+        /* Applying to Creative Section Elements */
+        .creativity-text {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .creativity-img-left {
+            opacity: 0;
+            animation: imagePopUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.4s;
+        }
+
+        .creativity-img-right {
+            opacity: 0;
+            animation: imagePopUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.6s;
+        }
+
+        .creativity-sidehand {
+            animation: handWave 4s ease-in-out infinite;
+        }
+
+        /* Individual text stagger */
+        .creativity-text h2 {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out 0.2s forwards;
+        }
+
+        .creativity-text p {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out 0.4s forwards;
+        }
+
+        .creativity-btn {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out 0.6s forwards;
+        }
+
+        .moving-cloud {
+            animation: moveCloud 6s ease-in-out infinite;
+        }
+
         /* --- ABOUT INTRO SECTION (With Background Bubbles) --- */
         .about-intro {
             padding: 120px 8%;
@@ -129,7 +616,8 @@
             gap: 60px;
             background: #fff;
             position: relative;
-            overflow: hidden; /* Clips bubbles within the section */
+            overflow: hidden;
+            /* Clips bubbles within the section */
         }
 
         /* Bubbles CSS */
@@ -140,11 +628,46 @@
             opacity: 0.4;
         }
 
-        .b-pink { background-color: #ff4d6d; width: 120px; height: 120px; top: 10%; left: 5%; }
-        .b-teal { background-color: #73d2d6; width: 80px; height: 80px; bottom: 15%; left: 10%; }
-        .b-yellow { background-color: #ffce32; width: 60px; height: 60px; top: 20%; right: 8%; }
-        .b-orange { background-color: #ff9d2d; width: 100px; height: 100px; bottom: 10%; right: 15%; }
-        .b-soft-teal { background-color: #e0f7f8; width: 150px; height: 150px; bottom: 20%; left: 40%; opacity: 0.6; }
+        .b-pink {
+            background-color: #ff4d6d;
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            left: 5%;
+        }
+
+        .b-teal {
+            background-color: #73d2d6;
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            left: 10%;
+        }
+
+        .b-yellow {
+            background-color: #ffce32;
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 8%;
+        }
+
+        .b-orange {
+            background-color: #ff9d2d;
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            right: 15%;
+        }
+
+        .b-soft-teal {
+            background-color: #e0f7f8;
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 40%;
+            opacity: 0.6;
+        }
 
         .blob-mask-container {
             flex: 1.2;
@@ -152,7 +675,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 2; /* Sits above bubbles */
+            z-index: 2;
+            /* Sits above bubbles */
         }
 
         .blob-frame {
@@ -161,9 +685,9 @@
             height: 450px;
             background-color: #e91e63;
             border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%;
-            padding: 15px; 
+            padding: 15px;
             overflow: hidden;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05);
         }
 
         .blob-frame img {
@@ -173,15 +697,35 @@
             border-radius: 40% 60% 60% 40% / 30% 30% 70% 70%;
         }
 
-        .intro-text-box { 
-            flex: 1; 
-            position: relative; 
-            z-index: 2; /* Sits above bubbles */
+        .intro-text-box {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            /* Sits above bubbles */
         }
-        
-        .intro-text-box .tag { color: #e91e63; font-weight: 700; font-size: 1.2rem; display: block; margin-bottom: 10px; }
-        .intro-text-box h2 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 25px; color: #1a2b48; }
-        .intro-text-box p { font-size: 1.3rem; color: #777; margin-bottom: 40px; line-height: 1.8; max-width: 550px; }
+
+        .intro-text-box .tag {
+            color: #e91e63;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .intro-text-box h2 {
+            font-size: 2.0rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #1a2b48;
+        }
+
+        .intro-text-box p {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 550px;
+        }
 
         .btn-action {
             background: #ff4d6d;
@@ -196,30 +740,35 @@
             box-shadow: 0 10px 20px rgba(255, 77, 109, 0.2);
         }
 
-        .btn-action:hover { 
-            transform: translateY(-5px); 
-            background: #e61a4d; 
+        .btn-action:hover {
+            transform: translateY(-5px);
+            background: #e61a4d;
         }
 
-        /* --- FOOTER (Identical to Index) --- */
-        footer {
-            background: #1a2a2a;
-            color: white;
-            padding: 80px 10% 40px;
-            border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            text-align: left;
-        }
+        @keyframes wave {
 
-        @media (max-width: 1100px) {
-            .about-intro { flex-direction: column; text-align: center; }
-            .blob-frame { width: 400px; height: 350px; }
-            .hero-banner h1 { font-size: 3rem; }
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
         }
 
         .mental-growth-section {
@@ -228,6 +777,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .mg-container {
             display: flex;
             align-items: center;
@@ -236,6 +786,7 @@
             max-width: 1400px;
             margin: 0 auto;
         }
+
         .mg-image-box {
             flex: 1.1;
             display: flex;
@@ -243,64 +794,99 @@
             justify-content: flex-end;
             position: relative;
         }
+
         .mg-image-box img {
             width: 480px;
             height: 370px;
             object-fit: cover;
             border-radius: 60px;
             background: #fff;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .mg-content-box {
             flex: 1.3;
             color: #fff;
             position: relative;
             padding-left: 30px;
         }
+
         .mg-icons {
             position: relative;
             height: 60px;
             margin-bottom: 10px;
         }
+
+        .mg-content-box .mg-tag,
+        .mg-content-box h2,
+        .mg-content-box p,
+        .mg-btn {
+            opacity: 0;
+            /* Hidden initially for the entrance effect */
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Staggering the text entrance so they appear one by one */
+        .mg-content-box h2 {
+            animation-delay: 0.2s;
+        }
+
+        .mg-content-box p {
+            animation-delay: 0.4s;
+        }
+
+        .mg-btn {
+            animation-delay: 0.6s;
+        }
+
         .mg-bee {
             position: absolute;
             left: 0;
             top: 0;
             width: 60px;
             filter: invert(1) brightness(2);
+            animation: beeFly 4s ease-in-out infinite;
         }
+
         .mg-hand1 {
             position: absolute;
             right: 80px;
             top: 0;
             width: 45px;
             filter: invert(1) brightness(2);
+            animation: butterflyFlutter 4s ease-in-out infinite;
         }
+
         .mg-hand2 {
             position: absolute;
             right: 0;
             top: 30px;
             width: 45px;
         }
+
         .mg-tag {
             font-family: 'Fredoka One', cursive;
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 10px;
             display: block;
+            animation: butterflyFlutter 4s ease-in-out infinite;
         }
+
         .mg-content-box h2 {
             font-family: 'Fredoka One', cursive;
             font-size: 2.4rem;
             margin: 10px 0 30px 0;
             line-height: 1.1;
         }
+
         .mg-content-box p {
             font-size: 1.3rem;
             color: #fff;
             margin-bottom: 40px;
             max-width: 600px;
         }
+
         .mg-btn {
             background: #fff;
             color: #ef1866;
@@ -315,10 +901,12 @@
             box-shadow: 0 10px 20px rgba(255, 77, 109, 0.08);
             margin-bottom: 32px;
         }
+
         .mg-btn:hover {
             background: #ffe0ef;
             color: #ef1866;
         }
+
         .mg-bike-boy {
             position: absolute;
             right: 0;
@@ -326,6 +914,7 @@
             width: 120px;
             opacity: 0.95;
         }
+
         .mg-rocket {
             position: absolute;
             right: 40px;
@@ -333,19 +922,50 @@
             width: 60px;
             z-index: 10;
             filter: invert(1) brightness(2);
-        }
-        @media (max-width: 1100px) {
-            .mg-container { flex-direction: column; gap: 30px; padding: 30px 0 0 0; }
-            .mg-image-box img { width: 320px; height: 220px; }
-            .mg-content-box { padding-left: 0; text-align: center; }
-            .mg-bike-boy { position: static; display: block; margin: 30px auto 0 auto; }
+            animation: butterflyFlutter 4s ease-in-out infinite;
         }
 
-        @keyframes playInOut {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.15); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+        /* Applying to your specific classes */
+        .creativity-cap {
+            animation: capToss 4s ease-in-out infinite;
+            transform-origin: center;
         }
+
+        .facilities-cap {
+            animation: capToss 5s ease-in-out infinite;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        /* Applying Animations */
+        .facilities-suncloud,
+        .facilities-sun {
+            animation: sunCloudMove 5s ease-in-out infinite;
+        }
+
+        .facilities-rainbow {
+            animation: rainbowSway 6s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .facilities-butterflies {
+            animation: butterflyDance 4s ease-in-out infinite;
+        }
+
+        .facilities-cap {
+            animation: capToss 4s ease-in-out infinite;
+        }
+
+        /* Staggered text entrance */
+        .facilities-header-content h2 {
+            animation: zoomInText 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .facilities-header-content p {
+            opacity: 0;
+            animation: zoomInText 0.8s ease-out 0.3s forwards;
+        }
+
         .play-icon {
             position: absolute;
             top: 50%;
@@ -353,14 +973,15 @@
             transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            background: rgba(255,255,255,0.85);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-            animation: playInOut 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+            animation: playInOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
+
         .play-icon::before {
             content: '';
             display: block;
@@ -379,6 +1000,7 @@
             position: relative;
             overflow: visible;
         }
+
         .creativity-content {
             display: flex;
             align-items: flex-end;
@@ -387,36 +1009,42 @@
             margin: 0 auto;
             position: relative;
         }
+
         .creativity-text {
             flex: 1.2;
             padding-left: 6vw;
             z-index: 2;
             min-width: 420px;
         }
+
         .creativity-cap {
             width: 60px;
             margin-bottom: 10px;
             opacity: 0.7;
             display: block;
         }
+
         .creativity-subtitle {
             color: #ef1866;
             font-family: 'Fredoka One', cursive;
             font-size: 1.4rem;
             margin-bottom: 10px;
         }
+
         .creativity-text h2 {
             font-family: 'Fredoka One', cursive;
             font-size: 2.8rem;
             color: #111;
             margin-bottom: 25px;
         }
+
         .creativity-text p {
             color: #7a8194;
             font-size: 1.25rem;
             margin-bottom: 40px;
             max-width: 500px;
         }
+
         .creativity-btn {
             background: #ef1866;
             color: #fff;
@@ -430,9 +1058,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(255, 77, 109, 0.10);
         }
+
         .creativity-btn:hover {
             background: #d0145a;
         }
+
         .creativity-images {
             flex: 2.2;
             display: flex;
@@ -444,14 +1074,15 @@
             margin-right: 0;
             transform: translateX(-160px);
         }
+
         .creativity-img {
             overflow: hidden;
             position: relative;
-            background: #f5f5f5;
             display: flex;
             align-items: flex-end;
             justify-content: center;
         }
+
         .creativity-img-left img {
             width: 370px;
             height: 270px;
@@ -460,19 +1091,22 @@
             border-bottom-left-radius: 0;
             border-top-right-radius: 60% 100%;
             border-bottom-right-radius: 0;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .creativity-img-right {
             margin-left: -70px;
             z-index: 2;
         }
+
         .creativity-img-right img {
             width: 370px;
             height: 370px;
             object-fit: cover;
             border-radius: 50% 50% 0 0 / 60% 60% 40% 40%;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .creativity-sidehand {
             position: absolute;
             right: 0;
@@ -482,10 +1116,142 @@
             z-index: 3;
             pointer-events: none;
         }
-        @media (max-width: 1400px) {
-            .creativity-content { flex-direction: column; align-items: flex-start; }
-            .creativity-images { justify-content: flex-start; margin-top: 40px; min-width: 0; margin-right: 0; }
-            .creativity-sidehand { display: none; }
+
+        /* --- LEAF DISCOVERY SECTION --- */
+        .leaf-discovery-section {
+            padding:0px 8% 0px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leaf-discovery-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .leaf-discovery-text {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .leaf-discovery-cap {
+            width: 50px;
+            height: 50px;
+            filter: grayscale(100%) contrast(0.8) brightness(0.7);
+            opacity: 0.6;
+            transform: rotate(-15deg);
+            margin-bottom: 20px;
+        }
+
+        .leaf-discovery-subtitle {
+            color: #ff1e56;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .leaf-discovery-text h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: #333;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .leaf-discovery-text p {
+            color: #777;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        .leaf-discovery-btn {
+            display: inline-block;
+            background: #ff1e56;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka One', cursive;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .leaf-discovery-btn:hover {
+            background: #e61a4d;
+            transform: translateY(-3px);
+        }
+
+        .leaf-discovery-images {
+            flex: 1;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .leaf-main-shape {
+            position: absolute;
+            width: 420px;
+            height: 320px;
+            background: #e91e63;
+            border-radius: 60px 180px 100px 140px;
+            overflow: hidden;
+            top: 50px;
+            left: 20px;
+            transform: rotate(-8deg);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
+        }
+
+        .leaf-main-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leaf-circle-shape {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #ff9800;
+            border-radius: 50%;
+            overflow: hidden;
+            bottom: 30px;
+            right: 98px;
+            z-index: 2;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
+        }
+
+        .leaf-circle-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leaf-arrow {
+            position: absolute;
+            bottom: 80px;
+            left: -60px;
+            z-index: 3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .leaf-train-icon {
+            position: absolute;
+            top: 10px;
+            left: 500px;
+            width: 80px;
+            opacity: 0.7;
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1s;
         }
 
         /* --- FACILITIES SECTION --- */
@@ -495,37 +1261,64 @@
             position: relative;
             overflow: hidden;
         }
+
         .facilities-header {
             position: relative;
-            padding-top: 60px;
             padding-bottom: 40px;
             text-align: center;
         }
+
         .facilities-bg {
             position: absolute;
-            left: 0; right: 0; top: 0; height: 320px;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 320px;
             width: 100%;
             z-index: 1;
             pointer-events: none;
         }
+
         .facilities-suncloud {
             position: absolute;
-            left: 60px;
-            top: 40px;
+            left: 90px;
+            top: 20px;
             width: 160px;
+            filter: brightness(0) invert(1);
         }
+
+        .facilities-sun {
+            position: absolute;
+            left: 170px;
+            /* Positioned just to the right of the cloud */
+            top: 30px;
+            /* Slightly higher than the cloud */
+            width: 80px;
+            /* Adjust size as needed */
+            z-index: 1;
+        }
+
         .facilities-rainbow {
             position: absolute;
             right: 60px;
             top: 40px;
             width: 220px;
         }
+
+        .facilities-butterflies {
+            position: absolute;
+            left: 270px;
+            top: 140px;
+            width: 120px;
+        }
+
         .facilities-header-content {
             position: relative;
             z-index: 2;
             max-width: 700px;
             margin: 0 auto;
         }
+
         .facilities-cap {
             width: 50px;
             margin-bottom: 10px;
@@ -534,23 +1327,27 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .facilities-subtitle {
             color: #fff3b0;
             font-family: 'Fredoka One', cursive;
             font-size: 1.3rem;
             margin-bottom: 10px;
         }
+
         .facilities-header-content h2 {
             font-family: 'Fredoka One', cursive;
             font-size: 2.5rem;
             color: #fff;
             margin-bottom: 20px;
         }
+
         .facilities-header-content p {
             color: #fffde7;
             font-size: 1.15rem;
             margin-bottom: 0;
         }
+
         .facilities-cards {
             display: flex;
             justify-content: center;
@@ -558,10 +1355,11 @@
             margin-top: 40px;
             flex-wrap: wrap;
         }
+
         .facility-card {
             background: #007b8a;
             border-radius: 24px 24px 40px 40px/36px 36px 80px 80px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
             width: 320px;
             padding: 36px 24px 32px 24px;
             text-align: center;
@@ -571,12 +1369,15 @@
             flex-direction: column;
             align-items: center;
         }
+
         .facility-card:hover {
             background: #e91e63;
         }
+
         .facility-pink {
             background: #007b8a;
         }
+
         .facility-img-wrap {
             width: 240px;
             height: 160px;
@@ -588,31 +1389,36 @@
             align-items: center;
             justify-content: center;
         }
+
         .facility-img-wrap img {
             width: 160%;
             height: 160%;
             object-fit: cover;
-            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             animation: floatImage 3s ease-in-out infinite;
         }
+
         .facility-card h3 {
             font-family: 'Fredoka One', cursive;
             font-size: 1.35rem;
             margin-bottom: 10px;
             color: #fff;
         }
+
         .facility-divider {
             width: 60px;
             height: 6px;
-            background: url('images/wave-divider.png') no-repeat center/contain;
+            background: url('webp/wave-divider.webp') no-repeat center/contain;
             margin: 0 auto 18px auto;
         }
+
         .facility-card p {
             color: #fffde7;
             font-size: 1.05rem;
             margin-bottom: 24px;
             min-height: 60px;
         }
+
         .facility-icon {
             position: absolute;
             left: 24px;
@@ -621,27 +1427,23 @@
             height: 40px;
             opacity: 0.7;
         }
+
         .facility-icon img {
             width: 120%;
             height: 120%;
             object-fit: contain;
-            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             animation: floatImage 3s ease-in-out infinite;
             filter: brightness(0) invert(1);
         }
-                /* Animation for floating effect */
-                @keyframes floatImage {
-                    0% { transform: translateY(0) scale(1); }
-                    50% { transform: translateY(-12px) scale(1.08); }
-                    100% { transform: translateY(0) scale(1); }
-                }
 
-                /* Scale up on hover for extra effect */
-                .facility-img-wrap img:hover,
-                .facility-icon img:hover {
-                    transform: scale(1.15) !important;
-                    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-                }
+        /* Scale up on hover for extra effect */
+        .facility-img-wrap img:hover,
+        .facility-icon img:hover {
+            transform: scale(1.15) !important;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         .facility-btn {
             background: #ff3576;
             color: #fff;
@@ -656,51 +1458,30 @@
             transition: all 0.3s ease;
             box-shadow: 0 6px 16px rgba(255, 77, 109, 0.10);
         }
+
         .facility-btn:hover {
             background: #c2185b;
         }
+
         @media (max-width: 1200px) {
-            .facilities-cards { flex-wrap: wrap; gap: 24px; }
-            .facility-card { width: 90vw; max-width: 340px; }
+            .facilities-cards {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .facility-card {
+                width: 90vw;
+                max-width: 340px;
+            }
         }
-    </style>
-</head>
 
-<body>
-
-    <nav>
-        <div class="logo">
-            <h2 style="margin:0;"><span style="color:#ff4d6d;">KIDS</span> <span style="color:#73d2d6;">COOL</span></h2>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html" style="color:#ff4d6d;">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Facilities</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="contact.html">Ask Us</a></li>
-        </ul>
-        <div style="font-size: 1.8rem;">🔍 🛒</div>
-    </nav>
-
-    <section class="hero-banner">
-        <div>
-            <h1>About Us</h1>
-            <p class="breadcrumb">Home ● About Us</p>
-        </div>
-        <div class="cloud-divider">
-            <img src="images/bread-cum-overlay.png" alt="Bread Overlay" class="moving-cloud" style="width:100%; display:block; filter: invert(1) brightness(2);" />
-        </div>
-    </section>
-
-
-    <style>
         .mental-growth-section {
             background: #ef1866;
             padding: 80px 0 0 0;
             position: relative;
             overflow: hidden;
         }
+
         .mg-container {
             display: flex;
             align-items: center;
@@ -709,6 +1490,7 @@
             max-width: 1400px;
             margin: 0 auto;
         }
+
         .mg-image-box {
             flex: 1.1;
             display: flex;
@@ -716,25 +1498,29 @@
             justify-content: flex-end;
             position: relative;
         }
+
         .mg-image-box img {
             width: 480px;
             height: 370px;
             object-fit: cover;
             border-radius: 60px;
             background: #fff;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .mg-content-box {
             flex: 1.3;
             color: #fff;
             position: relative;
             padding-left: 30px;
         }
+
         .mg-icons {
             position: relative;
             height: 60px;
             margin-bottom: 10px;
         }
+
         .mg-bee {
             position: absolute;
             left: 0;
@@ -742,6 +1528,7 @@
             width: 60px;
             filter: invert(1) brightness(2);
         }
+
         .mg-hand1 {
             position: absolute;
             right: 80px;
@@ -749,12 +1536,14 @@
             width: 45px;
             filter: invert(1) brightness(2);
         }
+
         .mg-hand2 {
             position: absolute;
             right: 0;
             top: 30px;
             width: 45px;
         }
+
         .mg-tag {
             font-family: 'Fredoka One', cursive;
             font-size: 1.3rem;
@@ -762,18 +1551,21 @@
             margin-bottom: 10px;
             display: block;
         }
+
         .mg-content-box h2 {
             font-family: 'Fredoka One', cursive;
             font-size: 2.4rem;
             margin: 10px 0 30px 0;
             line-height: 1.1;
         }
+
         .mg-content-box p {
             font-size: 1.3rem;
             color: #fff;
             margin-bottom: 40px;
             max-width: 600px;
         }
+
         .mg-btn {
             background: #fff;
             color: #ef1866;
@@ -788,10 +1580,12 @@
             box-shadow: 0 10px 20px rgba(255, 77, 109, 0.08);
             margin-bottom: 32px;
         }
+
         .mg-btn:hover {
             background: #ffe0ef;
             color: #ef1866;
         }
+
         .mg-bike-boy {
             position: absolute;
             right: 0;
@@ -799,6 +1593,7 @@
             width: 120px;
             opacity: 0.95;
         }
+
         .mg-rocket {
             position: absolute;
             right: 40px;
@@ -807,42 +1602,226 @@
             z-index: 10;
             filter: invert(1) brightness(2);
         }
+
+        /* --- UPDATED MOBILE VIEW FIX --- */
+
         @media (max-width: 1100px) {
-            .mg-container { flex-direction: column; gap: 30px; padding: 30px 0 0 0; }
-            .mg-image-box img { width: 320px; height: 220px; }
-            .mg-content-box { padding-left: 0; text-align: center; }
-            .mg-bike-boy { position: static; display: block; margin: 30px auto 0 auto; }
+
+            /* Global Section Padding Adjustments */
+            .about-intro,
+            .mental-growth-section,
+            .creativity-section,
+            .facilities-section,
+            .leaf-discovery-section {
+                padding: 60px 5% !important;
+            }
+
+            /* 4. Leaf Discovery Section Mobile Fix */
+            .leaf-discovery-content {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .leaf-discovery-text {
+                max-width: 100%;
+            }
+
+            .leaf-discovery-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .leaf-discovery-images {
+                min-height: 420px;
+                margin-top: 20px;
+            }
+
+            .leaf-main-shape {
+                width: 350px;
+                height: 280px;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%) rotate(-8deg);
+            }
+
+            .leaf-circle-shape {
+                width: 160px;
+                height: 160px;
+                bottom: 40px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .leaf-arrow {
+                display: none; /* Hide complex decorative elements on mobile */
+            }
+
+            .leaf-train-icon {
+                width: 50px;
+                top: 10px;
+                left: 10px;
+            }
+
+            /* 1. Mental Growth Section Fix */
+            .mg-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .mg-image-box {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .mg-image-box img {
+                width: 100%;
+                max-width: 380px;
+                /* Responsive scaling */
+                height: auto !important;
+            }
+
+            .mg-content-box {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            /* Reposition small icons so they don't overlap text on small screens */
+            .mg-bee {
+                width: 40px;
+                left: 10%;
+                top: -20px;
+            }
+
+            .mg-hand1 {
+                width: 35px;
+                right: 10%;
+                top: -20px;
+            }
+
+            .mg-rocket {
+                width: 40px;
+                right: 5%;
+                bottom: 10px;
+            }
+
+            /* 2. Facilities Section Fix (Prevents Crowding) */
+            .facilities-header {
+                padding-top: 40px;
+            }
+
+            /* Hide wave paths on mobile */
+            .news-wave-top {
+                display: none;
+            }
+
+            .facilities-bg {
+                /* Keep decorative elements but prevent them from covering text */
+                height: 100%;
+                opacity: 0.6;
+            }
+
+            .facilities-suncloud {
+                width: 80px;
+                left: 5%;
+                top: 10px;
+            }
+
+            .facilities-sun {
+                width: 40px;
+                left: 15%;
+                top: 20px;
+            }
+
+            .facilities-rainbow {
+                width: 120px;
+                right: -20px;
+                top: 10px;
+            }
+
+            .facilities-butterflies {
+                width: 70px;
+                left: 5%;
+                bottom: 20px;
+            }
+
+            .facilities-header-content h2 {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
+            .facilities-header-content p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            /* 3. Creativity Section Fix (Prevents Horizontal Scroll) */
+            .creativity-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .creativity-text {
+                padding-left: 0;
+                min-width: unset;
+                width: 100%;
+            }
+
+            .creativity-images {
+                transform: translateX(0);
+                /* Remove the desktop offset */
+                margin-top: 40px;
+                min-width: unset;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .creativity-img-left img,
+            .creativity-img-right img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .creativity-sidehand {
+                display: none;
+                /* Hide overflow-causing element */
+            }
         }
 
-        @keyframes playInOut {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.15); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+        /* Extra small screens (Phones) */
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .play-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-icon::before {
+                border-left-width: 24px;
+                border-top-width: 14px;
+                border-bottom-width: 14px;
+            }
         }
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(255,255,255,0.85);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-            animation: playInOut 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
-        }
-        .play-icon::before {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 32px solid #ef1866;
-            border-top: 18px solid transparent;
-            border-bottom: 18px solid transparent;
-            margin-left: 10px;
+
+        @media (max-width: 1100px) {
+            .mg-container {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px 0 0 0;
+            }
+
+            .mg-image-box img {
+                width: 320px;
+                height: 220px;
+            }
+
+            .mg-content-box {
+                padding-left: 0;
+                text-align: center;
+            }
         }
 
         /* --- CREATIVITY SECTION --- */
@@ -852,6 +1831,7 @@
             position: relative;
             overflow: visible;
         }
+
         .creativity-content {
             display: flex;
             align-items: flex-end;
@@ -860,36 +1840,42 @@
             margin: 0 auto;
             position: relative;
         }
+
         .creativity-text {
             flex: 1.2;
             padding-left: 6vw;
             z-index: 2;
             min-width: 420px;
         }
+
         .creativity-cap {
             width: 60px;
             margin-bottom: 10px;
             opacity: 0.7;
             display: block;
         }
+
         .creativity-subtitle {
             color: #ef1866;
             font-family: 'Fredoka One', cursive;
             font-size: 1.4rem;
             margin-bottom: 10px;
         }
+
         .creativity-text h2 {
             font-family: 'Fredoka One', cursive;
             font-size: 2.8rem;
             color: #111;
             margin-bottom: 25px;
         }
+
         .creativity-text p {
             color: #7a8194;
             font-size: 1.25rem;
             margin-bottom: 40px;
             max-width: 500px;
         }
+
         .creativity-btn {
             background: #ef1866;
             color: #fff;
@@ -903,9 +1889,11 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(255, 77, 109, 0.10);
         }
+
         .creativity-btn:hover {
             background: #d0145a;
         }
+
         .creativity-images {
             flex: 2.2;
             display: flex;
@@ -917,14 +1905,15 @@
             margin-right: 0;
             transform: translateX(-160px);
         }
+
         .creativity-img {
             overflow: hidden;
             position: relative;
-            background: #f5f5f5;
             display: flex;
             align-items: flex-end;
             justify-content: center;
         }
+
         .creativity-img-left img {
             width: 370px;
             height: 270px;
@@ -933,19 +1922,22 @@
             border-bottom-left-radius: 0;
             border-top-right-radius: 60% 100%;
             border-bottom-right-radius: 0;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .creativity-img-right {
             margin-left: -70px;
             z-index: 2;
         }
+
         .creativity-img-right img {
             width: 370px;
             height: 370px;
             object-fit: cover;
             border-radius: 50% 50% 0 0 / 60% 60% 40% 40%;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
         }
+
         .creativity-sidehand {
             position: absolute;
             right: 0;
@@ -955,12 +1947,284 @@
             z-index: 3;
             pointer-events: none;
         }
+
         @media (max-width: 1400px) {
-            .creativity-content { flex-direction: column; align-items: flex-start; }
-            .creativity-images { justify-content: flex-start; margin-top: 40px; min-width: 0; margin-right: 0; }
-            .creativity-sidehand { display: none; }
+            .creativity-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .creativity-images {
+                justify-content: flex-start;
+                margin-top: 40px;
+                min-width: 0;
+                margin-right: 0;
+            }
+
+            .creativity-sidehand {
+                display: none;
+            }
+        }
+
+        /* --- UPDATED MOBILE & TABLET RESPONSIVENESS --- */
+
+        @media (max-width: 1100px) {
+
+            /* Hero Text Scaling */
+            .hero-banner h1 {
+                font-size: 2.8rem;
+            }
+
+            /* Intro Section Fixes */
+            .about-intro {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5%;
+            }
+
+            .blob-frame {
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
+            }
+
+            .intro-text-box h2 {
+                font-size: 2.2rem;
+            }
+
+            /* Mental Growth Section Fixes */
+            .mg-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .mg-image-box {
+                justify-content: center;
+            }
+
+            .mg-image-box img {
+                width: 100%;
+                max-width: 380px;
+                height: auto;
+            }
+
+            .mg-content-box {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .mg-bike-boy {
+                position: relative;
+                bottom: 0;
+                margin: 20px auto 0;
+                display: block;
+            }
+
+            .mg-rocket {
+                right: 10px;
+                bottom: 10px;
+                width: 40px;
+            }
+
+            /* Creativity Section Fixes */
+            .creativity-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .creativity-text {
+                padding-left: 0;
+                min-width: unset;
+                width: 90%;
+            }
+
+            .creativity-images {
+                transform: translateX(0);
+                /* Remove the desktop offset */
+                margin-top: 50px;
+                min-width: unset;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .creativity-img-left img,
+            .creativity-img-right img {
+                width: 160px;
+                /* Scaled down for mobile */
+                height: 160px;
+            }
+
+            .creativity-img-right {
+                margin-left: -30px;
+                /* Tighter overlap for small screens */
+            }
+
+            .creativity-sidehand {
+                display: none;
+                /* Remove side elements that cause horizontal overflow */
+            }
+
+            /* Facilities Section Fixes */
+            .facilities-section {
+                padding: 40px 0 60px 0;
+            }
+
+            .facilities-header {
+                padding-bottom: 40px;
+            }
+
+            .facilities-header-content {
+                padding: 0 15px;
+                max-width: 100%;
+            }
+
+            .facilities-header-content h2 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                margin-bottom: 15px;
+            }
+
+            .facilities-header-content p {
+                font-size: 1rem;
+                line-height: 1.5;
+                max-width: 100%;
+            }
+
+            .facilities-bg {
+                height: 120px;
+                opacity: 0.3;
+            }
+
+            .facilities-suncloud {
+                width: 50px;
+                left: 15px;
+                top: 10px;
+            }
+
+            .facilities-sun {
+                width: 25px;
+                left: 25%;
+                top: 15px;
+            }
+
+            .facilities-rainbow {
+                width: 70px;
+                right: 15px;
+                top: 5px;
+            }
+
+            .facilities-butterflies {
+                width: 40px;
+                left: 15%;
+                bottom: 5px;
+            }
+
+            .facility-card {
+                width: 100%;
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Extra small phone scaling */
+            h2 {
+                font-size: 1.8rem !important;
+            }
+            .hero-banner{
+                height: 48vh;
+            }
+
+            .hero-banner h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn-action,
+            .mg-btn,
+            .creativity-btn,
+            .leaf-discovery-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            /* Leaf Discovery Section - Extra Small Screens */
+            .leaf-discovery-text h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .leaf-main-shape {
+                width: 300px;
+                height: 240px;
+            }
+
+            .leaf-circle-shape {
+                width: 130px;
+                height: 130px;
+                bottom: 20px;
+            }
+
+            /* Facilities Section - Extra Small Screens */
+            .facilities-section {
+                padding: 30px 0 50px 0;
+            }
+
+            .facilities-header-content h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
+
+            .facilities-header-content p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+
+            .facilities-bg {
+                height: 100px;
+                opacity: 0.2;
+            }
+
+            .leaf-train-icon {
+                width: 40px;
+            }
         }
     </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 50px; width: auto;">
+        </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" style="color:#ff4d6d;">About Us</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="blog-listing.html">Blogs</a></li>
+            <li><a href="contact.html">Ask Us</a></li>
+        </ul>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero-banner">
+        <div>
+            <h1>About Our School</h1>
+            <p class="breadcrumb">Home ● About Our School</p>
+        </div>
+        <div class="cloud-divider">
+            <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
+                style="width:100%; display:block; filter: invert(1) brightness(2);" />
+        </div>
+    </section>
+
+
 
     <section class="about-intro">
         <div class="bubble b-pink"></div>
@@ -971,135 +2235,267 @@
 
         <div class="blob-mask-container">
             <div class="blob-frame">
-                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800" alt="Playroom">
+                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=800"
+                    alt="Playroom">
             </div>
         </div>
 
         <div class="intro-text-box">
-            <span class="tag">About Us</span>
-            <h2>It's Your Child's First Official Year Of School!</h2>
+            <span class="tag">About Our School</span>
+            <h2>Excellence in Education - Shaping Tomorrow's Leaders!</h2>
             <p>
-                At Tiny Tots Bellary, we believe in providing a nurturing environment where your child's curiosity leads their education journey. We focus on visual teaching and physical development.
+                We are a team of passionate educators who realized that Early Childhood Education shouldn't feel like a chore it should feel like an adventure. At Satyam TinyTots Ballari, we don’t just teach we facilitate high-speed discovery. We’ve traded "shushing" for "singing" and rote learning for Hands-on Exploration.
             </p>
-            <a href="#" class="btn-action">Read More</a>
+            <a href="activities.html" class="btn-action">Read More</a>
         </div>
     </section>
 
-    
+
     <!-- BEGIN: Mental Health Growth Section -->
     <section class="mental-growth-section">
         <div class="mg-container">
             <div class="mg-image-box">
-                <img src="images/cube.jpg" alt="Child learning" />
+                <img src="webp/cube.webp" alt="Child learning" />
                 <span class="play-icon"></span>
             </div>
             <div class="mg-content-box">
                 <div class="mg-icons">
-                    <img src="images/bee.png" alt="Bee" class="mg-bee" />
-                    <img src="images/butterfly.png" alt="Hand 1" class="mg-hand1" />
+                    <img src="webp/bee.webp" alt="Bee" class="mg-bee" />
+                    <img src="webp/butterfly.webp" alt="Hand 1" class="mg-hand1" />
                 </div>
-                <span class="mg-tag">Mental Health Growth</span>
-                <h2>Solve Problem<br>And Learn More</h2>
+                <span class="mg-tag">Top rated Pre-school in Ballari</span>
+                <h2>A Curriculum Built for <br>Curious Minds</h2>
                 <p>
-                    Velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Vel turpis nunc eget lorem dolor. Luctus accumsan tortor posuere ac ut consequat semper viverra nam.
+                    Our curriculum emphasizes analytical thinking, mathematical reasoning, and scientific inquiry. Students develop strong problem-solving skills by stay & play sessions and through hands-on learning experiences.
                 </p>
-                <a href="#" class="mg-btn">More Videos</a>
-                <img src="images/bike-boy.png" alt="Bike Boy" class="mg-bike-boy" />
+                <a href="programs.html" class="mg-btn">View Academics</a>
             </div>
         </div>
-        <img src="images/butterfly.png" alt="Rocket" class="mg-rocket" />
+        <img src="webp/butterfly.webp" alt="Rocket" class="mg-rocket" />
     </section>
 
-    <!-- BEGIN: Creativity Section -->
-    <section class="creativity-section">
-        <div class="creativity-content">
-            <div class="creativity-text">
-                <img src="images/cap.png" alt="Cap" class="creativity-cap" />
-                <div class="creativity-subtitle">Find Kid’s Creativity</div>
-                <h2>Your Children’s<br>Creativity Works!</h2>
-                <p>Molestie at elementum eu facilisis sed odio morbi quis. Magna etiam tempor orci eu lobortis. Ullamcorper dignissim cras tincidunt lobortis. Volutpat blandit aliquam etiam erat velit.</p>
-                <a href="#" class="creativity-btn">Creative Works</a>
+    <div style="height: 80px;"></div>
+
+    <!-- BEGIN: Leaf Discovery Section -->
+    <section class="leaf-discovery-section">
+        <div class="leaf-discovery-content">
+            <div class="leaf-discovery-text">
+                <img src="webp/graduation-cap.webp" alt="Cap" class="leaf-discovery-cap" />
+                <div class="leaf-discovery-subtitle">Our Philosophy</div>
+                <h2>Why choose us<br></h2>
+                <p>Satyam Tiny Tots is Ballari's most trusted pre-primary school, located in the heart of Gandhinagar, Ballari. For over a decade, we have been the first choice for parents seeking the best playgroup, nursery admissions, Pre-KG and kindergarten education in Ballari.</p>
+                <a href="blog-listing.html" class="leaf-discovery-btn">Learn More</a>
             </div>
-            <div class="creativity-images">
-                <div class="creativity-img creativity-img-left">
-                    <img src="images/creativity1.jpg" alt="Creativity 1" />
+            <div class="leaf-discovery-images">
+                <div class="leaf-main-shape">
+                    <img src="webp/a1.webp" alt="Children learning together" />
                 </div>
-                <div class="creativity-img creativity-img-right">
-                    <img src="images/creativity2.jpg" alt="Creativity 2" />
+                <div class="leaf-circle-shape">
+                    <img src="webp/baby_play.webp" alt="Kids playing creatively" />
                 </div>
+                <!-- Decorative dashed arrow -->
+                <div class="leaf-arrow">
+                    <svg width="140" height="90" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30C20 20 40 10 70 25M70 25L65 20M70 25L65 30" stroke="#ff9800" stroke-width="2"
+                            stroke-dasharray="5,5" fill="none" />
+                    </svg>
+                </div>
+                <!-- Small decorative train icon -->
+                <img src="webp/launch.webp" alt="Train" class="leaf-train-icon">
             </div>
         </div>
-        <img src="images/sidehand.png" alt="Side Hands" class="creativity-sidehand" />
     </section>
 
     <!-- BEGIN: Facilities Section -->
     <section class="facilities-section">
+        <div class="news-wave-top">
+            <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- First wave layer (back) -->
+                <path d="M0 0C240 120 480 120 720 70C960 0 1200 0 1440 90V0H0Z" fill="white" />
+                <!-- Second wave layer (front) with slight offset -->
+                <path d="M0 20C240 140 480 140 720 90C960 20 1200 20 1440 110V0H0Z" fill="rgba(255,255,255,0.8)" />
+            </svg>
+        </div>
         <div class="facilities-header">
             <div class="facilities-bg">
-                <img src="images/sun-cloud.png" alt="Sun Cloud" class="facilities-suncloud" />
-                <img src="images/rainbow.png" alt="Rainbow" class="facilities-rainbow" />
+                <img src="webp/cloud.webp" alt="Sun Cloud" class="facilities-suncloud" />
+                <img src="webp/sun.webp" alt="Sun" class="facilities-sun" />
+                <img src="webp/butterflies.webp" alt="Butterflies" class="facilities-butterflies" />
+                <img src="webp/sky.webp" alt="Rainbow" class="facilities-rainbow" />
             </div>
             <div class="facilities-header-content">
-                <img src="images/graduation-cap.png" alt="Cap" class="facilities-cap" style="filter: brightness(0) invert(1);" />
-                <div class="facilities-subtitle">Our Facilities</div>
-                <h2>Find Our What Facilities<br>We Offer</h2>
-                <p>Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Sit amet porttitor eget dolor morbi non. In hendrerit gravida rutrum quisque. Egestas pretium aenean pharetra magna.</p>
+                <img src="webp/graduation-cap.webp" alt="Cap" class="facilities-cap"
+                    style="filter: brightness(0) invert(1);" />
+                <div class="facilities-subtitle">School Campus</div>
+                <h2>Discover Our Modern<br>Educational Facilities</h2>
+                <p>Our state-of-the-art campus features modern classrooms, science laboratories, computer labs, library, sports facilities, and outdoor learning spaces designed to enhance the educational experience.</p>
             </div>
         </div>
         <div class="facilities-cards">
             <div class="facility-card facility-blue">
-                <div class="facility-img-wrap"><img src="images/about_image_1.jpg" alt="Interactive Class" /></div>
-                <h3>Interactive Class</h3>
+                <div class="facility-img-wrap"><img src="webp/about_image_1.webp" alt="Smart Classrooms" /></div>
+                <h3>Smart Classrooms</h3>
                 <div class="facility-divider"></div>
-                <p>Tempus quam pellentesque nec nam aliquam sem et tortor. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin.</p>
-                <div class="facility-icon"><img src="images/open-book.png" alt="Book" /></div>
+                <p>Our smart infrastructure isn’t just about the fun stuff. It includes high-end security & seamless communication tools that keep our educators connected. At Satyam TinyTots Bellary, technology is the silent partner that ensures every "TinyTot" is secure while they explore.</p>
+                <div class="facility-icon"><img src="webp/open-book.webp" alt="Book" /></div>
                 <a href="#" class="facility-btn">View More</a>
             </div>
             <div class="facility-card facility-blue">
-                <div class="facility-img-wrap"><img src="images/about_image_2.jpg" alt="School Bus" /></div>
-                <h3>School Bus</h3>
+                <div class="facility-img-wrap"><img src="webp/about_image_2.webp" alt="School Transportation" /></div>
+                <h3>Safe Transportation</h3>
                 <div class="facility-divider"></div>
-                <p>Dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Nunc vel risus commodo viverra maecenas accumsan lacus vel.</p>
-                <div class="facility-icon"><img src="images/bus.png" alt="Bus" /></div>
+                <p>Every single bus at Satyam TinyTots Bellary is staffed with a dedicated Female Attendant. Think of them as the "Safety Captains" who ensure every seatbelt is fastened, every bag is tucked away, and every child gets a high-five when they board into the bus.</p>
+                <div class="facility-icon"><img src="webp/bus.webp" alt="Bus" /></div>
                 <a href="#" class="facility-btn">View More</a>
             </div>
             <div class="facility-card facility-pink">
-                <div class="facility-img-wrap"><img src="images/about_image_3.jpg" alt="Play Ground" /></div>
-                <h3>Play Ground</h3>
+                <div class="facility-img-wrap"><img src="webp/about_image_3.webp" alt="Sports Complex" /></div>
+                <h3>Sports Complex</h3>
                 <div class="facility-divider"></div>
-                <p>Bibendum at varius vel pharetra vel turpis nunc eget lorem. Elit ullamcorper dignissim cras tincidunt lobortis feugiat.</p>
-                <div class="facility-icon"><img src="images/playground.png" alt="Playground" /></div>
+                <p>Our sports complex features age-appropriate zones from mini-football to "pro-level" tricycle racing, focusing on Gross Motor Skill Development — helping kids master the perfect kick and hop dance. Every "Future Olympian" starts by cheering for their teammates.
+                </p>
+                <div class="facility-icon"><img src="webp/playground.webp" alt="Playground" /></div>
                 <a href="#" class="facility-btn">View More</a>
             </div>
-            <div class="facility-card facility-blue">
-                <div class="facility-img-wrap"><img src="images/about_image_4.jpg" alt="Smart Class" /></div>
-                <h3>Smart Class</h3>
-                <div class="facility-divider"></div>
-                <p>Dolor morbi non arcu risus. Bibendum arcu vitae elementum curabitur vitae nunc. Commodo viverra maecenas accumsan lacus.</p>
-                <div class="facility-icon"><img src="images/open-book.png" alt="Smart" /></div>
-                <a href="#" class="facility-btn">View More</a>
+           
+        </div>
+    </section>
+
+    <!-- BEGIN: Creativity Section -->
+    <section class="creative-section" data-animate="fade-up">
+        <div class="container">
+            <div class="creative-content">
+                <div class="icon-cap"><img src="webp/graduation-cap.webp" alt="Graduation"
+                        style="width: 50px; height: 50px; filter: grayscale(100%) contrast(0.8) brightness(0.7); opacity: 0.6; transform: rotate(-15deg);">
+                </div>
+                <span class="sub-title">Comprehensive Education</span>
+                <h2 class="main-heading">Well-Rounded Learning Experience</h2>
+                <p class="description">
+                    At Satyam Tiny Tots Bellary, we don't just prepare children for playgroup or kindergarten. We prepare them for LIFE. Our curriculum is carefully aligned with CBSE foundation principles  ensuring every child who walks out of our pre-primary school in Bellary walks into primary school confident & capable.
+                </p>
+                <a href="activities.html" class="btn-creative">View Curriculum</a>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-box arch-bottom">
+                    <img src="webp/a1.webp" alt="Child playing with clay">
+                </div>
+                <div class="image-box arch-top">
+                    <img src="webp/a2 (1).webp" alt="Child painting">
+                </div>
+                <!-- Decorative pens icon -->
+                <img src="webp/penss.webp" alt="Pens"
+                    style="position: absolute; top: 40px; right: 50px; width: 90px; opacity: 0.7; transform: rotate(25deg); z-index: 5;">
             </div>
         </div>
     </section>
 
-    <div style="height: 60px;"></div>
-
+    <div class="footer-bread-top">
+        <img src="webp/footer22.webp" alt="Footer decorative top" class="footer-bread-image">
+    </div>
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h2 style="color: white;">KIDS COOL</h2>
-                <p style="color: #aaa; margin-top: 20px;">Leading the way in early childhood education with passion and innovation for Tiny Tots Bellary.</p>
+        <div class="footer-girl-paint">
+            <img src="webp/girlpaint.webp" alt="Girl painting" class="footer-girl-image">
+        </div>
+        <div class="footer-arrow">
+            <img src="webp/curved-arrow-with-broken-line.webp" alt="Dotted arrow"
+                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3; filter: brightness(0) invert(1);">
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 60px; width: auto;">
+                </div>
+                <p class="footer-description">Quality education for academic excellence and bright futures.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div>
-                <h3 style="color: white; font-size: 1.5rem;">Quick Links</h3>
-                <p style="margin-top: 15px; color: #aaa;">About Us<br>Our Team<br>News Feed</p>
+
+            <div class="footer-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="about.html">About Our School</a></li>
+                    <li><a href="#">Faculty & Staff</a></li>
+                    <li><a href="#">School News</a></li>
+                    <li><a href="#">Campus Facilities</a></li>
+                </ul>
             </div>
-            <div>
-                <h3 style="color: white; font-size: 1.5rem;">Support</h3>
-                <p style="margin-top: 15px; color: #aaa;">Contact Us<br>FAQs<br>Shipping Policy</p>
+
+            <div class="footer-section">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Student Enrollment</a></li>
+                    <li><a href="#">Academic Policies</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="contact.html">Contact School Office</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>School Life Gallery</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="webp/study-1.webp" alt="Students in classroom"></div>
+                    <div class="gallery-item"><img src="webp/study-2.webp" alt="Science laboratory activities"></div>
+                    <div class="gallery-item"><img src="webp/study-3.webp" alt="Mathematics learning session"></div>
+                    <div class="gallery-item"><img src="webp/study-4.webp" alt="Students reading together"></div>
+                    <div class="gallery-item"><img src="webp/baby_play.webp" alt="Early childhood education"></div>
+                    <div class="gallery-item"><img src="webp/contact-us.webp" alt="School campus life"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © All Rights reserved to Kodemapa.
+            </div>
+            <div class="footer-hand-horizontal">
+                <img src="webp/sidehand.webp" alt="Colorful hands"
+                    style="height: 300px; width: auto; transform: rotate(90deg);">
+            </div>
+            <div style="color: #b8e6e4; font-size: 0.9rem;">
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Privacy Policy</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Terms</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="#" style="color: #b8e6e4; text-decoration: none;">Conditions</a>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Hamburger Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburgerMenu.addEventListener('click', function () {
+                hamburgerMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                    hamburgerMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
