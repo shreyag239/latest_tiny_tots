@@ -188,10 +188,23 @@
         }
 
         @keyframes blobMorph {
-            0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
-            25% { border-radius: 55% 45% 35% 65% / 55% 40% 60% 45%; }
-            50% { border-radius: 35% 65% 55% 45% / 40% 55% 45% 60%; }
-            75% { border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%; }
+
+            0%,
+            100% {
+                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            }
+
+            25% {
+                border-radius: 55% 45% 35% 65% / 55% 40% 60% 45%;
+            }
+
+            50% {
+                border-radius: 35% 65% 55% 45% / 40% 55% 45% 60%;
+            }
+
+            75% {
+                border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%;
+            }
         }
 
         .child-rounded {
@@ -207,10 +220,23 @@
         }
 
         @keyframes blobImgMorph {
-            0%, 100% { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; }
-            25% { border-radius: 50% 50% 40% 60% / 60% 50% 50% 40%; }
-            50% { border-radius: 40% 60% 50% 50% / 45% 55% 45% 55%; }
-            75% { border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%; }
+
+            0%,
+            100% {
+                border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
+            }
+
+            25% {
+                border-radius: 50% 50% 40% 60% / 60% 50% 50% 40%;
+            }
+
+            50% {
+                border-radius: 40% 60% 50% 50% / 45% 55% 45% 55%;
+            }
+
+            75% {
+                border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
+            }
         }
 
         /* Floating Icons exactly as requested */
@@ -596,12 +622,12 @@
                 bottom: -8px;
                 overflow: hidden;
             }
-            
+
             .cloud-divider img {
                 height: 120px;
                 object-fit: cover;
             }
-            
+
             .moving-cloud {
                 animation: moveCloudMobile 6s ease-in-out infinite;
             }
@@ -612,12 +638,12 @@
                 bottom: -10px;
                 overflow: hidden;
             }
-            
+
             .cloud-divider img {
                 height: 100px;
                 object-fit: cover;
             }
-            
+
             .moving-cloud {
                 animation: moveCloudMobile 8s ease-in-out infinite;
             }
@@ -628,12 +654,12 @@
                 bottom: -12px;
                 overflow: hidden;
             }
-            
+
             .cloud-divider img {
                 height: 80px;
                 object-fit: cover;
             }
-            
+
             .moving-cloud {
                 animation: moveCloudMobile 10s ease-in-out infinite;
             }
@@ -647,7 +673,7 @@
         <div class="logo">
             <img src="webp/logo.webp" alt="Bright Future Academy" style="height: 50px; width: auto;">
         </div>
-         <ul class="nav-links">
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="activities.html">Activities</a></li>
@@ -665,7 +691,8 @@
     <section class="contact-hero-new">
         <div class="hero-text-side">
             <h1>GET IN <span>TOUCH</span><br>WITH US</h1>
-            <p>Have questions about admissions, programs or visiting our campus? Our friendly team is here to help — reach out and we'll get back to you promptly.</p>
+            <p>Have questions about admissions, programs or visiting our campus? Our friendly team is here to help —
+                reach out and we'll get back to you promptly.</p>
             <div class="btn-group">
                 <a href="#contact-form" class="hero-btn btn-orange">SEND A MESSAGE</a>
                 <a href="tel:+919999999999" class="hero-btn btn-teal">CALL US NOW</a>
@@ -674,7 +701,7 @@
 
         <div class="hero-visual-side">
             <div class="yellow-circle-bg"></div>
-            <img src="webp/baby_play.webp" class="child-rounded" alt="Kids learning together">
+            <img src="webp/Image_3.webp" class="child-rounded" alt="Kids learning together">
         </div>
         <div class="cloud-divider">
             <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
@@ -685,7 +712,8 @@
     <section class="contact-body">
         <div class="form-card">
             <h3 style="margin-bottom: 25px; font-size: 1.8rem;">Get in Touch with Our School</h3>
-            <form onsubmit="event.preventDefault(); alert('Thank you for contacting our school! We will get back to you within 24 hours.');">
+            <form
+                onsubmit="event.preventDefault(); alert('Thank you for contacting our school! We will get back to you within 24 hours.');">
                 <div class="form-group">
                     <label>Parent/Guardian Name</label>
                     <input type="text" placeholder="Enter parent or guardian's full name">
@@ -696,9 +724,11 @@
                 </div>
                 <div class="form-group">
                     <label>How can our school help your child?</label>
-                    <textarea rows="5" placeholder="Please share your child's grade level, interests, and any specific educational needs or questions about our academic programs..."></textarea>
+                    <textarea rows="5"
+                        placeholder="Please share your child's grade level, interests, and any specific educational needs or questions about our academic programs..."></textarea>
                 </div>
-                <button type="submit" class="hero-btn btn-orange" style="border:none; cursor:pointer;">CONTACT SCHOOL</button>
+                <button type="submit" class="hero-btn btn-orange" style="border:none; cursor:pointer;">CONTACT
+                    SCHOOL</button>
             </form>
         </div>
 

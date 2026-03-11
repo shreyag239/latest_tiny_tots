@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities - Kids Cool</title>
-     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <style>
         /* Placeholder styling for deferred images to avoid layout jump */
-        img.deferred-img{display:block;background:#f3f4f6;color:transparent;min-height:8px;}
-         /* --- GLOBAL STYLES (Identical to Index) --- */
+        img.deferred-img {
+            display: block;
+            background: #f3f4f6;
+            color: transparent;
+            min-height: 8px;
+        }
+
+        /* --- GLOBAL STYLES (Identical to Index) --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -211,8 +217,8 @@
             text-align: left;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                        box-shadow 0.4s ease,
-                        background-color 0.4s ease;
+                box-shadow 0.4s ease,
+                background-color 0.4s ease;
             cursor: pointer;
         }
 
@@ -915,8 +921,15 @@
         }
 
         @keyframes imageShimmer {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.08); }
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.08);
+            }
         }
 
         .cut-img:hover img {
@@ -1382,6 +1395,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1393,6 +1407,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1404,6 +1419,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1415,6 +1431,7 @@
                 opacity: 0;
                 transform: scale(0.88);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -1426,6 +1443,7 @@
                 opacity: 0;
                 transform: translateY(30px) scale(0.92);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1706,18 +1724,41 @@
 
         /* Slow blink / pulse glow effect */
         @keyframes slowBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         @keyframes softPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
         }
 
         @keyframes glowBlink {
-            0%, 100% { filter: brightness(1) drop-shadow(0 0 0px transparent); }
-            50% { filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 157, 45, 0.5)); }
+
+            0%,
+            100% {
+                filter: brightness(1) drop-shadow(0 0 0px transparent);
+            }
+
+            50% {
+                filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 157, 45, 0.5));
+            }
         }
 
         /* Apply slow blink to decorative floating elements */
@@ -2209,7 +2250,7 @@
             </div>
 
             <div class="indian-visual animate-on-scroll anim-hidden" data-anim="fade-right" data-delay="0.12">
-                <img src="webp/section-content-image-j1.webp" alt="Indian kindergarten children" />
+                <img src="webp/Image_15.webp" alt="Indian kindergarten children" />
             </div>
         </div>
     </section>
@@ -2217,11 +2258,17 @@
     <section class="programs-container">
         <div class="bubble b-pink"></div>
         <div class="bubble b-teal"></div>
-        <img data-src="webp/bee.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>" alt="bee" class="decor-bee-small deferred-img" loading="lazy" decoding="async">
-        <img data-src="webp/star.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>" alt="stars" class="extra-stars deferred-img" loading="lazy" decoding="async">
+        <img data-src="webp/bee.webp"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>"
+            alt="bee" class="decor-bee-small deferred-img" loading="lazy" decoding="async">
+        <img data-src="webp/star.webp"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>"
+            alt="stars" class="extra-stars deferred-img" loading="lazy" decoding="async">
 
-        <span class="tagline animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Our Programs</span>
-        <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.15">Foundations for Confident Little Learners</h2>
+        <span class="tagline animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Our
+            Programs</span>
+        <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.15">Foundations for Confident
+            Little Learners</h2>
         <p class="description animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.25">
             Structured play and guided discovery for ages 2–6 literacy, numeracy readiness, creative arts,
             movement and social-emotional learning delivered in small, caring groups.
@@ -2230,7 +2277,8 @@
         <div class="programs-grid">
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.1">
                 <div class="image-mask">
-                    <img src="webp/blended-learning.webp" alt="Online Class" width="130" height="110" decoding="async" loading="eager">
+                    <img src="webp/blended-learning.webp" alt="Online Class" width="130" height="110" decoding="async"
+                        loading="eager">
                 </div>
                 <div class="card-content">
                     <h3>Blended Learning</h3>
@@ -2242,7 +2290,8 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.22">
                 <div class="image-mask">
-                    <img src="webp/interactive-class.webp" alt="Interactive Class" width="130" height="110" decoding="async" loading="eager">
+                    <img src="webp/interactive-class.webp" alt="Interactive Class" width="130" height="110"
+                        decoding="async" loading="eager">
                 </div>
                 <div class="card-content">
                     <h3>Interactive Workshops</h3>
@@ -2254,7 +2303,8 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.34">
                 <div class="image-mask">
-                    <img src="webp/safe-environment.webp" alt="Safety Facility" width="130" height="110" decoding="async" loading="eager">
+                    <img src="webp/safe-environment.webp" alt="Safety Facility" width="130" height="110"
+                        decoding="async" loading="eager">
                 </div>
                 <div class="card-content">
                     <h3>Safe Environment</h3>
@@ -2266,18 +2316,22 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.46">
                 <div class="image-mask">
-                    <img src="webp/parent-teacher-app.webp" alt="Safety Facility" width="130" height="110" decoding="async" loading="eager">
+                    <img src="webp/parent-teacher-app.webp" alt="Safety Facility" width="130" height="110"
+                        decoding="async" loading="eager">
                 </div>
                 <div class="card-content">
                     <h3>Parent teacher communication app</h3>
-                    <p>When parents and teachers partner, children win.It ensures transparency, building a stronger community.</p>
+                    <p>When parents and teachers partner, children win.It ensures transparency, building a stronger
+                        community.</p>
                     <!-- <a href="#" class="learn-more">Learn More</a> -->
                 </div>
             </div>
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.58">
                 <div class="image-mask">
-                    <img data-src="webp/inclusive-support.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Special Education" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/inclusive-support.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Special Education" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Inclusive Support</h3>
@@ -2289,7 +2343,9 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.70">
                 <div class="image-mask">
-                    <img data-src="webp/creative-arts.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Creative Course" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/creative-arts.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Creative Course" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Creative Arts</h3>
@@ -2300,7 +2356,9 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.82">
                 <div class="image-mask">
-                    <img data-src="webp/play-games.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Special Games" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/play-games.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Special Games" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Play & Games</h3>
@@ -2312,7 +2370,9 @@
             <!-- Additional Activities -->
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="0.94">
                 <div class="image-mask">
-                    <img data-src="webp/music-class.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Music Class" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/music-class.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Music Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Music Class</h3>
@@ -2323,7 +2383,9 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="1.06">
                 <div class="image-mask">
-                    <img data-src="webp/dancing.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Dance Class" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/dancing.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Dance Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Dance Class</h3>
@@ -2334,7 +2396,9 @@
 
             <div class="program-card animate-on-scroll anim-hidden" data-anim="scale-up-slow" data-delay="1.18">
                 <div class="image-mask">
-                    <img data-src="webp/language-class.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>" alt="Language Class" class="deferred-img" loading="lazy" decoding="async">
+                    <img data-src="webp/language-class.webp"
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='12'></svg>"
+                        alt="Language Class" class="deferred-img" loading="lazy" decoding="async">
                 </div>
                 <div class="card-content">
                     <h3>Language Class</h3>
@@ -2347,7 +2411,9 @@
 
     <!-- BEGIN: Design Ideas Section -->
     <section class="education-news" data-animate="fade-up">
-        <img data-src="webp/curved-arrow-with-broken-line.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>" alt="Arrow Thread" class="news-arrow-thread deferred-img" loading="lazy" decoding="async">
+        <img data-src="webp/curved-arrow-with-broken-line.webp"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'></svg>"
+            alt="Arrow Thread" class="news-arrow-thread deferred-img" loading="lazy" decoding="async">
         <div class="news-wave-top">
             <svg viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- First wave layer (back) -->
@@ -2363,11 +2429,13 @@
                 <h2>Bringing Out the Best in Every Little One</h2>
                 <div class="news-item">
                     <span class="news-title">Interactive Art Workshop Series</span>
-                    <p class="news-excerpt">Satyam Tiny Tots Bellary's activity workshops are where motor skill development, early creativity and phonics learning come alive through pure, joyful doing.</p>
+                    <p class="news-excerpt">Satyam Tiny Tots Bellary's activity workshops are where motor skill
+                        development, early creativity and phonics learning come alive through pure, joyful doing.</p>
                 </div>
                 <div class="news-item">
                     <span class="news-title">Smart & Stimulating Learning Spaces</span>
-                    <p class="news-excerpt">Every classroom, play zone and activity corner is thoughtfully designed to inspire young minds</p>
+                    <p class="news-excerpt">Every classroom, play zone and activity corner is thoughtfully designed to
+                        inspire young minds</p>
                 </div>
                 <a href="#" class="view-more-btn">Explore More</a>
             </div>
@@ -2376,7 +2444,8 @@
                 <div class="leaf-shape">
                     <div class="video-container">
                         <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800"
-                            alt="Creative activities with kids" class="video-thumbnail" width="800" height="500" loading="lazy" decoding="async">
+                            alt="Creative activities with kids" class="video-thumbnail" width="800" height="500"
+                            loading="lazy" decoding="async">
                         <div class="play-button-overlay">
                             <div class="play-triangle"></div>
                         </div>
@@ -2397,9 +2466,12 @@
         </svg>
 
         <div class="extra-header">
-            <span class="tag animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Problem Solving & Life Skills</span>
-            <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.18">Extra Curricular Activities</h2>
-            <p class="extra-intro animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.30">Our extra-curricular program supports holistic development creativity, physical
+            <span class="tag animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.05">Problem Solving &
+                Life Skills</span>
+            <h2 class="animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.18">Extra Curricular
+                Activities</h2>
+            <p class="extra-intro animate-on-scroll anim-hidden" data-anim="fade-up-slow" data-delay="0.30">Our
+                extra-curricular program supports holistic development creativity, physical
                 skills, self-regulation and collaboration.
                 Activities are led by experienced instructors using playful, safe and age-appropriate methods.</p>
         </div>
@@ -2408,60 +2480,77 @@
 
             <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/creativity.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Creative</span>
+                    <span class="tag-sub"><img src="webp/creativity.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Creative</span>
                     <h3>Clay & Craft Studio</h3>
-                    <p>Our Clay & Craft Studio at Satyam Tiny Tots Bellary gives every child the freedom to touch, feel, mould and create. Every session develops fine motor skills, hand-eye coordination and creative thinking in the most fun, messy and magical way possible</p>
+                    <p>Our Clay & Craft Studio at Satyam Tiny Tots Bellary gives every child the freedom to touch, feel,
+                        mould and create. Every session develops fine motor skills, hand-eye coordination and creative
+                        thinking in the most fun, messy and magical way possible</p>
                     <!-- <div class="timing">Class Timing : 9.00am to 12.00pm</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-bottom-right">
-                        <img src="webp/clay-girl.webp" alt="Clay Work" width="450" height="320" loading="eager" decoding="async">
+                        <img src="webp/Image_14.webp" alt="Clay Work" width="450" height="320" loading="eager"
+                            decoding="async">
                     </div>
                 </div>
             </div>
 
             <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/art.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Art</span>
+                    <span class="tag-sub"><img src="webp/art.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Art</span>
                     <h3>Art & Painting Studio</h3>
-                    <p>The Art & Painting Program at Satyam Tiny Tots Bellary is a structured, age-appropriate creative curriculum designed to develop fine motor skills, colour awareness, sensory learning & artistic expression forming a strong foundation for school readiness at Bellary's top-rated preschool.</p>
+                    <p>The Art & Painting Program at Satyam Tiny Tots Bellary is a structured, age-appropriate creative
+                        curriculum designed to develop fine motor skills, colour awareness, sensory learning & artistic
+                        expression forming a strong foundation for school readiness at Bellary's top-rated preschool.
+                    </p>
                     <!-- <div class="timing">Class Timing : 11.00am to 1.00pm</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-top-left">
-                        <img src="webp/creative-arts.webp" alt="Art Class" width="450" height="320" loading="lazy" decoding="async">
+                        <img src="webp/Image_16.webp" alt="Art Class" width="450" height="320" loading="lazy"
+                            decoding="async">
                     </div>
                 </div>
             </div>
 
             <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/sports.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Sports</span>
+                    <span class="tag-sub"><img src="webp/sports.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Sports</span>
                     <h3>Sports & Movement</h3>
-                    <p>we believe a child who moves well, learns well. Our outdoor physical education and movement program develops gross motor skills, balance, coordination, stamina and social skills  nurturing healthy, active and confident little learners from the very first day.</p>
+                    <p>we believe a child who moves well, learns well. Our outdoor physical education and movement
+                        program develops gross motor skills, balance, coordination, stamina and social skills nurturing
+                        healthy, active and confident little learners from the very first day.</p>
                     <!-- <div class="timing">Class Timing : 4.00pm to 6.00pm</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-bottom-left">
-                        <img src="webp/play-games.webp" alt="Sports Class" width="450" height="320" loading="lazy" decoding="async">
+                        <img src="webp/Image_17.webp" alt="Sports Class" width="450" height="320" loading="lazy"
+                            decoding="async">
                     </div>
                 </div>
             </div>
 
             <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/swimming.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Swimming</span>
+                    <span class="tag-sub"><img src="webp/swimming.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Swimming</span>
                     <h3>Swimming Basics</h3>
-                    <p>We introduce your child to the water gently, safely and joyfully. Our supervised swimming basics program builds water confidence, body coordination, gross motor development and physical fitness. giving every child a life skill that stays with them forever.</p>
+                    <p>We introduce your child to the water gently, safely and joyfully. Our supervised swimming basics
+                        program builds water confidence, body coordination, gross motor development and physical
+                        fitness. giving every child a life skill that stays with them forever.</p>
                     <!-- <div class="timing">Class Timing : 10.00am to 12.00pm</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-top-right">
-                        <img src="webp/swimming-kid.webp" alt="Swimming Class" width="450" height="320" loading="lazy" decoding="async">
+                        <img src="webp/Image_13.webp" alt="Swimming Class" width="450" height="320" loading="lazy"
+                            decoding="async">
                     </div>
                 </div>
             </div>
@@ -2469,30 +2558,38 @@
             <!-- Additional extra rows: Drama & Kids Yoga -->
             <div class="extra-row animate-on-scroll anim-hidden" data-anim="fade-left-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/performing.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Drama</span>
+                    <span class="tag-sub"><img src="webp/performing.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Drama</span>
                     <h3>Drama & Roleplay</h3>
-                    <p>Our Drama & Play program at Satyam Tiny Tots Bellary develops public speaking confidence, creative expression, emotional intelligence and social-emotional learning  giving every child the courage, voice and stage they truly deserve.</p>
+                    <p>Our Drama & Play program at Satyam Tiny Tots Bellary develops public speaking confidence,
+                        creative expression, emotional intelligence and social-emotional learning giving every child the
+                        courage, voice and stage they truly deserve.</p>
                     <!-- <div class="timing">Class Timing : 2.00pm to 3.30pm</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-bottom-right image-pop">
-                        <img src="webp/role-play.webp" alt="Drama Class" width="450" height="320" loading="lazy" decoding="async">
+                        <img src="webp/Image_12.png" alt="Drama Class" width="450" height="320" loading="lazy"
+                            decoding="async">
                     </div>
                 </div>
             </div>
 
             <div class="extra-row reverse animate-on-scroll anim-hidden" data-anim="fade-right-slow" data-delay="0.10">
                 <div class="extra-content">
-                    <span class="tag-sub"><img src="webp/yoga.webp" class="mini-icon" width="45" height="45" decoding="async" loading="lazy"> Wellness</span>
+                    <span class="tag-sub"><img src="webp/yoga.webp" class="mini-icon" width="45" height="45"
+                            decoding="async" loading="lazy"> Wellness</span>
                     <h3>Kids Yoga</h3>
-                    <p>Our Kids Yoga program at Bellary's top pre school develops body flexibility, emotional regulation, mindfulness, gross motor skills and self-awareness  nurturing calm, confident and healthy little learners every single day.</p>
+                    <p>Our Kids Yoga program at Bellary's top pre school develops body flexibility, emotional
+                        regulation, mindfulness, gross motor skills and self-awareness nurturing calm, confident and
+                        healthy little learners every single day.</p>
                     <!-- <div class="timing">Class Timing : 7.00am to 8.00am</div>
                     <a href="#" class="btn-join">Join Now</a> -->
                 </div>
                 <div class="extra-visual">
                     <div class="cut-img mask-top-left image-pop">
-                        <img src="webp/yoga_1.webp" alt="Yoga Class" width="450" height="320" loading="lazy" decoding="async">
+                        <img src="webp/Image_18a.webp" alt="Yoga Class" width="450" height="320" loading="lazy"
+                            decoding="async">
                     </div>
                 </div>
             </div>
@@ -2506,12 +2603,16 @@
         </div>
         <h2>Our Testimonials</h2>
         <p class="header-desc">
-            What Bellary Parents Are Saying About Satyam Tiny Tots  And Why 500+ Families Trust Us Every Single Day
+            What Bellary Parents Are Saying About Satyam Tiny Tots And Why 500+ Families Trust Us Every Single Day
         </p>
 
         <div class="testimonial-container">
-            <img data-src="webp/startup.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='24'></svg>" class="doodle rocket-doodle deferred-img" alt="rocket" loading="lazy" decoding="async">
-            <img data-src="webp/star.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='24'></svg>" class="doodle star-doodle deferred-img" alt="stars" loading="lazy" decoding="async">
+            <img data-src="webp/startup.webp"
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='24'></svg>"
+                class="doodle rocket-doodle deferred-img" alt="rocket" loading="lazy" decoding="async">
+            <img data-src="webp/star.webp"
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='24'></svg>"
+                class="doodle star-doodle deferred-img" alt="stars" loading="lazy" decoding="async">
 
             <div class="profile-img-wrapper">
                 <div class="profile-img-border">
@@ -2523,7 +2624,10 @@
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
                 <p class="testimonial-text">
-                    "My son used to cry every morning. Now he cries every evening because he doesn't want to LEAVE school! The kids yoga, swimming basics, art sessions and sports activities at Satyam Tiny Tots Ballari have made him the happiest, most confident little boy. The teachers are warm, patient and genuinely love what they do."
+                    "My son used to cry every morning. Now he cries every evening because he doesn't want to LEAVE
+                    school! The kids yoga, swimming basics, art sessions and sports activities at Satyam Tiny Tots
+                    Ballari have made him the happiest, most confident little boy. The teachers are warm, patient and
+                    genuinely love what they do."
                 </p>
                 <div class="author-info">
                     <h4>- Anjali Sharma</h4>
@@ -2534,15 +2638,22 @@
     </section>
 
     <div class="footer-bread-top">
-        <img data-src="webp/footer22.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60'></svg>" alt="Footer decorative top" class="footer-bread-image deferred-img" loading="lazy" decoding="async">
+        <img data-src="webp/footer22.webp"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='60'></svg>"
+            alt="Footer decorative top" class="footer-bread-image deferred-img" loading="lazy" decoding="async">
     </div>
     <footer>
         <div class="footer-girl-paint">
-            <img data-src="webp/girlpaint.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='80'></svg>" alt="Girl painting" class="footer-girl-image deferred-img" loading="lazy" decoding="async">
+            <img data-src="webp/girlpaint.webp"
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='80'></svg>"
+                alt="Girl painting" class="footer-girl-image deferred-img" loading="lazy" decoding="async">
         </div>
         <div class="footer-arrow">
-            <img data-src="webp/curved-arrow-with-broken-line.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='40'></svg>" alt="Dotted arrow"
-                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3;" class="deferred-img" loading="lazy" decoding="async">
+            <img data-src="webp/curved-arrow-with-broken-line.webp"
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='40'></svg>"
+                alt="Dotted arrow"
+                style="position: absolute; top: 20px; right: 20px; width: 70px; height: auto; z-index: 3;"
+                class="deferred-img" loading="lazy" decoding="async">
         </div>
 
         <div class="footer-container">
@@ -2582,12 +2693,26 @@
             <div class="footer-section">
                 <h3>School Life Gallery</h3>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img data-src="webp/study-1.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="Students in classroom" class="deferred-img" loading="lazy" decoding="async"></div>
-                    <div class="gallery-item"><img data-src="webp/study-2.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="Science laboratory activities" class="deferred-img" loading="lazy" decoding="async"></div>
-                    <div class="gallery-item"><img data-src="webp/study-3.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="Mathematics learning session" class="deferred-img" loading="lazy" decoding="async"></div>
-                    <div class="gallery-item"><img data-src="webp/study-4.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="Students reading together" class="deferred-img" loading="lazy" decoding="async"></div>
-                    <div class="gallery-item"><img data-src="webp/baby_play.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="Early childhood education" class="deferred-img" loading="lazy" decoding="async"></div>
-                    <div class="gallery-item"><img data-src="webp/contact-us.webp" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>" alt="School campus life" class="deferred-img" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item"><img data-src="webp/study-1.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="Students in classroom" class="deferred-img" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item"><img data-src="webp/study-2.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="Science laboratory activities" class="deferred-img" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item"><img data-src="webp/study-3.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="Mathematics learning session" class="deferred-img" loading="lazy" decoding="async">
+                    </div>
+                    <div class="gallery-item"><img data-src="webp/study-4.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="Students reading together" class="deferred-img" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item"><img data-src="webp/baby_play.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="Early childhood education" class="deferred-img" loading="lazy" decoding="async"></div>
+                    <div class="gallery-item"><img data-src="webp/contact-us.webp"
+                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='100'></svg>"
+                            alt="School campus life" class="deferred-img" loading="lazy" decoding="async"></div>
                 </div>
             </div>
         </div>
@@ -2611,74 +2736,74 @@
     </footer>
 
     <script>
-    // Simple IntersectionObserver to trigger animations on elements with .animate-on-scroll
-    (function () {
-        const toObserve = document.querySelectorAll('.animate-on-scroll');
-        if (!('IntersectionObserver' in window)) {
-            // fallback: reveal all
-            toObserve.forEach(el => {
-                const type = el.dataset.anim || 'fade-up';
-                el.classList.remove('anim-hidden');
-                el.classList.add(type.replace('-', ''));
-            });
-            return;
-        }
-
-        const obs = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const anim = el.dataset.anim || 'fade-up';
-                    const delay = el.dataset.delay ? (parseFloat(el.dataset.delay) + 's') : '0s';
-                    // set CSS variable for use by [data-delay] rule
-                    el.style.setProperty('--delay', delay);
-
-                    // set will-change just before animating to create a composited layer,
-                    // then clear it after the animation/transition finishes to avoid many layers
-                    try {
-                        el.style.willChange = 'transform, opacity';
-                    } catch (e) {
-                        // ignore if setting will-change fails
-                    }
-
-                    // map animation name to class
-                    const map = {
-                        'fade-up': 'fade-up',
-                        'fade-left': 'fade-left',
-                        'fade-right': 'fade-right',
-                        'zoom-in': 'zoom-in',
-                        'fade-up-slow': 'fade-up-slow',
-                        'fade-left-slow': 'fade-left-slow',
-                        'fade-right-slow': 'fade-right-slow',
-                        'zoom-in-slow': 'zoom-in-slow',
-                        'scale-up-slow': 'scale-up-slow'
-                    };
-                    const cls = map[anim] || 'fade-up';
+        // Simple IntersectionObserver to trigger animations on elements with .animate-on-scroll
+        (function () {
+            const toObserve = document.querySelectorAll('.animate-on-scroll');
+            if (!('IntersectionObserver' in window)) {
+                // fallback: reveal all
+                toObserve.forEach(el => {
+                    const type = el.dataset.anim || 'fade-up';
                     el.classList.remove('anim-hidden');
-                    el.classList.add(cls);
+                    el.classList.add(type.replace('-', ''));
+                });
+                return;
+            }
 
-                    // cleanup will-change after animation/transition or after timeout
-                    const cleanUp = () => {
-                        try { el.style.willChange = ''; } catch (e) { }
-                        el.removeEventListener('animationend', cleanUp);
-                        el.removeEventListener('transitionend', cleanUp);
-                        clearTimeout(timeoutId);
-                    };
-                    el.addEventListener('animationend', cleanUp);
-                    el.addEventListener('transitionend', cleanUp);
-                    const isSlow = cls.indexOf('slow') !== -1;
-                    const timeoutId = setTimeout(cleanUp, isSlow ? 3000 : 1200);
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const anim = el.dataset.anim || 'fade-up';
+                        const delay = el.dataset.delay ? (parseFloat(el.dataset.delay) + 's') : '0s';
+                        // set CSS variable for use by [data-delay] rule
+                        el.style.setProperty('--delay', delay);
 
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.12 });
+                        // set will-change just before animating to create a composited layer,
+                        // then clear it after the animation/transition finishes to avoid many layers
+                        try {
+                            el.style.willChange = 'transform, opacity';
+                        } catch (e) {
+                            // ignore if setting will-change fails
+                        }
 
-        toObserve.forEach(el => obs.observe(el));
-    })();
-</script>
+                        // map animation name to class
+                        const map = {
+                            'fade-up': 'fade-up',
+                            'fade-left': 'fade-left',
+                            'fade-right': 'fade-right',
+                            'zoom-in': 'zoom-in',
+                            'fade-up-slow': 'fade-up-slow',
+                            'fade-left-slow': 'fade-left-slow',
+                            'fade-right-slow': 'fade-right-slow',
+                            'zoom-in-slow': 'zoom-in-slow',
+                            'scale-up-slow': 'scale-up-slow'
+                        };
+                        const cls = map[anim] || 'fade-up';
+                        el.classList.remove('anim-hidden');
+                        el.classList.add(cls);
 
- <script>
+                        // cleanup will-change after animation/transition or after timeout
+                        const cleanUp = () => {
+                            try { el.style.willChange = ''; } catch (e) { }
+                            el.removeEventListener('animationend', cleanUp);
+                            el.removeEventListener('transitionend', cleanUp);
+                            clearTimeout(timeoutId);
+                        };
+                        el.addEventListener('animationend', cleanUp);
+                        el.addEventListener('transitionend', cleanUp);
+                        const isSlow = cls.indexOf('slow') !== -1;
+                        const timeoutId = setTimeout(cleanUp, isSlow ? 3000 : 1200);
+
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            toObserve.forEach(el => obs.observe(el));
+        })();
+    </script>
+
+    <script>
         // Hamburger Menu Toggle
         document.addEventListener('DOMContentLoaded', function () {
             const hamburgerMenu = document.getElementById('hamburger-menu');
@@ -2733,73 +2858,73 @@
 </html>
 
 <script>
-// Deferred image loader with limited concurrency and pre-decode
-(function(){
-    const deferred = Array.from(document.querySelectorAll('img.deferred-img'));
-    if (!deferred.length) return;
+    // Deferred image loader with limited concurrency and pre-decode
+    (function () {
+        const deferred = Array.from(document.querySelectorAll('img.deferred-img'));
+        if (!deferred.length) return;
 
-    const MAX_CONCURRENCY = 1;
-    let active = 0;
-    const queue = [];
+        const MAX_CONCURRENCY = 1;
+        let active = 0;
+        const queue = [];
 
-    const tryNext = () => {
-        if (active >= MAX_CONCURRENCY || queue.length === 0) return;
-        const img = queue.shift();
-        if (!img) return;
-        const src = img.getAttribute('data-src');
-        if (!src) return tryNext();
+        const tryNext = () => {
+            if (active >= MAX_CONCURRENCY || queue.length === 0) return;
+            const img = queue.shift();
+            if (!img) return;
+            const src = img.getAttribute('data-src');
+            if (!src) return tryNext();
 
-        active++;
-        const pre = new Image();
-        pre.src = src;
+            active++;
+            const pre = new Image();
+            pre.src = src;
 
-        const finish = () => {
-            try {
-                img.src = src;
-            } catch (e) { img.setAttribute('src', src); }
-            img.removeAttribute('data-src');
-            img.classList.remove('deferred-img');
-            active--;
-            // schedule next attempt on idle microtask
-            if (typeof requestIdleCallback === 'function') requestIdleCallback(tryNext, {timeout:500});
-            else setTimeout(tryNext, 50);
+            const finish = () => {
+                try {
+                    img.src = src;
+                } catch (e) { img.setAttribute('src', src); }
+                img.removeAttribute('data-src');
+                img.classList.remove('deferred-img');
+                active--;
+                // schedule next attempt on idle microtask
+                if (typeof requestIdleCallback === 'function') requestIdleCallback(tryNext, { timeout: 500 });
+                else setTimeout(tryNext, 50);
+            };
+
+            if (pre.decode) {
+                pre.decode().then(finish).catch(finish);
+            } else {
+                pre.onload = finish;
+                pre.onerror = finish;
+            }
         };
 
-        if (pre.decode) {
-            pre.decode().then(finish).catch(finish);
-        } else {
-            pre.onload = finish;
-            pre.onerror = finish;
-        }
-    };
+        const scheduleLoad = (img) => {
+            queue.push(img);
+            if (typeof requestIdleCallback === 'function') requestIdleCallback(tryNext, { timeout: 500 });
+            else setTimeout(tryNext, 100);
+        };
 
-    const scheduleLoad = (img) => {
-        queue.push(img);
-        if (typeof requestIdleCallback === 'function') requestIdleCallback(tryNext, {timeout:500});
-        else setTimeout(tryNext, 100);
-    };
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        scheduleLoad(entry.target);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '300px 0px', threshold: 0.01 });
 
-    if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    scheduleLoad(entry.target);
-                    obs.unobserve(entry.target);
-                }
+            deferred.forEach(img => {
+                const rect = img.getBoundingClientRect();
+                if (rect.top < (window.innerHeight + 300)) scheduleLoad(img);
+                else io.observe(img);
             });
-        }, { rootMargin: '300px 0px', threshold: 0.01 });
+        } else {
+            // fallback: queue them all, let tryNext manage concurrency
+            deferred.forEach(img => scheduleLoad(img));
+        }
 
-        deferred.forEach(img => {
-            const rect = img.getBoundingClientRect();
-            if (rect.top < (window.innerHeight + 300)) scheduleLoad(img);
-            else io.observe(img);
-        });
-    } else {
-        // fallback: queue them all, let tryNext manage concurrency
-        deferred.forEach(img => scheduleLoad(img));
-    }
-
-    // ensure some work happens after load in case rIC didn't run
-    window.addEventListener('load', () => { if (queue.length) tryNext(); });
-})();
+        // ensure some work happens after load in case rIC didn't run
+        window.addEventListener('load', () => { if (queue.length) tryNext(); });
+    })();
 </script>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/global.css">
     <style>
-            * {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -41,8 +42,15 @@
             font-size: 1.3rem;
             color: #666;
         }
-        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: flex; gap: 40px; }
-        
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            gap: 40px;
+        }
+
         /* --- HERO BANNER SECTION --- */
         .hero-banner {
             height: 65vh;
@@ -105,48 +113,173 @@
         }
 
         /* --- Main Content Area --- */
-        .main-feed { flex: 1; width: 100%; }
-        .article-item { display: flex; gap: 30px; margin-bottom: 40px; border-bottom: 1px dashed #ccc; padding-bottom: 40px; }
-        .article-item:last-child { border-bottom: none; }
-        
-        .img-container { position: relative; flex: 1; min-width: 300px; overflow: hidden; }
-        .article-img { width: 90%; border-radius: 15px; height: 250px; object-fit: cover; transition: all 0.3s ease; }
-        .article-img:hover { filter: brightness(0.4); transform: scale(1.05); }
-        .date-badge {
-            position: absolute; top: 15px; left: 15px;
-            background: #086d82; color: white; padding: 10px;
-            border-radius: 8px; text-align: center; font-size: 0.75rem; line-height: 1.2;
+        .main-feed {
+            flex: 1;
+            width: 100%;
         }
-        .date-badge span { display: block; font-size: 1.1rem; font-weight: bold; }
 
-        .article-details { flex: 2; }
-        .article-details h2 { font-size: 1.8rem; margin-bottom: 15px;color:rgb(255, 178, 70); }
-        .article-details p { color: #777; font-size: 0.95rem; line-height: 1.6; }
-        .article-details li { color: #777; font-size: 0.95rem; line-height: 1.6; }
-        .read-more { 
-            color: #111; text-decoration: none; font-weight: bold; font-size: 0.9rem;
-            display: inline-block; margin-top: 15px; border-bottom: 2px orange dotted;
+        .article-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 40px;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .img-container {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+            overflow: hidden;
+        }
+
+        .article-img {
+            width: 90%;
+            border-radius: 15px;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .article-img:hover {
+            filter: brightness(0.4);
+            transform: scale(1.05);
+        }
+
+        .date-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #086d82;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .date-badge span {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .article-details {
+            flex: 2;
+        }
+
+        .article-details h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: rgb(255, 178, 70);
+        }
+
+        .article-details p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .article-details li {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 15px;
+            border-bottom: 2px orange dotted;
         }
 
         /* --- Sidebar Section --- */
-        .sidebar { flex: 1; }
-        .sidebar-widget { background: #fffaf0; padding: 25px; border-radius: 15px; margin-bottom: 30px; }
-        .search-box { display: flex; background: #fff; border-radius: 30px; padding: 10px 20px; align-items: center; border: 1px solid #eee; }
-        .search-box input { border: none; outline: none; width: 100%; font-size: 0.9rem; }
-        
-        .recent-post-item { margin-top: 20px; }
-        .recent-post-item h4 { font-size: 0.95rem; margin-bottom: 5px; cursor: pointer; }
-        .post-meta { font-size: 0.75rem; color: #e91e63; display: flex; gap: 10px; }
+        .sidebar {
+            flex: 1;
+        }
 
-        .sale-banner { 
-            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.webp'); /* Representative Sale Image */
-            background-size: cover; height: 350px; border-radius: 15px; margin-bottom: 30px;
+        .sidebar-widget {
+            background: #fffaf0;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            background: #fff;
+            border-radius: 30px;
+            padding: 10px 20px;
+            align-items: center;
+            border: 1px solid #eee;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .recent-post-item {
+            margin-top: 20px;
+        }
+
+        .recent-post-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .post-meta {
+            font-size: 0.75rem;
+            color: #e91e63;
+            display: flex;
+            gap: 10px;
+        }
+
+        .sale-banner {
+            background: #222 url('https://img.freepik.com/free-vector/back-school-sales-background_23-2149028045.webp');
+            /* Representative Sale Image */
+            background-size: cover;
+            height: 350px;
+            border-radius: 15px;
+            margin-bottom: 30px;
         }
 
         /* --- Pagination --- */
-        .pagination { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
-        .page-num { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 5px; text-decoration: none; color: #333; }
-        .page-num.active { background: #e91e63; color: white; border-color: #e91e63; }
+        .pagination {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .page-num {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .page-num.active {
+            background: #e91e63;
+            color: white;
+            border-color: #e91e63;
+        }
 
         /* --- Mobile Responsive Styles --- */
         @media (max-width: 768px) {
@@ -300,6 +433,7 @@
             }
 
         }
+
         /* --- SCROLL REVEAL ANIMATION SYSTEM (matching index/about) --- */
         .anim-hidden {
             opacity: 0;
@@ -323,23 +457,51 @@
         }
 
         @keyframes fadeUpAnim {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeLeftAnim {
-            from { opacity: 0; transform: translateX(-24px); }
-            to   { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(-24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         @keyframes fadeRightAnim {
-            from { opacity: 0; transform: translateX(24px); }
-            to   { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         @keyframes zoomInAnim {
-            from { opacity: 0; transform: scale(0.96); }
-            to   { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Stagger helper: elements with data-delay use inline --delay from JS */
@@ -374,9 +536,10 @@
         }
     </style>
 </head>
+
 <body>
 
-      <nav>
+    <nav>
         <div class="logo">
             <img src="webp/logo.webp" alt="Tiny Tots Kindergarten" style="height: 50px; width: auto;">
         </div>
@@ -407,7 +570,7 @@
 
     <div class="content-wrapper animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.1">
         <div class="main-feed">
-            
+
             <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.15">
                 <div class="img-container">
                     <img src="webp/sideways-child-taking-virtual-courses.webp" class="article-img">
@@ -415,8 +578,14 @@
                 </div>
                 <div class="article-details">
                     <h2>Kindergarten Outdoor Play Area</h2>
-                    <h3 style="font-size: 1.6rem; color: #723e3e; margin-bottom: 10px; font-weight: 300;">Balancing Screen Time for Early Development</h3>
-                    <p>Finding the right balance with digital media is essential for a child’s cognitive and social growth. While technology offers interactive learning opportunities, excessive screen time can displace vital physical play and face to face interaction. At Satyam Tiny Tots Ballari, we recommend prioritizing high quality, educational content and maintaining clear boundaries to ensure screens remain a helpful tool rather than a distraction from real-world exploration.</p><br>
+                    <h3 style="font-size: 1.6rem; color: #723e3e; margin-bottom: 10px; font-weight: 300;">Balancing
+                        Screen Time for Early Development</h3>
+                    <p>Finding the right balance with digital media is essential for a child’s cognitive and social
+                        growth. While technology offers interactive learning opportunities, excessive screen time can
+                        displace vital physical play and face to face interaction. At Satyam Tiny Tots Ballari, we
+                        recommend prioritizing high quality, educational content and maintaining clear boundaries to
+                        ensure screens remain a helpful tool rather than a distraction from real-world exploration.</p>
+                    <br>
 
                     <h5>Better choices for young children:</h5><br>
                     <ul>
@@ -435,8 +604,13 @@
                 </div>
                 <div class="article-details">
                     <h2>Well Equipped With Indoor Class Rooms</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">No-Stress Nutrition Guide for Toddlers</h3>
-                    <p>Focus on offering a "rainbow plate" of nutrient-dense whole foods like lean proteins and colorful vegetables to support rapid brain development and physical growth during the critical ages 1–3. By prioritizing healthy fats, managing picky eating habits through repeated exposure, and providing five or six small mini meals throughout the day, you can establish lifelong wellness habits and maintain steady energy levels without the mealtime stress.</p><br>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">No-Stress
+                        Nutrition Guide for Toddlers</h3>
+                    <p>Focus on offering a "rainbow plate" of nutrient-dense whole foods like lean proteins and colorful
+                        vegetables to support rapid brain development and physical growth during the critical ages 1–3.
+                        By prioritizing healthy fats, managing picky eating habits through repeated exposure, and
+                        providing five or six small mini meals throughout the day, you can establish lifelong wellness
+                        habits and maintain steady energy levels without the mealtime stress.</p><br>
 
                     <h5>Better choices for young children:</h5><br>
                     <ul>
@@ -450,19 +624,25 @@
 
             <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.45">
                 <div class="img-container">
-                    <img src="images/kids-playing-wooden-game.jpg" class="article-img">
+                    <img src="webp/Image_20.webp" class="article-img">
                     <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div> -->
                 </div>
                 <div class="article-details">
                     <h2>Education Filled With Fun & Games</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Simple Ways to Get More Outdoor Time</h3>
-                    <p>Children who spend regular time outdoors are more physically active, develop stronger gross motor skills (running, jumping, climbing, balancing), and have better hand-eye coordination. At Satyam tiny tots, ballari we support Outdoor activites which promotes healthy sleep, a stronger immune system, and reduced risk of childhood obesity.</p><br>
+                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Simple Ways to
+                        Get More Outdoor Time</h3>
+                    <p>Children who spend regular time outdoors are more physically active, develop stronger gross motor
+                        skills (running, jumping, climbing, balancing), and have better hand-eye coordination. At Satyam
+                        tiny tots, ballari we support Outdoor activites which promotes healthy sleep, a stronger immune
+                        system, and reduced risk of childhood obesity.</p><br>
 
                     <h5>Better choices for young children:</h5><br>
                     <ul>
-                        <li>Fuel growth with energy dense whole grains like oats or roti for essential fiber and daily fuel</li>
+                        <li>Fuel growth with energy dense whole grains like oats or roti for essential fiber and daily
+                            fuel</li>
                         <li>Fill half the plate with colorful produce for a broad, stress free vitamin intake.</li>
-                        <li>Serve small portions of lentils, eggs, or paneer to meet the daily 13–15g protein requirement.</li>
+                        <li>Serve small portions of lentils, eggs, or paneer to meet the daily 13–15g protein
+                            requirement.</li>
                     </ul>
                     <!-- <a href="#" class="read-more">Read More</a> -->
                 </div>
@@ -572,13 +752,13 @@
                     const anim = el.dataset.anim || 'fade-up';
                     const delay = el.dataset.delay ? (parseFloat(el.dataset.delay) + 's') : '0s';
                     el.style.setProperty('--delay', delay);
-                    try { el.style.willChange = 'transform, opacity'; } catch (e) {}
-                    const map = { 'fade-up':'fade-up','fade-left':'fade-left','fade-right':'fade-right','zoom-in':'zoom-in' };
+                    try { el.style.willChange = 'transform, opacity'; } catch (e) { }
+                    const map = { 'fade-up': 'fade-up', 'fade-left': 'fade-left', 'fade-right': 'fade-right', 'zoom-in': 'zoom-in' };
                     const cls = map[anim] || 'fade-up';
                     el.classList.remove('anim-hidden');
                     el.classList.add(cls);
                     const cleanUp = () => {
-                        try { el.style.willChange = ''; } catch (e) {}
+                        try { el.style.willChange = ''; } catch (e) { }
                         el.removeEventListener('animationend', cleanUp);
                         el.removeEventListener('transitionend', cleanUp);
                         clearTimeout(timeoutId);
@@ -593,32 +773,33 @@
         toObserve.forEach(el => obs.observe(el));
     })();
 </script>
- <script>
-        // Hamburger Menu Toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburgerMenu = document.getElementById('hamburger-menu');
-            const navLinks = document.querySelector('.nav-links');
+<script>
+    // Hamburger Menu Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
 
-            hamburgerMenu.addEventListener('click', function () {
-                hamburgerMenu.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+        hamburgerMenu.addEventListener('click', function () {
+            hamburgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-            // Close menu when clicking on nav links
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function () {
-                    hamburgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
-                    hamburgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
+        // Close menu when clicking on nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function () {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
             });
         });
-    </script>
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+</script>
+
 </html>
