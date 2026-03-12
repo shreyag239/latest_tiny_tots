@@ -547,8 +547,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="activities.html">Activities</a></li>
-            <li><a href="blog-listing.html" style="color:#ff4d6d;">Blogs</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog-listing.html">Blogs</a></li>
+            <li><a href="gallery.html" style="color:#ff4d6d;">Gallery</a></li>
             <li><a href="contact.html">Ask Us</a></li>
         </ul>
         <div class="hamburger-menu" id="hamburger-menu">
@@ -560,8 +560,8 @@
 
     <section class="hero-banner animate-on-scroll anim-hidden" data-anim="zoom-in" data-delay="0.05">
         <div>
-            <h1>Blogs</h1>
-            <p class="breadcrumb">Home ● Blogs</p>
+            <h1>Gallery</h1>
+            <p class="breadcrumb">Home ● Gallery</p>
         </div>
         <div class="cloud-divider">
             <img src="webp/bread-cum-overlay.webp" alt="Bread Overlay" class="moving-cloud"
@@ -569,88 +569,163 @@
         </div>
     </section>
 
-    <div class="content-wrapper animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.1">
-        <div class="main-feed">
+    <style>
+        .gallery-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.15">
-                <div class="img-container">
-                    <img src="webp/Image_22.webp" class="article-img">
-                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Dec 29,</span>2026</div> -->
-                </div>
-                <div class="article-details">
-                    <h2>Kindergarten Outdoor Play Area</h2>
-                    <h3 style="font-size: 1.6rem; color: #723e3e; margin-bottom: 10px; font-weight: 300;">Balancing
-                        Screen Time for Early Development</h3>
-                    <p>Finding the right balance with digital media is essential for a child’s cognitive and social
-                        growth. While technology offers interactive learning opportunities, excessive screen time can
-                        displace vital physical play and face to face interaction. At Satyam Tiny Tots Ballari, we
-                        recommend prioritizing high quality, educational content and maintaining clear boundaries to
-                        ensure screens remain a helpful tool rather than a distraction from real-world exploration.</p>
-                    <br>
+        .main-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
 
-                    <h5>Better choices for young children:</h5><br>
-                    <ul>
-                        <li>Slow-paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
-                        <li>Video calls with grandparents and family</li>
-                        <li>Educational apps that require active participation rather than passive watching</li>
-                    </ul>
-                    <!-- <a href="#" class="read-more">Read More</a> -->
+        .main-gallery-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .main-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .main-gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 178, 70, 0.2);
+        }
+
+        .main-gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .main-gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(4, 37, 50, 0.9));
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .main-gallery-item:hover .main-gallery-overlay {
+            opacity: 1;
+        }
+
+        .main-gallery-overlay h3 {
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .main-gallery-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ffb246;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.75rem;
+            z-index: 5;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+
+    <section class="gallery-section animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.1">
+        <div class="gallery-container">
+            <div class="gallery-title" style="font-family: 'Fredoka One', cursive; color: #ffb246; font-size: 2.8rem; margin-bottom: 10px; text-align: center;">Our Happy Moments</div>
+            <div class="gallery-desc" style="text-align: center; color: #666; font-size: 1.05rem; margin-bottom: 40px;">A glimpse into the fun, learning, and creativity at Tiny Tots Kindergarten!</div>
+            
+            <div class="main-gallery-grid">
+                
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Art</span>
+                    <img src="../../webp/Image_3.webp" alt="Creative Art Time">
+                    <div class="main-gallery-overlay">
+                        <h3>Creative Art Time</h3>
+                    </div>
                 </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Learning</span>
+                    <img src="../../webp/Image_4.webp" alt="Painting Session">
+                    <div class="main-gallery-overlay">
+                        <h3>Painting Session</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Events</span>
+                    <img src="../../webp/Image_10.webp" alt="Annual Day Fun">
+                    <div class="main-gallery-overlay">
+                        <h3>Annual Day Fun</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Pathways</span>
+                    <img src="../../webp/Image_7.webp" alt="Learning Pathways">
+                    <div class="main-gallery-overlay">
+                        <h3>Learning Pathways</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Play</span>
+                    <img src="../../webp/Image_11.webp" alt="Playful Mornings">
+                    <div class="main-gallery-overlay">
+                        <h3>Playful Mornings</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Art</span>
+                    <img src="../../webp/Image_6.webp" alt="Creative Art Time">
+                    <div class="main-gallery-overlay">
+                        <h3>Creative Art Time</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Learning</span>
+                    <img src="../../webp/Image_2.webp" alt="Painting Session">
+                    <div class="main-gallery-overlay">
+                        <h3>Painting Session</h3>
+                    </div>
+                </div>
+
+                <div class="main-gallery-item">
+                    <span class="main-gallery-tag">Events</span>
+                    <img src="../../webp/Image_23.webp" alt="Annual Day Fun">
+                    <div class="main-gallery-overlay">
+                        <h3>Annual Day Fun</h3>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.30">
-                <div class="img-container">
-                    <img src="images/kids-healthy-snack-treats-with-fresh-fruits.jpg" class="article-img">
-                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Jan 15,</span>2025</div> -->
-                </div>
-                <div class="article-details">
-                    <h2>Well Equipped With Indoor Class Rooms</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">No-Stress
-                        Nutrition Guide for Toddlers</h3>
-                    <p>Focus on offering a "rainbow plate" of nutrient-dense whole foods like lean proteins and colorful
-                        vegetables to support rapid brain development and physical growth during the critical ages 1–3.
-                        By prioritizing healthy fats, managing picky eating habits through repeated exposure, and
-                        providing five or six small mini meals throughout the day, you can establish lifelong wellness
-                        habits and maintain steady energy levels without the mealtime stress.</p><br>
-
-                    <h5>Better choices for young children:</h5><br>
-                    <ul>
-                        <li>Slow paced, educational shows (like Bluey or Sesame Street) watched with a parent</li>
-                        <li>Video calls with grandparents and family</li>
-                        <li>Educational apps that require active participation rather than passive watching</li>
-                    </ul>
-                    <!-- <a href="#" class="read-more">Read More</a> -->
-                </div>
-            </div>
-
-            <div class="article-item animate-on-scroll anim-hidden" data-anim="fade-up" data-delay="0.45">
-                <div class="img-container">
-                    <img src="webp/Image_20.webp" class="article-img">
-                    <!-- <div class="date-badge"><i class="fas fa-calendar-alt"></i><br><span>Mar 8,</span>2024</div> -->
-                </div>
-                <div class="article-details">
-                    <h2>Education Filled With Fun & Games</h2>
-                    <h3 style="font-size: 1.5rem; color: #000; margin-bottom: 10px; font-weight: 300;">Simple Ways to
-                        Get More Outdoor Time</h3>
-                    <p>Children who spend regular time outdoors are more physically active, develop stronger gross motor
-                        skills (running, jumping, climbing, balancing), and have better hand-eye coordination. At Satyam
-                        tiny tots, ballari we support Outdoor activites which promotes healthy sleep, a stronger immune
-                        system, and reduced risk of childhood obesity.</p><br>
-
-                    <h5>Better choices for young children:</h5><br>
-                    <ul>
-                        <li>Fuel growth with energy dense whole grains like oats or roti for essential fiber and daily
-                            fuel</li>
-                        <li>Fill half the plate with colorful produce for a broad, stress free vitamin intake.</li>
-                        <li>Serve small portions of lentils, eggs, or paneer to meet the daily 13–15g protein
-                            requirement.</li>
-                    </ul>
-                    <!-- <a href="#" class="read-more">Read More</a> -->
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
+    
 
     <div class="footer-bread-top">
         <img src="webp/footer22.webp" alt="Footer decorative top" class="footer-bread-image">
